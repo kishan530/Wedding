@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>wedelicious</title>    
+<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all" /><!-- fontawesome -->     
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" /><!-- Bootstrap stylesheet -->
+
+<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" property="" />
+<!-- stylesheet -->
+<!-- meta tags -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+
+<!-- //meta tags -->
+<!--fonts-->
+<link rel='stylesheet' id='Lato-css'  href='http://fonts.googleapis.com/css?family=Lato%3A1%2C100%2C100italic%2C300%2C400%2C400italic%2C500%2C700&#038;ver=4.7.5' type='text/css' media='all' />
+
+<link rel='stylesheet' id='Playfair+Display-css'  href='http://fonts.googleapis.com/css?family=Playfair+Display%3A1%2C100%2C100italic%2C300%2C400%2C400italic%2C500%2C700&#038;ver=4.7.5' type='text/css' media='all' />
+<link href="//fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<!--//fonts-->
+<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-animate.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.4.js"></script>
+	
+	
+
+<script src="app.js"></script>
+<!-- Required-js -->
+<!-- main slider-banner -->
+<script src="js/skdslider.min.js"></script>
+<link href="css/skdslider.css" rel="stylesheet">
+<link href="css/style.css?version=1.06" rel="stylesheet" type="text/css" media="all" />
+<script type="text/javascript">
+		jQuery(document).ready(function(){
+			jQuery('#demo1').skdslider({'delay':0, 'animationSpeed':0,'showNextPrev':true,'showPlayButton':true,'autoSlide':false,'animationType':'fading'});
+						
+			jQuery('#responsive').change(function(){
+			  $('#responsive_wrapper').width(jQuery(this).val());
+			});
+			
+			
+			 $('#slide-nav').addClass('original').clone().insertAfter('#slide-nav').addClass('cloned').css('position','fixed').css('top','0').css('margin-top','0').css('z-index','500').removeClass('original').hide();
+
+       scrollIntervalID = setInterval(stickIt, 10);
+			
+		});
+		
+		 
+
+
+       function stickIt() {
+
+         var orgElementPos = $('.original').offset();
+         orgElementTop = orgElementPos.top;               
+
+         if ($(window).scrollTop() >= (orgElementTop)) {
+           // scrolled past the original position; now only show the cloned, sticky element.
+
+           // Cloned element should always have same left position and width as original element.     
+           orgElement = $('.original');
+           coordsOrgElement = orgElement.offset();
+           leftOrgElement = coordsOrgElement.left;  
+           widthOrgElement = orgElement.css('width');
+           $('.cloned').css('left',leftOrgElement+'px').css('top',0).css('width',widthOrgElement).show();
+           $('.original').css('visibility','hidden');
+         } else {
+           // not scrolled past the menu; only show the original menu.
+           $('.cloned').hide();
+           $('.original').css('visibility','visible');
+         }
+       }
+</script>	
+<!-- //main slider-banner --> 
+<!-- start-smoth-scrolling -->
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){		
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+		
+	});
+</script>
+<!-- start-smoth-scrolling -->
+
+</head>
+<body>
+
+<!-- header -->
+	<header>
+		<div class="top-strip">
+			<div class="container">
+				<div class="logo">
+					<h1><a href="index.html"><img src="images/logo3.png" alt="logo" width="150" height="60" /></a></h1>					
+				</div>
+			</div>
+		</div>
+		 <div class="container">
+		<!-- navigation -->
+			<nav class="navbar navbar-default" id="slide-nav">
+			 
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+				  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				  </button>
+				</div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				  <ul class="nav navbar-nav">
+					<li><a class="active" href="index.html">Home</a></li>
+					<li><a href="#">About</a></li>
+					<li><a href="#">Life Style</a></li>					
+					<li><a href="#">Fashion</a></li>
+					<li><a href="#">Photography</a></li>					
+					<li><a href="#">Contact</a></li>
+				  </ul>
+				</div><!-- /.navbar-collapse -->
+						<div class="clearfix"> </div>
+
+			 
+			</nav>
+			 </div><!-- /.container-fluid -->
+		<!-- //navigation -->
+	</header>
+	<!-- //header -->
+
+	<!-- //top-header and slider -->
+	<div class="container">
+
+<div ng-app="myApp" ng-controller="customersCtrl">
+
+    
+
+<div class="row">
+	<div class="col-lg-6">
+			<img src="images/designs/Anushree Reddy_022fbecf0f1d8c179606675ad0b8787b.jpg" alt="" />
+	</div>
+	<div class="col-lg-6">
+		<div class="row">
+			<div class="col-lg-6">
+				<img src="images/slides/Look7.jpg" alt="" width="100%" />
+			</div>
+			<div class="col-lg-6">
+				<img src="images/slides/Look7.jpg" alt="" width="100%" />
+			</div>
+			<div class="col-lg-6">
+				<img src="images/slides/Look7.jpg" alt="" width="100%" />
+			</div>
+			<div class="col-lg-6">
+				<img src="images/slides/Look7.jpg" alt="" width="100%" />
+			</div>
+		</div>
+	</div>
+</div>
+
+
+	
+ </div>
+ 
+</div>
+		
+	
+	
+					
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/bootstrap.js"></script>
+</body>
+</html>
