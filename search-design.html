@@ -1,0 +1,128 @@
+<div ng-controller="customersCtrl">
+
+
+
+<!-- top-header and slider -->
+	<div class="w3-slider">	
+	<!-- main-slider -->
+		<ul id="demo1" skdslider>
+			<li>
+				<img src="images/banner3.jpg" alt="" />
+				<!--Slider Description example-->
+				<div class="slide-desc">
+					<h2>The</h2>
+					<h3>NEW ELEGANCE</h3>
+					
+				</div>
+			</li>
+					
+		</ul>
+	</div>
+	<!-- //main-slider -->
+
+	
+	<div class="banner" style="margin:10px 0 10px 0">
+		
+			<img src="images/banner4.png" alt="" width="100%" />
+		
+	</div>
+
+
+
+<div class="row">
+	<div class="col-lg-12">
+			 <div class="btn-group">
+				<label class="btn btn-category" ng-model="category" btn-radio="'1'" ng-change="change()">Bride</label>
+				<label class="btn btn-category" ng-model="category" btn-radio="'2'" ng-change="change()">Groom</label>
+				<label class="btn btn-category friends" ng-model="category" btn-radio="'3'" ng-change="change()">
+				<span ng-click="displayGender()">Friends & Family</span>
+				
+				
+				<ul class="gender" ng-show="showGender">
+					<li><a ng-click="selectGender(1)">Male</a></li>
+					<li><a ng-click="selectGender(2)">Female</a></li>
+				</ul>
+				</label>
+				
+			</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-lg-12">
+	
+	
+	<div id="filters">
+  <nav class="navbar navbar-static-top" role="navigation">
+    <div class="collapse navbar-collapse" id="navbar-collapse-1">
+      <ul class="nav navbar-nav">      
+
+		<li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Style<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li ng-repeat="style in styles" ng-class="{active: isStyleSelected(style.id)}">
+			<a ng-click="getDesigns(style.id,0,selctedOccasion,0,0,0)"> <input type="checkbox" ng-model="isStyleSelected(style.id)" /> {{ style.style }}</a>
+			</li>                    
+          </ul>
+		 </li>		
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Occasion<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li ng-repeat="occasion in occasions" ng-class="{active : selctedOccasion == occasion.id}"><a ng-click="getDesigns(0,selctedOutfit,occasion.id,0,0,0)" >{{ occasion.name }}</a></li>                    
+          </ul>
+        </li>
+		 <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">season<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li ng-repeat="season in seasons" ng-class="{active: isSeasonSelected(season.id)}">
+				<a ng-click="getDesigns(0,selctedOutfit,selctedOccasion,season.id,0,0)"><input type="checkbox" ng-model="isStyleSelected(style.id)" />  {{ season.season }}</a>
+			</li>                    
+          </ul>
+		 </li>
+		
+		<li  ng-show="category != 3">
+          <a ng-click="getDesigns(0,0,0,0,0,1)">Couple Coordination</a>
+        </li>
+		<li  ng-show="category == 1">
+          <a ng-click="getDesigns(0,0,0,0,1,0)">Wedding After Dress</a>
+        </li>
+		
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </nav>
+</div>
+
+	</div>
+ </div>
+ <div class="row"  style="margin:10px 0 10px 0" id="wrapper">
+ 
+ <div id="columns">
+ 
+	<div class="design-box pin" ng-repeat="x in names" ng-click="selectDesign(x.id)">
+		<div class="design-img">
+			<img ng-src="images/designs/{{ x.imagePath }}" alt="" width="100%" />
+		</div>
+		<div class="design-content">
+			<h2>{{ x.title }}</h2>
+			<a class="profileSource" href="#">
+				<div class="thumbImageWrapper">            
+					<img src="images/avatars.jpg" alt="Designer" title="More">
+				</div>   
+				<div class="profileSourceAttributionContent">                    
+					<h3 class="title">Designed by</h3>                
+					<h4 class="fullname">
+						{{ x.designedBy }}
+					</h4>          
+				</div>
+			</a>			
+		</div>				
+	</div> 
+	
+	
+	
+	</div>
+	
+	
+ </div>
+ 
+</div>

@@ -23,22 +23,21 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-animate.js"></script>
     <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.4.js"></script>
-	
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
 	
 
-<script src="app.js"></script>
 <!-- Required-js -->
 <!-- main slider-banner -->
 <script src="js/skdslider.min.js"></script>
 <link href="css/skdslider.css" rel="stylesheet">
-<link href="css/style.css?version=1.06" rel="stylesheet" type="text/css" media="all" />
+
+<script src="app.js"></script>
+
+<link href="css/style.css?version=1.07" rel="stylesheet" type="text/css" media="all" />
 <script type="text/javascript">
 		jQuery(document).ready(function(){
-			jQuery('#demo1').skdslider({'delay':0, 'animationSpeed':0,'showNextPrev':true,'showPlayButton':true,'autoSlide':false,'animationType':'fading'});
+			
 						
-			jQuery('#responsive').change(function(){
-			  $('#responsive_wrapper').width(jQuery(this).val());
-			});
 			
 			
 			 $('#slide-nav').addClass('original').clone().insertAfter('#slide-nav').addClass('cloned').css('position','fixed').css('top','0').css('margin-top','0').css('z-index','500').removeClass('original').hide();
@@ -88,7 +87,7 @@
 <!-- start-smoth-scrolling -->
 
 </head>
-<body>
+<body ng-app="myApp">
 
 <!-- header -->
 	<header>
@@ -136,265 +135,20 @@
 	<!-- //top-header and slider -->
 	<div class="container">
 	
-		<!-- top-header and slider -->
-	<div class="w3-slider">	
-	<!-- main-slider -->
-		<ul id="demo1">
-			<li>
-				<img src="images/banner3.jpg" alt="" />
-				<!--Slider Description example-->
-				<div class="slide-desc">
-					<h2>The</h2>
-					<h3>NEW ELEGANCE</h3>
-					
-				</div>
-			</li>
-			
-			
-		</ul>
-	</div>
-	<!-- //main-slider -->
 	
-	<div class="banner" style="margin:10px 0 10px 0">
+	
+	
+	
+	<div ng-view>
+	
 		
-			<img src="images/banner4.png" alt="" width="100%" />
+
+
+	</div>
 		
 	</div>
 	
-	<!-- top-brands -->
-	<div class="top-brands" style="margin:10px 0 10px 0">
-			<div class="sliderfig">
-				<ul id="flexiselDemo1">			
-					<li>
-						<div class=" top-product-grids tp4">
-							<a href="single#"><div class="product-img">
-								<img src="images/slides/Look1.jpg" alt="" width="270" height="270" />
-								
-							</div></a>
-												
-						</div>
-					</li>
-					<li>
-						<div class=" top-product-grids tp4">
-							<a href="single#"><div class="product-img">
-								<img src="images/slides/Look2.jpg" alt="" width="270" height="270" />
-								
-							</div></a>
-												
-						</div>
-					</li>
-					<li>
-						<div class=" top-product-grids tp4">
-							<a href="single#"><div class="product-img">
-								<img src="images/slides/Look3.jpg" alt="" width="270" height="270" />
-								
-							</div></a>
-												
-						</div>
-					</li>
-					<li>
-						<div class=" top-product-grids tp4">
-							<a href="single#"><div class="product-img">
-								<img src="images/slides/Look4.jpg" alt="" width="270" height="270" />
-								
-							</div></a>
-												
-						</div>
-					</li>
-					<li>
-						<div class=" top-product-grids tp4">
-							<a href="single#"><div class="product-img">
-								<img src="images/slides/Look5.jpg" alt="" width="270" height="270" />
-								
-							</div></a>
-												
-						</div>
-					</li>
-					<li>
-						<div class=" top-product-grids tp4">
-							<a href="single#"><div class="product-img">
-								<img src="images/slides/Look6.jpg" alt="" width="270" height="270" />
-								
-							</div></a>
-												
-						</div>
-					</li>
-					<li>
-						<div class=" top-product-grids tp4">
-							<a href="single#"><div class="product-img">
-								<img src="images/slides/Look7.jpg" alt="" width="270" height="270" />
-								
-							</div></a>
-												
-						</div>
-					</li>
-					<li>
-						<div class=" top-product-grids tp4">
-							<a href="single#"><div class="product-img">
-								<img src="images/slides/Look8.jpg" alt="" width="270" height="270" />
-								
-							</div></a>
-												
-						</div>
-					</li>
 					
-					<li>
-						<div class=" top-product-grids tp4">
-							<a href="single#"><div class="product-img">
-								<img src="images/slides/Look11.jpg" alt="" width="270" height="270" />
-								
-							</div></a>
-												
-						</div>
-					</li>
-					
-					
-					
-				</ul>
-				<div class="video-container">
-					<iframe width="100%" height="100%"
-src="https://www.youtube.com/embed/oHw5R5iCXQA?controls=0&autoplay=1">
-</iframe>
-				
-				</div>
-			</div>
-			
-	</div>
-<!-- //top-brands -->
-
-
-<div ng-app="myApp" ng-controller="customersCtrl">
-
-    
-
-<div class="row">
-	<div class="col-lg-12">
-			 <div class="btn-group">
-				<label class="btn btn-category" ng-model="category" btn-radio="'1'" ng-change="change()">Bride</label>
-				<label class="btn btn-category" ng-model="category" btn-radio="'2'" ng-change="change()">Groom</label>
-				<label class="btn btn-category friends" ng-model="category" btn-radio="'3'" ng-change="change()">
-				<span ng-click="displayGender()">Friends & Family</span>
-				
-				
-				<ul class="gender" ng-show="showGender">
-					<li><a ng-click="selectGender(1)">Male</a></li>
-					<li><a ng-click="selectGender(2)">Female</a></li>
-				</ul>
-				</label>
-				
-			</div>
-	</div>
-</div>
-<div class="row">
-	<div class="col-lg-12">
-	
-	
-	<div id="filters">
-  <nav class="navbar navbar-static-top" role="navigation">
-    <div class="collapse navbar-collapse" id="navbar-collapse-1">
-      <ul class="nav navbar-nav">      
-
-		<li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Style<b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li ng-repeat="style in styles" ng-class="{active: isStyleSelected(style.id)}">
-			<a ng-click="getDesigns(style.id,0,selctedOccasion,0,0,0)"> <input type="checkbox" ng-model="isStyleSelected(style.id)" /> {{ style.style }}</a>
-			</li>                    
-          </ul>
-		 </li>		
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Occasion<b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li ng-repeat="occasion in occasions" ng-class="{active : selctedOccasion == occasion.id}"><a ng-click="getDesigns(0,selctedOutfit,occasion.id,0,0,0)" >{{ occasion.name }}</a></li>                    
-          </ul>
-        </li>
-		 <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">season<b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li ng-repeat="season in seasons" ng-class="{active: isSeasonSelected(season.id)}">
-				<a ng-click="getDesigns(0,selctedOutfit,selctedOccasion,season.id,0,0)"><input type="checkbox" ng-model="isStyleSelected(style.id)" />  {{ season.season }}</a>
-			</li>                    
-          </ul>
-		 </li>
-		
-		<li  ng-show="category != 3">
-          <a ng-click="getDesigns(0,0,0,0,0,1)">Couple Coordination</a>
-        </li>
-		<li  ng-show="category == 1">
-          <a ng-click="getDesigns(0,0,0,0,1,0)">Wedding After Dress</a>
-        </li>
-		
-      </ul>
-    </div>
-    <!-- /.navbar-collapse -->
-  </nav>
-</div>
-
-	</div>
- </div>
- <div class="row"  style="margin:10px 0 10px 0" id="wrapper">
- 
- <div id="columns">
- 
-	<div class="design-box pin" ng-repeat="x in names">
-		<div class="design-img">
-			<img ng-src="images/designs/{{ x.imagePath }}" alt="" width="100%" />
-		</div>
-		<div class="design-content">
-			<h2>{{ x.title }}</h2>
-			<a class="profileSource" href="#">
-				<div class="thumbImageWrapper">            
-					<img src="images/avatars.jpg" alt="Designer" title="More">
-				</div>   
-				<div class="profileSourceAttributionContent">                    
-					<h3 class="title">Designed by</h3>                
-					<h4 class="fullname">
-						{{ x.designedBy }}
-					</h4>          
-				</div>
-			</a>			
-		</div>				
-	</div> 
-	
-	
-	
-	</div>
-	
-	
- </div>
- 
-</div>
-		
-	
-	
-					<script type="text/javascript">
-							$(window).load(function() {
-								$("#flexiselDemo1").flexisel({
-									visibleItems: 4,
-									animationSpeed: 1000,
-									autoPlay: false,
-									autoPlaySpeed: 3000,    		
-									pauseOnHover: true,
-									enableResponsiveBreakpoints: true,
-									responsiveBreakpoints: { 
-										portrait: { 
-											changePoint:480,
-											visibleItems: 1
-										}, 
-										landscape: { 
-											changePoint:640,
-											visibleItems:2
-										},
-										tablet: { 
-											changePoint:768,
-											visibleItems: 3
-										}
-									}
-								});
-								
-							});
-					</script>
-					<script type="text/javascript" src="js/jquery.flexisel.js"></script>
 	
 <!-- here stars scrolling icon -->
 	<script type="text/javascript">

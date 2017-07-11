@@ -43,9 +43,14 @@
 		$styles[] = $row;
 	 }
    $errors = array();
+   
+   $recommendationImages= array();
    $message = '';
    if($_SERVER["REQUEST_METHOD"] == "POST") {
 
+   //echo var_dump($_POST);
+   //echo var_dump($_FILES['recommendation_image']);
+   //exit();
     if (!isset($_POST["design_title"])) {
                $errors[] = "Design Title is required";
        }
@@ -60,13 +65,12 @@
 	   $couple_coordination = mysqli_real_escape_string($con,$_POST['couple_coordination']); 
 	   $wedding_after_dress = mysqli_real_escape_string($con,$_POST['wedding_after_dress']); 
 	  $description = $_POST['description'];
-	  $file_name = null;
+	  $design_file_name = null;
 	  
 	  if(isset($_FILES['image'])){
 	  
-      $errors= array();
 	 
-	  $file_name = $_FILES['image']['name'];
+	  $design_file_name = $_FILES['image']['name'];
 		  $file_size =$_FILES['image']['size'];
 		  $file_tmp =$_FILES['image']['tmp_name'];
 		  $file_type=$_FILES['image']['type'];
@@ -78,14 +82,48 @@
 			 $errors[]="extension not allowed, please choose a JPEG or PNG file.";
 		  }
 		  if(count($errors)==0){
-			 move_uploaded_file($file_tmp,"images/designs/".$file_name);
+			 move_uploaded_file($file_tmp,"images/designs/".$design_file_name);
 		  }
 	}
+	
+	
+	
+	 if(isset($_FILES['recommendation_image'])){
+
+	  	$total = count($_FILES['recommendation_image']['name']);
+		for($i=0; $i<$total; $i++) {
+		  $file_name = $_FILES['recommendation_image']['name'][$i];
+		  $file_size =$_FILES['recommendation_image']['size'][$i];
+		  $file_tmp =$_FILES['recommendation_image']['tmp_name'][$i];
+		  $file_type=$_FILES['recommendation_image']['type'][$i];
+		  $file_ext=strtolower(end(explode('.',$_FILES['recommendation_image']['name'][$i])));
+		  
+		  $expensions= array("jpeg","jpg","png");
+		  
+		  if(in_array($file_ext,$expensions)=== false){
+			 $errors[]="extension not allowed, please choose a JPEG or PNG file.";
+		  }
+			   
+		  if(count($errors)==0){
+			 move_uploaded_file($file_tmp,"images/matches/".$file_name);
+			 
+			 $recommendationImage['recommendation_title'] = $_POST['recommendation_title'][$i];
+			 $recommendationImage['recommendation_designed_by'] = $_POST['recommendation_designed_by'][$i];
+			 $recommendationImage['image'] = $file_name;
+			 $recommendationImages[] = $recommendationImage;
+			 //echo "Success";
+		  }
+		}
+	}
+	
+	
+	
+	
      if(count($errors)==0){
-	//mysqli_autocommit($con,FALSE);
+	mysqli_autocommit($con,FALSE);
 	$today = date('Y-m-d H:i:s');
 		// Attempt insert query execution
-		$sql = "INSERT INTO design (design_title,image_path,designed_by,description,category,style,occassion,season,couple_coordination,wedding_after_dress,created_at, status) VALUES ('$design_title','$file_name','$designed_by','$description','$category','$style','$occassion','$season','$couple_coordination','$wedding_after_dress','$today', 1)";
+		$sql = "INSERT INTO design (design_title,image_path,designed_by,description,category,style,occassion,season,couple_coordination,wedding_after_dress,created_at, status) VALUES ('$design_title','$design_file_name','$designed_by','$description','$category','$style','$occassion','$season','$couple_coordination','$wedding_after_dress','$today', 1)";
 		if(mysqli_query($con, $sql)){
 			$message = "Design added successfully.";
 			$design_title = $designed_by = $category = $style = $occassion = $season = $couple_coordination = $wedding_after_dress = $description = ''; 
@@ -94,21 +132,24 @@
 		}
 	  }
 
-/*if(count($errors)==0){
+if(count($errors)==0){
 	$design_id = $con->insert_id;
 	$sequence = 1;
-	foreach($fileNames as $fileName){
-		$sql = "INSERT INTO car_list_imgaes (image_path,sequence,active,car_list_id) VALUES ('$fileName','$sequence',1,'$car_list_id')";
+	foreach($recommendationImages as $recommendationImage){
+		$recommendationTitle = $recommendationImage['recommendation_title'];
+		$recommendationDesignedBy = $recommendationImage['recommendation_designed_by'];
+		$image = $recommendationImage['image'];
+		$sql = "INSERT INTO recommendations (title,designed_by,image_path,design_id) VALUES ('$recommendationTitle','$recommendationDesignedBy','$image','$design_id')";
 		if(mysqli_query($con, $sql)){
-			$message = "Car added successfully.";
+			$message = "Recommendation added successfully.";
 		} else{
-			 $errors[]= "Could not able to upload car image " . mysqli_error($con);
+			 $errors[]= "Could not able to upload Recommendation" . mysqli_error($con);
 		}
 		$sequence = $sequence+1;
 	}
 	if(count($errors)==0)
 	mysqli_commit($con);
-}	*/  
+}	 
 	  
 	  if(count($errors)>0){
 		//echo var_dump($errors);
@@ -230,9 +271,51 @@
 				<div id="upload_image_widget">
                 <div class='form-group'>
                   <label for='inputFile'>Image</label>
-                  <input type='file' id='inputFile' name='image' multiple> 
+                  <input type='file' id='inputFile' name='image'> 
 				<p class='help-block'>Supported formats JPEG, JPG and PNG</p>				  
                 </div>
+				</div>	
+				
+				<h3>Recommendations</h3>
+					<div class='form-group'>
+					<div class="row">
+						<div class="col-lg-2">
+							<label>Title</label>
+						</div>
+						<div class="col-lg-2">
+							<label>Designed By</label>
+						</div>
+						<div class="col-lg-2">
+							<label>Image</label>
+						</div>
+					</div>
+					</div>
+					
+					
+				<div id="add_recommendation_widget">
+				<div class="row">
+					<div class="col-lg-2">
+					<div class='form-group'>
+
+                  <input type="text" class="form-control" id="recommendation_title" name="recommendation_title[]" required >
+				  </div>
+				  </div>
+				  <div class="col-lg-2">
+					<div class='form-group'>
+				  
+				   <input type="text" class="form-control" id="recommendation_designed_by" name="recommendation_designed_by[]" required >
+				   </div>
+				   </div>
+				   <div class="col-lg-2">
+					<div class='form-group'>
+                  <input type='file' id='inputFile' name='recommendation_image[]'> 		
+					</div>	
+					</div>
+				</div>					
+                </div>
+				<a href="#" id="add-more-recommendation">add more</a>
+				
+
 				</div>	
           </div>
 
@@ -253,10 +336,10 @@
 
 <script>
     $(document).ready(function() {
-$('#add-more-images').click(function(e){	
+$('#add-more-recommendation').click(function(e){	
 	e.preventDefault();
-    	 var widget = $("#upload_image_widget").html();
-		 $('#add-more-images').next(widget);
+    	 var widget = $("#add_recommendation_widget").html();
+		 $('#add_recommendation_widget').after(widget);
 });
 });
 </script>

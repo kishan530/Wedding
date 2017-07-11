@@ -92,7 +92,8 @@ $result = $conn->query($sql);
 $outp = "";
 while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
     if ($outp != "") {$outp .= ",";}
-    $outp .= '{"title":"'  . $rs["design_title"] . '",';
+	 $outp .= '{"id":"'  . $rs["id"] . '",';
+    $outp .= '"title":"'  . $rs["design_title"] . '",';
     $outp .= '"designedBy":"'   . $rs["designed_by"]        . '",';
 	 $outp .= '"season":"'   . $rs["season"]        . '",';
     $outp .= '"imagePath":"'. $rs["image_path"]     . '"}';

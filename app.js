@@ -1,5 +1,5 @@
-var app = angular.module('myApp', ['ngAnimate', 'ui.bootstrap']);
-app.controller('customersCtrl', function($scope, $http) {
+var app = angular.module('myApp', ['ngAnimate', 'ui.bootstrap','ngRoute']);
+app.controller('customersCtrl', function($scope, $http,$location) {
 	$scope.category = '1';
 	$scope.selctedStyle = [];
 	$scope.selctedOutfit = '0';
@@ -87,6 +87,46 @@ $http.get("get-data.php",{ params: { category: $scope.category,  style: $style ,
     //console.log(response.data.filters.occassions);
    });
    
+   
+    $scope.selectDesign=function(selected){
+       $location.path("/look-board/"+selected);
+    };
+   
    $scope.applyFilters(JSON.stringify([]),0,0,JSON.stringify([]),0,0); 
    
+});
+
+app.controller('lookBoardCtrl', function($scope,$routeParams, $http) {	
+   $scope.selected=$routeParams.board;
+   
+   $http.get("get-design.php",{ params: { selected: $routeParams.board }})
+   .then(function (response) {
+	   $scope.design = response.data.design;
+	   $scope.recommendations = response.data.recommendations;	  
+   });
+   console.log($scope.selected);
+});
+
+
+app.config(function ($routeProvider) {
+$routeProvider.
+	
+	when('/', { 
+		controller: 'customersCtrl', 
+		templateUrl: 'search-design.html' 
+	}).
+	when('/look-board/:board?', { 
+		controller: 'lookBoardCtrl', 
+		templateUrl: 'look-board.html' 
+	});
+});
+
+app.directive('skdslider', function () {
+
+  return {
+    link: function (scope, element, attrs) {	  
+	  element.skdslider({'delay':0, 'animationSpeed':0,'showNextPrev':true,'showPlayButton':true,'autoSlide':false,'animationType':'fading'});
+	  
+    }
+  }
 });
