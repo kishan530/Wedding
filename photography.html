@@ -1,0 +1,59 @@
+<div ng-app="myApp" ng-controller="photographyCtrl">	
+		
+<div class="banner banner1" >
+<form method="post" action="">
+      <div class="row">
+	  <div class="col-sm-3">
+    <div class="form-group">
+      <label for="location">location</label><br>
+      <input type="text" class="form-control" id="location"  name="location">
+    </div>
+	</div>
+	<div class="col-sm-3">
+    <div class="form-group">
+      <label for="budjet">budjet</label><br>
+      <input type="text" class="form-control" id="budjet"  name="budjet">
+    </div>
+	</div>
+	<div class="col-sm-3">
+	<div class="form-group">
+      <label for="no of events">no of events</label><br>
+      <input type="text" class="form-control" id="no of events"  name="no of events">
+	  </div>
+        </div>
+	  <div class="col-sm-3">
+	  <div class="form-group">
+	  <button type="search" class="btn btn-warning">search</button>
+   </div>
+	 </div>
+        </div>
+   
+  </form>
+	
+
+ </div>
+
+	<div id="three-columns">
+	<div class="col-lg-12">
+		<div class="row">
+	<div class="design-box pin" ng-repeat="album in albums" >
+		<div class="design-img">
+			<img src="images/albums/{{ album.imagePath }}" alt="" width="100%" class="img-responsive side-image" />
+		</div>
+		<div class="design-content">
+			<h2></h2>
+			<a class="profileSource" href="#">
+				<div class="profileSourceAttributionContent">                    
+					             
+					<h4 class="fullname">
+						{{ album.name }}
+					</h4>          
+				</div>
+			</a>			
+		</div>				
+	</div>		
+	</div> 
+	</div>	
+    </div>
+    </div>
+	
