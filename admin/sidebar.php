@@ -28,6 +28,15 @@
         </li>
 		 <li class="treeview">
           <a href="#">
+            <i class="fa fa-files-o"></i> <span>albumsList</span>          
+          </a>
+		  <ul class="treeview-menu menu-open">
+            <li><a href="album-list.php"><i class="fa fa-circle-o"></i> List </a></li>
+            <li><a href="addAlbum.php"><i class="fa fa-circle-o"></i> Add New</a></li>
+          </ul>
+        </li>
+		 <li class="treeview">
+          <a href="#">
             <i class="fa fa-files-o"></i> <span>Style List</span>          
           </a>
 		  <ul class="treeview-menu menu-open">
