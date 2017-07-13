@@ -23,9 +23,6 @@ while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
 }
 $outp['outfits'] =$outfits;
 
-
-
-
 $result = $conn->query("SELECT * FROM style");
 $styles =  array();
 while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
