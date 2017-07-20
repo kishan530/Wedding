@@ -206,8 +206,8 @@ label{
 
 
 .btn-group>.btn-category{
-    margin: 22px;
-    width: 292px;
+    margin: 10px;
+    width: 387px;
 	color: #fff;
     background-color: #c3bfb8;
     border-color: #c4b392;
@@ -1064,7 +1064,7 @@ cursor:pointer;
     color: #FFF;
     font-weight: normal;
     letter-spacing: 2px;
-    padding: 25px 25px;
+    padding: 17px 35px;
 	cursor:pointer;
 	font-family: "Lato", Arial, Tahoma, sans-serif;
 }
