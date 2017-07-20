@@ -5,31 +5,31 @@
    $message = '';
    if (isset($_GET["id"])) {
             $id = mysqli_real_escape_string($con,$_GET['id']); 
-			 $sql = "SELECT * FROM photography WHERE id =$id";
+			 $sql = "SELECT * FROM makeup_artist WHERE id =$id";
 			$result = mysqli_query($con,$sql);
-			$albums = mysqli_fetch_array($result,MYSQLI_ASSOC);
+			$artist = mysqli_fetch_array($result,MYSQLI_ASSOC);
 			
-			 $name = mysqli_real_escape_string($con,$albums['name']); 
-			$description = $albums['description'];
-			  $status = $albums['active'];
-			  $image_path = $albums['image'];
+			 $name = mysqli_real_escape_string($con,$artist['name']); 
+			$description = $artist['description'];
+			  $status = $artist['active'];
+			  $image_path = $artist['image'];
 			
 			$count = mysqli_num_rows($result);
 			if($count==0){
-				 $errors[] = "No albums found";
+				 $errors[] = "No artist found";
 				 }
 			
        }else{
-		 $errors[] = "No albums found";
+		 $errors[] = "No artist found";
 	   }
      
    if($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    if (!isset($_POST["albums"])) {
-               $errors[] = "albums is required";
+    if (!isset($_POST["artist"])) {
+               $errors[] = "artist is required";
        }
 	
-	  $name = mysqli_real_escape_string($con,$_POST['albums']); 
+	  $name = mysqli_real_escape_string($con,$_POST['artist']); 
 	  $id = mysqli_real_escape_string($con,$_POST['id']);
 	  $status = $_POST['status'];
 	 $description = $_POST['description'];
@@ -48,19 +48,19 @@
 			 $errors[]="extension not allowed, please choose a JPEG or PNG file.";
 		  }
 		  if(count($errors)==0){
-			 move_uploaded_file($file_tmp,"../images/albums/".$design_file_name);
+			 move_uploaded_file($file_tmp,"../images/artist/".$design_file_name);
 		  }
 	  
    
      if(count($errors)==0){
 		 	if(is_null($design_file_name))
 			$design_file_name = $image_path;
-		$sql = "Update photography set name = '$name', description = '$description',image= '$design_file_name',active = '$status' where id = '$id' ";
+		$sql = "Update makeup_artist set name = '$name', description = '$description',image= '$design_file_name',active = '$status' where id = '$id' ";
 		//echo $sql;
 		if(mysqli_query($con, $sql)){
-			$message = "albums updated successfully.";
+			$message = "artist updated successfully.";
 		} else{
-			 $errors[]= "Could not able to update albums " . mysqli_error($con);
+			 $errors[]= "Could not able to update artist " . mysqli_error($con);
 		}
 	  } 
 	  
@@ -83,13 +83,13 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Edit albums
-        <small>edit albums here</small>
+        Edit artist
+        <small>edit artist here</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
        <!--  <li><a href="#">Projects</a></li> -->
-        <li class="active">Edit albums</li>
+        <li class="active">Edit artist</li>
       </ol>
     </section>
 
@@ -108,8 +108,8 @@
 			?>
 			
             <!-- form start -->
-            <form role="form" action="editAlbum.php?id=<?php echo $albums['id']; ?>" method="POST" enctype="multipart/form-data">
-			<input type="hidden" name="id" value="<?php echo $albums['id']; ?>" >
+            <form role="form" action="editartist.php?id=<?php echo $artist['id']; ?>" method="POST" enctype="multipart/form-data">
+			<input type="hidden" name="id" value="<?php echo $artist['id']; ?>" >
               <div class="box-body">
 			  
 				
@@ -118,7 +118,7 @@
 				
 				<div class="form-group">
                   <label for="name">name</label>
-                  <input type="text" class="form-control" id="name" name="name" placeholder="Enter albums Title" value="<?php echo $name; ?>" required >
+                  <input type="text" class="form-control" id="name" name="name" placeholder="Enter artist Title" value="<?php echo $name; ?>" required >
                 </div>
 				
 				
@@ -128,7 +128,7 @@
 			  
                 <textarea class="textarea" id="description" name="description" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"><?php echo $description; ?></textarea>
             </div>
-<div id="upload_image_widget">
+               <div id="upload_image_widget">
                 <div class='form-group'>
                   <label for='inputFile'>Image</label>
                   <input type='file' id='inputFile' name='image'> 

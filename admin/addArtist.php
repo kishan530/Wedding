@@ -8,11 +8,11 @@
    $message = '';
    if($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    if (!isset($_POST["albums"])) {
-               $errors[] = "Albums is required";
+    if (!isset($_POST["artist"])) {
+               $errors[] = "artist is required";
        }
 	
-	 $name = mysqli_real_escape_string($con,$_POST['albums']); 
+	 $name = mysqli_real_escape_string($con,$_POST['artist']); 
      $description=$_POST['description'];
 	 
 	 if(isset($_FILES['image'])){
@@ -30,7 +30,7 @@
 			 $errors[]="extension not allowed, please choose a JPEG or PNG file.";
 		  }
 		  if(count($errors)==0){
-			 move_uploaded_file($file_tmp,"../images/albums/".$design_file_name);
+			 move_uploaded_file($file_tmp,"../images/artist/".$design_file_name);
 		  }
 	}
 	 
@@ -38,13 +38,13 @@
 	//mysqli_autocommit($con,FALSE);
 	//$today = date('Y-m-d H:i:s');
 		// Attempt insert query execution
-		$sql = "INSERT INTO photography (name ,image, description,active) VALUES ('$name ','$design_file_name','$description','1')";
+		$sql = "INSERT INTO makeup_artist (name ,image, description,active) VALUES ('$name ','$design_file_name','$description','1')";
 		if(mysqli_query($con, $sql)){
-			$message = "Albums added successfully.";
+			$message = "artist added successfully.";
 			 $name = '';
 			 $description = ''; 
 		} else{
-			 $errors[]= "Could not able to save Albums " . mysqli_error($con);
+			 $errors[]= "Could not able to save artist " . mysqli_error($con);
 		}
 	  }
 	  
@@ -68,13 +68,13 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Add Albums
-        <small>add new Albums here</small>
+        Add artist
+        <small>add new artist here</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
        <!--  <li><a href="#">Projects</a></li> -->
-        <li class="active">Add Albums</li>
+        <li class="active">Add artist</li>
       </ol>
     </section>
 
@@ -90,12 +90,12 @@
 			<?php } ?>
             <!-- form start -->
 			
-            <form role="form" action="addAlbum.php" method="POST" enctype="multipart/form-data">
+            <form role="form" action="addartist.php" method="POST" enctype="multipart/form-data">
               <div class="box-body">
 				
 				<div class="form-group">
                   <label for="name">name</label>
-                  <input type="text" class="form-control" id="name" name="name" placeholder="Enter Albums" value="<?php echo $name; ?>" required >
+                  <input type="text" class="form-control" id="artist" name="artist" placeholder="Enter artist" value="<?php echo $name; ?>" required >
                 </div>	
 				<div class="form-group">
                   <label for="description">description</label>
@@ -110,7 +110,7 @@
                 </div>
 				</div>					
 				
-          </div>
+             </div>
 
               <div class="box-footer">
                 <button type="submit" class="btn btn-primary">Submit</button>
