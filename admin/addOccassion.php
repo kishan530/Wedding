@@ -13,12 +13,13 @@
        }
 	
 	 $name = mysqli_real_escape_string($con,$_POST['occasion']); 
+	 $status = mysqli_real_escape_string($con,$_POST['status']);
      
      if(count($errors)==0){
 	//mysqli_autocommit($con,FALSE);
 	$today = date('Y-m-d H:i:s');
 		// Attempt insert query execution
-		$sql = "INSERT INTO occassion (occassion_name, active) VALUES ('$name', 1)";
+		$sql = "INSERT INTO occassion (occassion_name, active) VALUES ('$name', '$status')";
 		if(mysqli_query($con, $sql)){
 			$message = "Occasion added successfully.";
 			 $name = ''; 

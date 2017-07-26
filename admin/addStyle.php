@@ -12,13 +12,14 @@
                $errors[] = "style is required";
        }
 	
-	 $styleType = mysqli_real_escape_string($con,$_POST['style']); 
+	 $styleType = mysqli_real_escape_string($con,$_POST['style']);
+ $status = mysqli_real_escape_string($con,$_POST['status']); 	 
      
      if(count($errors)==0){
 	//mysqli_autocommit($con,FALSE);
 	$today = date('Y-m-d H:i:s');
 		// Attempt insert query execution
-		$sql = "INSERT INTO style (style, active) VALUES ('$styleType', 1)";
+		$sql = "INSERT INTO style (style, active) VALUES ('$styleType', '$status')";
 		if(mysqli_query($con, $sql)){
 			$message = "Style added successfully.";
 			 $styleType = ''; 

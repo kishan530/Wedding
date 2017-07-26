@@ -38,8 +38,34 @@
 
     <!-- Main content -->
     <section class="content">
- <div class="row">
-      <div class="col-md-9">
+     <div class="row">
+     <div class="col-md-5">
+         <div class="box box-primary" id="style-form">
+			
+            <!-- form start -->
+            <form role="form" action="addStyle.php" method="POST" enctype="multipart/form-data" id="add-style-form">
+              <div class="box-body">
+				
+				<div class="form-group">
+                  <label for="style">Style</label>
+                  <input type="text" class="form-control" id="style" name="style" placeholder="Enter style" value="" required >
+                </div>					 
+				<div class="form-group">
+                  <label>Status</label>
+                  <select class="form-control" name="status">
+                    <option value="1" >Active</option>
+                    <option value="0" >In Active</option>                   
+                  </select>
+                </div>
+          </div>
+
+              <div class="box-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+          </div>
+		  </div>
+      <div class="col-md-7">
           <!-- general form elements -->
           <div class="box box-primary">
 		  <h3 id="error"></h3>
@@ -48,13 +74,14 @@
 			?>
 					
 			<div class="box-body table-responsive no-padding">
-              <table class="table table-hover" id="styles">
+              <table class="table table-hover" id="">
                 <tr>
                   <th>Sl.No</th>
                   <th>Style</th>
                   <th>Status</th>
                   <th>Actions</th>
                 </tr>
+				<tbody id="styles">
 				<?php		
 						$i = 0;
 						foreach($styles as $style){
@@ -72,13 +99,14 @@
 				   <?php } ?>
 				  </td>
                   <td>
-				  <a href="editStyle.php?id=<?php echo $style['id']; ?>"><i class="fa fa-pencil-square-o"></i></a>
+				  <a href="styleedit.php?id=<?php echo $style['id']; ?>"class="edit"><i class="fa fa-pencil-square-o"></i></a>
 				   <a href="delete-style.php?id=<?php echo $style['id']; ?>" title="<?php echo $style['style']; ?>" class="delete"><i class="fa fa-trash-o"></i></a>
 				  </td>
                 </tr>
                <?php
 						}
 						?>
+				</tbody>		
               </table>
             </div>
 																								
@@ -99,7 +127,53 @@
   
 <?php include('footer.php') ?>
 
-<script>
+
+	<script> 
+
+	
+	 $("#style-form").on('submit', '#add-style-form', function (e) {
+			
+          e.preventDefault();
+
+          $.ajax({
+            type: 'post',
+            url: 'addStyle.php',
+            data: $('form').serialize(),
+            success: function () {
+            <!--  alert('form was submitted'); -->
+			 $( "#styles" ).load('style.php');
+			  $( "#style-form" ).load('add-style.php');
+            }
+          });
+
+        });	
+	
+	  $("#style-form").on('submit', '#edit-style-form', function (e) {
+
+          e.preventDefault();
+
+          $.ajax({
+            type: 'post',
+            url: 'updatestyle.php',
+            data: $('form').serialize(),
+            success: function () {
+            <!--  alert('form was submitted'); -->
+			 $( "#styles" ).load('style.php');
+			 $( "#style-form" ).load('add-style.php');
+            }
+          });
+
+        });
+
+$("#styles").on('click', '.edit', function (e) {
+	e.preventDefault(); //STOP default action
+	  var url = $(this).attr('href');
+	  
+	   $( "#style-form" ).load(url);
+		       
+});
+
+
 $("#styles").on('click', '.delete', function (e) {
 	e.preventDefault(); //STOP default action
 	  var url = $(this).attr('href');

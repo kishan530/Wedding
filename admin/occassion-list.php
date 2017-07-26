@@ -38,8 +38,35 @@
 
     <!-- Main content -->
     <section class="content">
- <div class="row">
-      <div class="col-md-9">
+     <div class="row">
+        <div class="col-md-5">
+         <div class="box box-primary" id="occassion-form">
+			
+            <!-- form start -->
+			
+            <form role="form" action="addOccassion.php" method="POST" enctype="multipart/form-data" id="add-occassion-form">
+              <div class="box-body">
+				
+				<div class="form-group">
+                  <label for="occasion">Occasion</label>
+                  <input type="text" class="form-control" id="occasion" name="occasion" placeholder="Enter occasion" value="" required >
+                </div>					 
+				<div class="form-group">
+                  <label>Status</label>
+                  <select class="form-control" name="status">
+                    <option value="1" >Active</option>
+                    <option value="0" >In Active</option>                   
+                  </select>
+                </div>
+          </div>
+
+              <div class="box-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+          </div>
+		  </div>
+      <div class="col-md-7">
           <!-- general form elements -->
           <div class="box box-primary">
 		  <h3 id="error"></h3>
@@ -48,13 +75,14 @@
 			?>
 					
 			<div class="box-body table-responsive no-padding">
-              <table class="table table-hover" id="occasions">
+              <table class="table table-hover" id="">
                 <tr>
                   <th>Sl.No</th>
-                  <th>Occasion</th>
+                  <th>Occassion</th>
                   <th>Status</th>
                   <th>Actions</th>
                 </tr>
+				<tbody id="occassions">
 				<?php		
 						$i = 0;
 						foreach($occasions as $occasion){
@@ -72,13 +100,14 @@
 				   <?php } ?>
 				  </td>
                   <td>
-				  <a href="editOccassion.php?id=<?php echo $occasion['id']; ?>"><i class="fa fa-pencil-square-o"></i></a>
+				  <a href="occassion-edit.php?id=<?php echo $occasion['id']; ?>"class="edit"><i class="fa fa-pencil-square-o"></i></a>
 				   <a href="delete-occassion.php?id=<?php echo $occasion['id']; ?>" title="<?php echo $occasion['occassion_name']; ?>" class="delete"><i class="fa fa-trash-o"></i></a>
 				  </td>
                 </tr>
                <?php
 						}
 						?>
+				</tbody>		
               </table>
             </div>
 																								
@@ -100,7 +129,51 @@
 <?php include('footer.php') ?>
 
 <script>
-$("#occasions").on('click', '.delete', function (e) {
+$("#occassion-form").on('submit', '#add-occassion-form', function (e) {
+          e.preventDefault();
+
+          $.ajax({
+            type: 'post',
+            url: 'addOccassion.php',
+            data: $('form').serialize(),
+            success: function () {
+           <!--   alert('form was submitted'); -->
+			 $( "#occassions" ).load('occassion.php');
+			 $( "#occassion-form" ).load('add-occassion.php');
+            }
+          });
+
+        });
+	  
+
+$("#occassion-form").on('submit', '#edit-occassion-form', function (e) {
+
+          e.preventDefault();
+
+          $.ajax({
+            type: 'post',
+            url: 'updateOccassion.php',
+            data: $('form').serialize(),
+            success: function () {
+            <!--  alert('form was submitted'); -->
+			 $( "#occassions" ).load('occassion.php');
+			 $( "#occassion-form" ).load('add-occassion.php');
+            }
+          });
+
+        });
+
+$("#occassions").on('click', '.edit', function (e) {
+	e.preventDefault(); //STOP default action
+	  var url = $(this).attr('href');
+	  
+	   $( "#occassion-form" ).load(url);
+		       
+});
+
+
+
+$("#occassions").on('click', '.delete', function (e) {
 	e.preventDefault(); //STOP default action
 	  var url = $(this).attr('href');
 	   var name = $(this).attr('title');

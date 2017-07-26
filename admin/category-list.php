@@ -39,7 +39,35 @@
     <!-- Main content -->
     <section class="content">
  <div class="row">
-      <div class="col-md-9">
+    <div class="col-md-5">
+	<div class="box box-primary" id="category-form">
+            <!-- form start -->
+			
+            <form role="form" action="addCategory.php" method="POST" enctype="multipart/form-data" id="add-category-form">
+              <div class="box-body">
+				
+				<div class="form-group">
+                  <label for="category">Category</label>
+                  <input type="text" class="form-control" id="category" name="category" placeholder="Enter category" value="" required >
+                </div>
+				<div class="form-group">
+                  <label>Status</label>
+                  <select class="form-control" name="status">
+                    <option value="1" >Active</option>
+                    <option value="0" >In Active</option>                   
+                  </select>
+                </div>
+          </div>
+
+              <div class="box-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+          </div>
+		  </div>
+          <!-- /.box -->
+		  
+      <div class="col-md-7">
           <!-- general form elements -->
           <div class="box box-primary">
 		  <h3 id="error"></h3>
@@ -48,13 +76,14 @@
 			?>
 					
 			<div class="box-body table-responsive no-padding">
-              <table class="table table-hover" id="categories">
+              <table class="table table-hover" id="">
                 <tr>
                   <th>Sl.No</th>
                   <th>Category</th>
                   <th>Status</th>
                   <th>Actions</th>
                 </tr>
+				<tbody id="categories">
 				<?php		
 						$i = 0;
 						foreach($categories as $category){
@@ -72,13 +101,14 @@
 				   <?php } ?>
 				  </td>
                   <td>
-				  <a href="editCategory.php?id=<?php echo $category['id']; ?>"><i class="fa fa-pencil-square-o"></i></a>
+				  <a href="category-edit.php?id=<?php echo $category['id']; ?>"class="edit"><i class="fa fa-pencil-square-o"></i></a>
 				   <a href="delete-category.php?id=<?php echo $category['id']; ?>" title="<?php echo $category['type']; ?>" class="delete"><i class="fa fa-trash-o"></i></a>
 				  </td>
                 </tr>
                <?php
 						}
 						?>
+				</tbody>		
               </table>
             </div>
 																								
@@ -100,6 +130,50 @@
 <?php include('footer.php') ?>
 
 <script>
+        $("#category-form").on('submit', '#add-category-form', function (e) {
+			
+          e.preventDefault();
+
+          $.ajax({
+            type: 'post',
+            url: 'addCategory.php',
+            data: $('form').serialize(),
+            success: function () {
+           <!--   alert('form was submitted'); -->
+			 $( "#categories" ).load('category.php');
+			 $( "#category-form" ).load('add-category.php');
+            }
+          });
+
+        });
+	 
+
+$("#category-form").on('submit', '#edit-category-form', function (e) {
+
+          e.preventDefault();
+
+          $.ajax({
+            type: 'post',
+            url: 'updateCategory.php',
+            data: $('form').serialize(),
+            success: function () {
+            <!--  alert('form was submitted'); -->
+			 $( "#categories" ).load('category.php');
+			 $( "#category-form" ).load('add-category.php');
+            }
+          });
+
+        });
+
+$("#categories").on('click', '.edit', function (e) {
+	e.preventDefault(); //STOP default action
+	  var url = $(this).attr('href');
+	  
+	   $( "#category-form" ).load(url);
+		       
+});
+
+
 $("#categories").on('click', '.delete', function (e) {
 	e.preventDefault(); //STOP default action
 	  var url = $(this).attr('href');

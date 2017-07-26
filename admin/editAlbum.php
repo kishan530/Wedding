@@ -118,7 +118,7 @@
 				
 				<div class="form-group">
                   <label for="name">name</label>
-                  <input type="text" class="form-control" id="name" name="name" placeholder="Enter albums Title" value="<?php echo $name; ?>" required >
+                  <input type="text" class="form-control" id="albums" name="albums" placeholder="Enter albums Title" value="<?php echo $name; ?>" required >
                 </div>
 				
 				

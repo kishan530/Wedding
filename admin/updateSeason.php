@@ -1,0 +1,81 @@
+ <?php include('header.php') ?>
+<?php
+	
+   $errors = array();
+   $message = '';
+   if (isset($_POST["id"])) {
+            $id = mysqli_real_escape_string($con,$_POST['id']); 
+			 $sql = "SELECT * FROM season WHERE id =$id";
+			$result = mysqli_query($con,$sql);
+			$season = mysqli_fetch_array($result,MYSQLI_ASSOC);
+			
+			 $name = mysqli_real_escape_string($con,$season['season']); 
+			  $status = $season['active'];
+			
+			$count = mysqli_num_rows($result);
+			if($count==0){
+				 $errors[] = "No season found";
+				 }
+			
+       }else{
+		 $errors[] = "No season found";
+	   }
+     
+   if($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    if (!isset($_POST["season"])) {
+               $errors[] = "season is required";
+       }
+	
+	  $name = mysqli_real_escape_string($con,$_POST['season']); 
+	  $id = mysqli_real_escape_string($con,$_POST['id']);
+	  $status = $_POST['status'];
+	 
+	
+     if(count($errors)==0){
+		$sql = "Update season set season = '$name',active = '$status' where id = '$id' ";
+		//echo $sql;
+		if(mysqli_query($con, $sql)){
+			$message = "season updated successfully.";
+		} else{
+			 $errors[]= "Could not able to update season " . mysqli_error($con);
+		}
+	  } 
+	  
+	  if(count($errors)>0){
+		//echo var_dump($errors);
+		//exit();
+	  }
+   }
+?>
+
+
+    <form role="form" id="edit-season-form" action="editSeason.php?id=<?php echo $season['id']; ?>" method="POST" enctype="multipart/form-data">
+			<input type="hidden" name="id" value="<?php echo $season['id']; ?>" >
+              <div class="box-body">
+			  
+				
+				
+				
+				
+				<div class="form-group">
+                  <label for="season">Season</label>
+                  <input type="text" class="form-control" id="season" name="season" placeholder="Enter Season Title" value="<?php echo $name; ?>" required >
+                </div>
+				
+				
+              
+				
+			<div class="form-group">
+                  <label>Status</label>
+                  <select class="form-control" name="status">
+                    <option value="1" <?php if($status) echo 'selected'; ?>>Active</option>
+                    <option value="0" <?php if(!$status) echo 'selected'; ?>>In Active</option>                   
+                  </select>
+                </div>
+          </div>
+
+              <div class="box-footer">
+                <button type="submit" class="btn btn-primary">Update</button>
+              </div>
+            </form>

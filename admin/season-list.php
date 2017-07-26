@@ -38,8 +38,35 @@
 
     <!-- Main content -->
     <section class="content">
- <div class="row">
-      <div class="col-md-9">
+      <div class="row">
+	    <div class="col-md-5">
+           <div class="box box-primary"id="season-form">
+			
+            <!-- form start -->
+			
+            <form role="form" action="addSeason.php" method="POST" enctype="multipart/form-data" id="add-season-form">
+              <div class="box-body">
+				
+				<div class="form-group">
+                  <label for="season">Season</label>
+                  <input type="text" class="form-control" id="season" name="season" placeholder="Enter season" value="" required >
+                </div>					 
+				<div class="form-group">
+                  <label>Status</label>
+                  <select class="form-control" name="status">
+                    <option value="1" >Active</option>
+                    <option value="0" >In Active</option>                   
+                  </select>
+                </div>
+          </div>
+
+              <div class="box-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+          </div>
+		  </div>
+      <div class="col-md-7">
           <!-- general form elements -->
           <div class="box box-primary">
 		  <h3 id="error"></h3>
@@ -48,13 +75,14 @@
 			?>
 					
 			<div class="box-body table-responsive no-padding">
-              <table class="table table-hover" id="seasons">
+              <table class="table table-hover" id="">
                 <tr>
                   <th>Sl.No</th>
                   <th>Season</th>
                   <th>Status</th>
                   <th>Actions</th>
                 </tr>
+				<tbody id="seasons">
 				<?php		
 						$i = 0;
 						foreach($seasons as $season){
@@ -72,13 +100,14 @@
 				   <?php } ?>
 				  </td>
                   <td>
-				  <a href="editSeason.php?id=<?php echo $season['id']; ?>"><i class="fa fa-pencil-square-o"></i></a>
+				  <a href="season-edit.php?id=<?php echo $season['id']; ?>"class="edit"><i class="fa fa-pencil-square-o"></i></a>
 				   <a href="delete-season.php?id=<?php echo $season['id']; ?>" title="<?php echo $season['season']; ?>" class="delete"><i class="fa fa-trash-o"></i></a>
 				  </td>
                 </tr>
                <?php
 						}
 						?>
+				</tbody>		
               </table>
             </div>
 																								
@@ -100,6 +129,50 @@
 <?php include('footer.php') ?>
 
 <script>
+$("#season-form").on('submit', '#add-season-form', function (e) {
+          e.preventDefault();
+
+          $.ajax({
+            type: 'post',
+            url: 'addSeason.php',
+            data: $('form').serialize(),
+            success: function () {
+            <!--  alert('form was submitted'); -->
+			 $( "#seasons" ).load('season.php');
+			 $( "#season-form" ).load('add-season.php');
+            }
+          });
+
+        });
+	  
+
+$("#season-form").on('submit', '#edit-season-form', function (e) {
+
+          e.preventDefault();
+
+          $.ajax({
+            type: 'post',
+            url: 'updateSeason.php',
+            data: $('form').serialize(),
+            success: function () {
+          <!--    alert('form was submitted'); -->
+			 $( "#seasons" ).load('season.php');
+			 $( "#season-form" ).load('add-season.php');
+            }
+          });
+
+        });
+
+$("#seasons").on('click', '.edit', function (e) {
+	e.preventDefault(); //STOP default action
+	  var url = $(this).attr('href');
+	  
+	   $( "#season-form" ).load(url);
+		       
+});
+
+
+
 $("#seasons").on('click', '.delete', function (e) {
 	e.preventDefault(); //STOP default action
 	  var url = $(this).attr('href');

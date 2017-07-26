@@ -13,12 +13,12 @@
        }
 	
 	 $type = mysqli_real_escape_string($con,$_POST['category']); 
-     
+      $status = mysqli_real_escape_string($con,$_POST['status']); 
      if(count($errors)==0){
 	//mysqli_autocommit($con,FALSE);
 	$today = date('Y-m-d H:i:s');
 		// Attempt insert query execution
-		$sql = "INSERT INTO category (type, active) VALUES ('$type', 1)";
+		$sql = "INSERT INTO category (type, active) VALUES ('$type', '$status')";
 		if(mysqli_query($con, $sql)){
 			$message = "Category added successfully.";
 			 $type = ''; 
