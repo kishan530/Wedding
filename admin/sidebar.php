@@ -45,42 +45,33 @@
           </ul>
         </li>
 		 <li class="treeview">
-          <a href="#">
+          <a href="style-list.php">
             <i class="fa fa-files-o"></i> <span>Style List</span>          
           </a>
-		  <ul class="treeview-menu menu-open">
-            <li><a href="style-list.php"><i class="fa fa-circle-o"></i> List </a></li>
-            <li><a href="addStyle.php"><i class="fa fa-circle-o"></i> Add New</a></li>
-          </ul>
+		  
         </li>
 		
 		 <li class="treeview">
-          <a href="#">
+          <a href="occassion-list.php">
             <i class="fa fa-files-o"></i> <span>Occassion List</span>          
           </a>
-		  <ul class="treeview-menu menu-open">
-            <li><a href="occassion-list.php"><i class="fa fa-circle-o"></i> List </a></li>
-            <li><a href="addOccassion.php"><i class="fa fa-circle-o"></i> Add New</a></li>
-          </ul>
+		 
         </li>
 		 <li class="treeview">
-          <a href="#">
+          <a href="season-list.php">
             <i class="fa fa-files-o"></i> <span>Season List</span>          
           </a>
-		  <ul class="treeview-menu menu-open">
-            <li><a href="season-list.php"><i class="fa fa-circle-o"></i> List </a></li>
-            <li><a href="addSeason.php"><i class="fa fa-circle-o"></i> Add New</a></li>
-          </ul>
+		 
         </li>
 		 <li class="treeview">
-          <a href="#">
+          <a href="category-list.php">
             <i class="fa fa-files-o"></i> <span>Category List</span>          
           </a>
-		  <ul class="treeview-menu menu-open">
-            <li><a href="category-list.php"><i class="fa fa-circle-o"></i> List </a></li>
-            <li><a href="addCategory.php"><i class="fa fa-circle-o"></i> Add New</a></li>
-          </ul>
+		 
         </li>
+		 
+		  
+        
 		
 		
        
