@@ -77,13 +77,14 @@
 		  $file_ext=strtolower(end(explode('.',$_FILES['image']['name'])));
 		  
 		  $expensions= array("jpeg","jpg","png");
-		  
-		  if(in_array($file_ext,$expensions)=== false){
+		   if(!is_null($design_file_name) && $design_file_name!=''){
+			if(in_array($file_ext,$expensions)=== false){
 			 $errors[]="extension not allowed, please choose a JPEG or PNG file.";
-		  }
-		  if(count($errors)==0){
-			 move_uploaded_file($file_tmp,"images/designs/".$design_file_name);
-		  }
+			}
+			if(count($errors)==0){
+			 move_uploaded_file($file_tmp,"../images/designs/".$design_file_name);
+			}
+		   }
 	}
 	
 	
@@ -100,12 +101,14 @@
 		  
 		  $expensions= array("jpeg","jpg","png");
 		  
+		  if(!is_null($file_name) && $file_name!=''){
+		  
 		  if(in_array($file_ext,$expensions)=== false){
 			 $errors[]="extension not allowed, please choose a JPEG or PNG file.";
 		  }
 			   
 		  if(count($errors)==0){
-			 move_uploaded_file($file_tmp,"images/matches/".$file_name);
+			 move_uploaded_file($file_tmp,"../images/matches/".$file_name);
 			 
 			 $recommendationImage['recommendation_title'] = $_POST['recommendation_title'][$i];
 			 $recommendationImage['recommendation_designed_by'] = $_POST['recommendation_designed_by'][$i];
@@ -113,6 +116,7 @@
 			 $recommendationImages[] = $recommendationImage;
 			 //echo "Success";
 		  }
+		   }
 		}
 	}
 	
@@ -297,13 +301,13 @@ if(count($errors)==0){
 					<div class="col-lg-2">
 					<div class='form-group'>
 
-                  <input type="text" class="form-control" id="recommendation_title" name="recommendation_title[]" required >
+                  <input type="text" class="form-control" id="recommendation_title" name="recommendation_title[]" >
 				  </div>
 				  </div>
 				  <div class="col-lg-2">
 					<div class='form-group'>
 				  
-				   <input type="text" class="form-control" id="recommendation_designed_by" name="recommendation_designed_by[]" required >
+				   <input type="text" class="form-control" id="recommendation_designed_by" name="recommendation_designed_by[]">
 				   </div>
 				   </div>
 				   <div class="col-lg-2">
@@ -315,7 +319,6 @@ if(count($errors)==0){
                 </div>
 				<a href="#" id="add-more-recommendation">add more</a>
 				
-
 				</div>	
           </div>
 
