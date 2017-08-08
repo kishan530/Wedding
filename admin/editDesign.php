@@ -306,6 +306,13 @@
                     <option value="0" <?php if(!$status) echo 'selected'; ?>>In Active</option>                   
                   </select>
                 </div>
+				<div id="upload_image_widget">
+                <div class='form-group'>
+                  <label for='inputFile'>Image</label>
+                  <input type='file' id='inputFile' name='image'> 
+				<p class='help-block'>Supported formats JPEG, JPG and PNG</p>				  
+                </div>
+				</div>	
           </div>
 		  
 		  
