@@ -103,10 +103,10 @@
 		  $expensions= array("jpeg","jpg","png");
 		  
 		  if(in_array($file_ext,$expensions)=== false){
-			 $errors[]="extension not allowed, please choose a JPEG or PNG file.";
+		..	 $errors[]="extension not allowed, please choose a JPEG or PNG file.";
 		  }
 		  if(count($errors)==0){
-			 move_uploaded_file($file_tmp,"images/designs/".$design_file_name);
+			 move_uploaded_file($file_tmp,"../images/designs/".$design_file_name);
 		  }
 	}
 	
@@ -129,7 +129,7 @@
 		  }
 			   
 		  if(count($errors)==0){
-			 move_uploaded_file($file_tmp,"images/matches/".$file_name);
+			 move_uploaded_file($file_tmp,"../images/matches/".$file_name);
 			 
 			 $recommendationImage['recommendation_title'] = $_POST['recommendation_title'][$i];
 			 $recommendationImage['recommendation_designed_by'] = $_POST['recommendation_designed_by'][$i];

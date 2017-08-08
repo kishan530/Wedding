@@ -18,6 +18,7 @@ while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
 	$design['title'] = $rs["design_title"];
 	$design["designedBy"] = $rs["designed_by"];
 	$design['imagePath'] = $rs["image_path"];
+	$design['likes'] = $rs["likes"];
 }
 $outp['design'] =$design;
 
