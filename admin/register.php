@@ -1,4 +1,46 @@
- <?php
+<?php
+include("config.php");
+	 $myusername = $email =  $mypassword= $mobile= ''; 
+	
+   $errors = array();
+   $message = '';
+   if($_SERVER["REQUEST_METHOD"] == "POST") {
+	  $myusername = mysqli_real_escape_string($con,$_POST['username']);
+      $mypassword = mysqli_real_escape_string($con,$_POST['password']);
+       $email = mysqli_real_escape_string($con,$_POST['email']);
+	  	  
+	   $mobile = mysqli_real_escape_string($con,$_POST['mobile']); 
+	   $active = $row['active'];
+	  $isAdmin =(bool) 1;
+      $sql = "INSERT INTO user (username , email,password, mobile, active) VALUES ('$myusername ','$email ','$mypassword', '$mobile','1')";
+      //$sql = "SELECT * FROM users WHERE username = '$myusername' email='$email' and password = '$mypassword' and active =1";
+      $result = mysqli_query($con,$sql);
+	 
+	 
+     if(count($errors)==0){
+	//mysqli_autocommit($con,FALSE);
+	//$today = date('Y-m-d H:i:s');
+		// Attempt insert query execution
+		$sql = "INSERT INTO user (username , email,password,name, mobile, active) VALUES ('$myusername ','$email ','$mypassword', '$name', '$mobile','1')";
+		if(mysqli_query($con, $sql)){
+			$message = " added successfully.";
+			  
+		} else{
+			 $errors[]= "Could not able to save Albums " . mysqli_error($con);
+		}
+	  }
+	  
+	  if(count($errors)>0){
+		//echo var_dump($errors);
+		//exit();
+	  }
+   }
+?>
+
+
+
+
+<!-- <?php
    include("config.php");
    session_start();
    if (isset($_SESSION['user'])) {
@@ -14,8 +56,9 @@
       $myusername = mysqli_real_escape_string($con,$_POST['username']);
 	  $email = mysqli_real_escape_string($con,$_POST['email']);
       $mypassword = mysqli_real_escape_string($con,$_POST['password']); 
-      
-      $sql = "SELECT * FROM users WHERE username = '$myusername' email='$email' and password = '$mypassword' and active =1";
+	   $mobile = mysqli_real_escape_string($con,$_POST['mobile']); 
+      $sql = "INSERT INTO user (username , email,password, mobile, active) VALUES ('$myusername ','$email ','$mypassword', '$mobile','1')";
+      //$sql = "SELECT * FROM users WHERE username = '$myusername' email='$email' and password = '$mypassword' and active =1";
       $result = mysqli_query($con,$sql);
       $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 	 
@@ -32,6 +75,8 @@
 		 $_SESSION['user']['id'] = $row['id'];
          $_SESSION['user']['name'] = $myusername;
 		 $_SESSION['user']['email'] = $email;
+		 $_SESSION['user']['password'] = $password;
+		 $_SESSION['user']['mobile'] = $mobile;
 		 $_SESSION['user']['is_admin'] = $isAdmin;
          if($isAdmin)
          header("location: admin.php");
@@ -39,7 +84,7 @@
          $error = "Your Login Name or Password is invalid";
       }
    }
-?>
+?> -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -81,17 +126,22 @@
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
 	  <div class="form-group has-feedback">
+        <input type="mobile" name="mobile" class="form-control" placeholder="enter mobile">
+        <span class="glyphicon glyphicon-phone form-control-feedback"></span>
+      </div>
+	  <div class="form-group has-feedback">
         <input type="email" name="email" class="form-control" placeholder="enter ur email">
-        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
         <input type="password" name="password" class="form-control" placeholder=" enter ur Password">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
 	  <div class="form-group has-feedback">
-        <input type="password" name="password" class="form-control" placeholder=" Reenter Password">
+        <input type="password" name="confrim-password" class="form-control" placeholder=" Reenter Password">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
+	  
       <div class="row">
         <div class="col-xs-8">
          <div class="checkbox icheck">
@@ -110,6 +160,7 @@
     </form>
 </div>
 </div>
+
 <script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
 <script src="bootstrap/js/bootstrap.min.js"></script>

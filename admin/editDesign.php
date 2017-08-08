@@ -56,6 +56,7 @@
 			$season = mysqli_real_escape_string($con,$design['season']); 
 			$couple_coordination = mysqli_real_escape_string($con,$design['couple_coordination']); 
 			$wedding_after_dress = mysqli_real_escape_string($con,$design['wedding_after_dress']); 
+			$likes = $design['likes'];
 			$description = $design['description'];
 			$status = $design['status'];
 			$image_path = $design['image_path'];
@@ -83,7 +84,8 @@
 	   $occassion = mysqli_real_escape_string($con,$_POST['occassion']); 
 	   $season = mysqli_real_escape_string($con,$_POST['season']); 
 	   $couple_coordination = mysqli_real_escape_string($con,$_POST['couple_coordination']); 
-	   $wedding_after_dress = mysqli_real_escape_string($con,$_POST['wedding_after_dress']); 
+	   $wedding_after_dress = mysqli_real_escape_string($con,$_POST['wedding_after_dress']);
+       $likes = $_POST['likes'];	   
 	  $description = $_POST['description'];
 	  $id = mysqli_real_escape_string($con,$_POST['id']);
 	  $status = $_POST['status'];
@@ -142,7 +144,7 @@
      if(count($errors)==0){
 		if(is_null($design_file_name))
 			$design_file_name = $image_path;
-		$sql = "Update design set design_title = '$design_title',designed_by = '$designed_by',category = '$category',style = '$style',occassion = '$occassion', season = '$season',couple_coordination = '$couple_coordination',wedding_after_dress = '$wedding_after_dress', description = '$description',  status = '$status',  image_path = '$design_file_name' where id = '$id' ";
+		$sql = "Update design set design_title = '$design_title',designed_by = '$designed_by',category = '$category',style = '$style',occassion = '$occassion', season = '$season',couple_coordination = '$couple_coordination',wedding_after_dress = '$likes', description = '$description',  status = '$status',  image_path = '$design_file_name' where id = '$id' ";
 		//echo $sql;
 		if(mysqli_query($con, $sql)){
 			$message = "design updated successfully.";
@@ -292,7 +294,10 @@
                     <option value="0" <?php if(!$wedding_after_dress) echo 'selected'; ?>>No</option>                   
                   </select>
                 </div>
-				
+				<div class="form-group">
+                  <label for="likes_by">likes</label>
+                  <input type="text" class="form-control" id="likes_by" name="likes_by" placeholder="Enter likes here" value="<?php echo $likes; ?>">
+                </div>
 				
 			<div class="form-group">
                   <label>Status</label>

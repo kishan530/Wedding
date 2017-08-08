@@ -54,6 +54,7 @@
                   <th>Title</th>
 				  <th>Designed Dy</th>				  
                   <th>Created At</th>
+				  <th>likes</th>
                   <th>Status</th>
                   <th>Actions</th>
                 </tr>
@@ -68,6 +69,7 @@
                   <td><?php echo $design['design_title']; ?></td>
 				   <td><?php echo $design['designed_by']; ?></td>
 				   <td><?php echo $design['created_at']; ?></td>
+				   <td><?php echo $design['likes']; ?></td>
                   <td>
 					<?php if($design['status']>0) {?>
 				  <span class="label label-success">Active</span>

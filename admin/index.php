@@ -1,29 +1,41 @@
 <?php
+
    include("config.php");
    session_start();
    if (isset($_SESSION['user'])) {
 	$user = $_SESSION['user'];
 	$isAdmin = $user['is_admin'];
 		if($isAdmin){
+			
 			 header("location: admin.php");
 		}
    }
    $error = '';
+   $count=0;
    if($_SERVER["REQUEST_METHOD"] == "POST") {
       // username and password sent from form 
       $myusername = mysqli_real_escape_string($con,$_POST['username']);
       $mypassword = mysqli_real_escape_string($con,$_POST['password']); 
       
-      $sql = "SELECT * FROM users WHERE username = '$myusername' and password = '$mypassword' and active =1";
+	  
+      $sql = "SELECT * FROM user WHERE username = '$myusername' and password = '$mypassword' and active =1";
       $result = mysqli_query($con,$sql);
       $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-	 
+	// echo ($myusername);
+	//  echo ($mypassword);
+	  
+	  if ($row!=null)
+	  {
+		 echo ( $sql); 
+	//	  echo var_dump( $row);
+	//  exit();
       $active = $row['active'];
 	  $isAdmin =(bool) 1;
-      
+	  $count = 1;
+      }
      // $count = mysqli_num_rows($result);
 	
-	 $count = 1;
+	 
       
       // If result matched $myusername and $mypassword, table row must be 1 row
 		
