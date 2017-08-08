@@ -103,7 +103,7 @@
 		  $expensions= array("jpeg","jpg","png");
 		  
 		  if(in_array($file_ext,$expensions)=== false){
-		..	 $errors[]="extension not allowed, please choose a JPEG or PNG file.";
+			 $errors[]="extension not allowed, please choose a JPEG or PNG file.";
 		  }
 		  if(count($errors)==0){
 			 move_uploaded_file($file_tmp,"../images/designs/".$design_file_name);
