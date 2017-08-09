@@ -7,7 +7,7 @@
 			<img src="images/designs/{{ design.imagePath }}" alt="" width="70%"/>
 			<h2 style="text-align:center; padding:7px">By: {{ design.designedBy }}</h2>
 			<br><br>
-			<h4 style="font-size:25px">This Look Board Is Styled By {{ design.designedBy }}<P style="color:#8a8a8a;text-align:right"> like it? <span class="glyphicon glyphicon-heart"></span> {{ design.likes }} people liked it</p></h4>
+			<h4 id="look-board" style="font-size:25px">This Look Board Is Styled By {{ design.designedBy }}<P style="color:#8a8a8a;text-align:right"> like it? <span class="glyphicon glyphicon-heart like-heart" id="{{design.id}}" data-like="{{ design.likes }}"></span> <span id="heart-paragraph">{{ design.likes }}</span> people liked it</p></h4>
 	</div>
 	
 	<div class="col-lg-4">
@@ -44,3 +44,24 @@
 	<div class="gap"></div>
 	<div class="gap"></div>	
 </div>
+<script>
+$("#look-board").on('click', '.like-heart', function (e) {
+e.preventDefault();
+var id=$(this).attr('id');
+var like=$(this).attr('data-like');
+//var data=like;
+//alert('hello'+id+like);
+                    $.ajax({
+					type: 'post',
+                  url: './admin/setLike.php?id='+id+'&like='+like,
+             //    data: data,
+                  success: function (data) {
+            // alert('form was submitted'); 
+					//	alert(data); 
+						$('#heart-paragraph').html(data);
+					}	
+				});	
+				
+	});
+		  
+	</script>	  
