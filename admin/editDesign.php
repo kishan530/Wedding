@@ -101,12 +101,13 @@
 		  $file_ext=strtolower(end(explode('.',$_FILES['image']['name'])));
 		  
 		  $expensions= array("jpeg","jpg","png");
-		  
-		  if(in_array($file_ext,$expensions)=== false){
-			 $errors[]="extension not allowed, please choose a JPEG or PNG file.";
-		  }
-		  if(count($errors)==0){
-			 move_uploaded_file($file_tmp,"../images/designs/".$design_file_name);
+		  if(!is_null($design_file_name) && $design_file_name!=''){
+			  if(in_array($file_ext,$expensions)=== false){
+				 $errors[]="extension not allowed, please choose a JPEG or PNG file.";
+			  }
+			  if(count($errors)==0){
+				 move_uploaded_file($file_tmp,"../images/designs/".$design_file_name);
+			  }
 		  }
 	}
 	
@@ -123,19 +124,20 @@
 		  $file_ext=strtolower(end(explode('.',$_FILES['recommendation_image']['name'][$i])));
 		  
 		  $expensions= array("jpeg","jpg","png");
-		  
-		  if(in_array($file_ext,$expensions)=== false){
-			 $errors[]="extension not allowed, please choose a JPEG or PNG file.";
-		  }
+		  if(!is_null($file_name) && $file_name!=''){
+			  if(in_array($file_ext,$expensions)=== false){
+				 $errors[]="extension not allowed, please choose a JPEG or PNG file.";
+			  }
 			   
-		  if(count($errors)==0){
-			 move_uploaded_file($file_tmp,"../images/matches/".$file_name);
-			 
-			 $recommendationImage['recommendation_title'] = $_POST['recommendation_title'][$i];
-			 $recommendationImage['recommendation_designed_by'] = $_POST['recommendation_designed_by'][$i];
-			 $recommendationImage['image'] = $file_name;
-			 $recommendationImages[] = $recommendationImage;
-			 //echo "Success";
+			  if(count($errors)==0){
+				 move_uploaded_file($file_tmp,"../images/matches/".$file_name);
+				 
+				 $recommendationImage['recommendation_title'] = $_POST['recommendation_title'][$i];
+				 $recommendationImage['recommendation_designed_by'] = $_POST['recommendation_designed_by'][$i];
+				 $recommendationImage['image'] = $file_name;
+				 $recommendationImages[] = $recommendationImage;
+				 //echo "Success";
+			  }
 		  }
 		}
 	}
