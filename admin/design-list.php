@@ -52,7 +52,8 @@
                 <tr>
                   <th>Sl.No</th>
                   <th>Title</th>
-				  <th>Designed Dy</th>				  
+				  <th>Designed_by</th>
+				  <th>Styled_by</th>
                   <th>Created At</th>
 				  <th>likes</th>
                   <th>Status</th>
@@ -68,6 +69,7 @@
                   <td><?php echo $i; ?></td>
                   <td><?php echo $design['design_title']; ?></td>
 				   <td><?php echo $design['designed_by']; ?></td>
+				   <td><?php echo $design['styled_by']; ?></td>
 				   <td><?php echo $design['created_at']; ?></td>
 				   <td><?php echo $design['likes']; ?></td>
                   <td>

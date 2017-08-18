@@ -2,7 +2,7 @@
 
 <?php
 
-	 $design_title = $designed_by = $category = $style = $occassion = $season = $couple_coordination = $wedding_after_dress= $likes = $description = ''; 
+	 $design_title = $designed_by = $styled_by = $category = $style = $occassion = $season = $couple_coordination = $wedding_after_dress= $likes = $description = ''; 
 	 $sql = "SELECT * FROM category";
       $result = mysqli_query($con,$sql);
 	  $categories = array();
@@ -57,6 +57,7 @@
 	
 	 $design_title = mysqli_real_escape_string($con,$_POST['design_title']); 
       $designed_by = mysqli_real_escape_string($con,$_POST['designed_by']); 
+	   $styled_by = mysqli_real_escape_string($con,$_POST['styled_by']);
 	  $category = mysqli_real_escape_string($con,$_POST['category']); 
 	  $style = mysqli_real_escape_string($con,$_POST['style']); 
 	  // $outfit_type = mysqli_real_escape_string($con,$_POST['outfit_type']); 
@@ -128,12 +129,12 @@
 	mysqli_autocommit($con,FALSE);
 	$today = date('Y-m-d H:i:s');
 		// Attempt insert query execution
-		$sql = "INSERT INTO design(design_title,image_path,designed_by,description,category,style,occassion,season,couple_coordination,wedding_after_dress,likes,created_at, status) VALUES ('$design_title','$design_file_name','$designed_by','$description','$category','$style','$occassion','$season','$couple_coordination','$wedding_after_dress','$likes','$today', 1)";
+		$sql = "INSERT INTO design(design_title,image_path,designed_by,styled_by,description,category,style,occassion,season,couple_coordination,wedding_after_dress,likes,created_at, status) VALUES ('$design_title','$design_file_name','$designed_by','$styled_by','$description','$category','$style','$occassion','$season','$couple_coordination','$wedding_after_dress','$likes','$today', 1)";
 		 echo ($sql);
 	  
 		if(mysqli_query($con, $sql)){
 			$message = "Design added successfully.";
-			$design_title = $designed_by = $category = $style = $occassion = $season = $couple_coordination = $wedding_after_dress= $likes = $description = ''; 
+			$design_title = $designed_by = $styled_by = $category = $style = $occassion = $season = $couple_coordination = $wedding_after_dress= $likes = $description = ''; 
 		} else{
 			 $errors[]= "Could not able to save Design " . mysqli_error($con);
 		}
@@ -210,6 +211,10 @@ if(count($errors)==0){
 				<div class="form-group">
                   <label for="designed_by">Designed By</label>
                   <input type="text" class="form-control" id="designed_by" name="designed_by" placeholder="Enter Designed By" value="<?php echo $designed_by; ?>" required >
+                </div>
+				<div class="form-group">
+                  <label for="styled_by">styled By</label>
+                  <input type="text" class="form-control" id="styled_by" name="styled_by" placeholder="Enter styled By" value="<?php echo $styled_by; ?>" required >
                 </div>
 				
 				<div class="form-group">

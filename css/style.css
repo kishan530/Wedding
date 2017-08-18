@@ -48,6 +48,44 @@ margin:7px auto;
     margin-bottom: 20px;
     font-weight: 700;
 }
+#design-contant-style{
+	color:black;
+	font-size:18px
+}
+#paragraph-text{
+	color:#8a8a8a; 
+	text-align:center;
+	margin-top:12px
+}
+.content-style{
+	text-align:center;
+	padding:7px;
+	font-size:18px;
+	color: black;
+	text-transform:uppercase
+}
+#facebook{
+	 color:#3b5998;
+	 margin-top:15px;
+	 padding-right:7px;
+	 border: 1px solid white;
+}
+#twitter{
+	color:#1dcaff;
+	margin-top:15px;
+	padding-right:7px;
+	border: 1px solid white;
+}
+#instagram{
+	color: #458eff;
+	margin-top:15px;
+	border: 1px solid white;
+}
+.data{
+	text-align:right;
+	margin-top: -24px;
+	font-size: 10px;
+}
 body{
 	padding:0;
 	margin:0;

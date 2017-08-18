@@ -9,9 +9,8 @@ app.controller('lookBoardCtrl', function($scope,$routeParams, $http) {
 	   $scope.recommendations = response.data.recommendations;	  
    });
    
-   
    $scope.updateLikes = function () {
-	    console.log($scope.likes);
+	   // console.log($scope.likes);
 			$http.get("setLike.php",{ params: { id:$scope.design.id,like:$scope.likes  }})
 		   .then(function (response) {
 				$scope.likes = response.data;  

@@ -49,6 +49,7 @@
 			
 			$design_title = mysqli_real_escape_string($con,$design['design_title']); 
 			$designed_by = mysqli_real_escape_string($con,$design['designed_by']); 
+			$styled_by = mysqli_real_escape_string($con,$design['styled_by']); 
 			$category = mysqli_real_escape_string($con,$design['category']); 
 			$style = mysqli_real_escape_string($con,$design['style']); 
 			// $outfit_type = mysqli_real_escape_string($con,$design['outfit_type']); 
@@ -78,6 +79,7 @@
 	
 	  $design_title = mysqli_real_escape_string($con,$_POST['design_title']); 
       $designed_by = mysqli_real_escape_string($con,$_POST['designed_by']); 
+	  $styled_by = mysqli_real_escape_string($con,$_POST['styled_by']);
 	  $category = mysqli_real_escape_string($con,$_POST['category']); 
 	  $style = mysqli_real_escape_string($con,$_POST['style']); 
 	  // $outfit_type = mysqli_real_escape_string($con,$_POST['outfit_type']); 
@@ -146,7 +148,7 @@
      if(count($errors)==0){
 		if(is_null($design_file_name))
 			$design_file_name = $image_path;
-		$sql = "Update design set design_title = '$design_title',designed_by = '$designed_by',category = '$category',style = '$style',occassion = '$occassion', season = '$season',couple_coordination = '$couple_coordination',wedding_after_dress = '$likes', description = '$description',  status = '$status',  image_path = '$design_file_name' where id = '$id' ";
+		$sql = "Update design set design_title = '$design_title',designed_by = '$designed_by',styled_by = '$styled_by'category = '$category',style = '$style',occassion = '$occassion', season = '$season',couple_coordination = '$couple_coordination',wedding_after_dress = '$likes', description = '$description',  status = '$status',  image_path = '$design_file_name' where id = '$id' ";
 		//echo $sql;
 		if(mysqli_query($con, $sql)){
 			$message = "design updated successfully.";
@@ -222,10 +224,6 @@
 			<input type="hidden" name="id" value="<?php echo $design['id']; ?>" >
               <div class="box-body">
 			  
-				
-				
-				
-				
 				<div class="form-group">
                   <label for="design_title">Design Title</label>
                   <input type="text" class="form-control" id="design_title" name="design_title" placeholder="Enter Design Title" value="<?php echo $design_title; ?>" required >
@@ -234,7 +232,10 @@
                   <label for="designed_by">Designed By</label>
                   <input type="text" class="form-control" id="designed_by" name="designed_by" placeholder="Enter Designed By" value="<?php echo $designed_by; ?>" required >
                 </div>
-				
+				<div class="form-group">
+                  <label for="styled_by">styled By</label>
+                  <input type="text" class="form-control" id="styled_by" name="styled_by" placeholder="Enter styled By" value="<?php echo $styled_by; ?>" required >
+                </div>
 				<div class="form-group">
                   <label for="description">description</label>
 			  
