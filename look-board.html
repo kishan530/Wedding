@@ -5,7 +5,7 @@
 			<h2 class="content-style">By: {{ design.designedBy }}</h2>
 			<br><br>
 			<h4 style="font-size:18px;margin-top: -8px;">This Look Board Is Styled By {{ design.styledBy }}</h4>
-			<P id="paragraph-text"> like it?<span class="glyphicon glyphicon-heart" ><a ng-click=updateLikes()>{{ likes }}</span></a> people liked it {{description}}</p>
+			<P id="paragraph-text"> like it?<span class="glyphicon glyphicon-heart" ><a ng-click=updateLikes()>{{ likes }}</span></a> people liked it {{descriptionss}}</p>
 	</div>
 	
 	<div class="col-lg-4">
@@ -30,9 +30,12 @@
 				</div>
 			</a>			
 		</div>
+		
 	</div>
-	</div> 
+	</div>	
 	</div>
+	<hr>
+	<p>Description<br>{{design.description}}</p>
           <hr>
 	            <span>
 		 shares:<a href=" " target="_blank">
