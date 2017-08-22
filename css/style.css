@@ -11,6 +11,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 }
 
+.dropdown-menu>li.active {
+    color: #FFFFFF;
+    text-decoration: none;
+    background-color: #23527c;
+
+}
+
 .style-dropdown-menu{
 	min-width: 186px;
     padding: 8px 7px;
