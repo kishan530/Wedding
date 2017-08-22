@@ -7,7 +7,7 @@ app.controller('customersCtrl', function($scope, $http,$location) {
 	$scope.showGender = false;
 	
 	$scope.isStyleSelected = function(id) {
-    if($scope.selctedStyle.indexOf(id) > -1) { return true; }else { return false; }
+    if($scope.selctedStyle.indexOf(id) > -0) { return true; }else { return false; }
 }
 $scope.isSeasonSelected = function(id) {
     if($scope.selctedSeason.indexOf(id) > -1) { return true; }else { return false; }

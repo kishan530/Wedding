@@ -58,23 +58,25 @@
 
 		<li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Style<b class="caret"></b></a>
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu style-dropdown-menu">
+		  
             <li ng-repeat="style in styles" ng-class="{active: isStyleSelected(style.id)}">
-			<a ng-click="getDesigns(style.id,0,selctedOccasion,0,0,0)"> <input type="checkbox" ng-model="isStyleSelected(style.id)"class="ng-pristine ng-untouched ng-valid" /> {{ style.style }}</a>
+			<label ng-click="getDesigns(style.id,0,selctedOccasion,0,0,0)"> <input type="checkbox" ng-bind="isStyleSelected(style.id)" class="ng-pristine ng-untouched ng-valid"> </input>{{ style.style }} </label>
+			<!--<a ng-click="getDesigns(style.id,0,selctedOccasion,0,0,0)"> <input type="checkbox" ng-bind="isStyleSelected(style.id)" class="ng-pristine ng-untouched ng-valid" /> {{ style.style }}</a> -->
 			</li>                    
           </ul>
 		 </li>		
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Occasion<b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li ng-repeat="occasion in occasions" ng-class="{active : selctedOccasion == occasion.id}"><a ng-click="getDesigns(0,selctedOutfit,occasion.id,0,0,0)" >{{ occasion.name }}</a></li>                    
+            <li ng-repeat="occasion in occasions" ng-class="{active : selctedOccasion == occasion.id}"><label ng-click="getDesigns(0,selctedOutfit,occasion.id,0,0,0)" >{{ occasion.name }}</label> </li>                    
           </ul>
         </li>
 		 <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">season<b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li ng-repeat="season in seasons" ng-class="{active: isSeasonSelected(season.id)}">
-				<a ng-click="getDesigns(0,selctedOutfit,selctedOccasion,season.id,0,0)"><input type="checkbox" ng-model="isStyleSelected(style.id)" class="ng-pristine ng-untouched ng-valid"/>  {{ season.season }}</a>
+				<label ng-click="getDesigns(0,selctedOutfit,selctedOccasion,season.id,0,0)"><input type="checkbox" ng-bind="isStyleSelected(style.id)" class="ng-pristine ng-untouched ng-valid"/>  {{ season.season }}</label>
 			</li>                    
           </ul>
 		 </li>
