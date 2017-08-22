@@ -1,13 +1,29 @@
+
 <div ng-app="myApp" ng-controller="lookBoardCtrl">
 <div class="row" style="padding:15px">
 	<div class="col-lg-8 text-center"><br>
-			<img src="images/designs/{{ design.imagePath }}" alt="" height="400px" width="350px"/>
+	<script src="dist/Drift.js"></script>
+	<div class="wrapper" imageZoom>
+      <img class="drift-demo-trigger" data-zoom="images/designs/{{ design.imagePath }}?w=1200&amp;ch=DPR&amp;dpr=2" src="images/designs/{{ design.imagePath }}?w=400&amp;ch=DPR&amp;dpr=2">
+	  <div class="detail responsive-hint" style="height:300px;"></div>
+   
+	
+<script>
+      new Drift(document.querySelector('.drift-demo-trigger'), {
+        paneContainer: document.querySelector('.detail'),
+        inlinePane: 900,
+        inlineOffsetY: -85,
+        containInline: true,
+        hoverBoundingBox: true
+      });
+    </script> 
+			<!--<img src="images/designs/{{ design.imagePath }}" alt="" height="400px" width="350px"/> -->
 			<h2 class="content-style">By: {{ design.designedBy }}</h2>
 			<br><br>
-			<h4 style="font-size:18px;margin-top: -8px;">This Look Board Is Styled By {{ design.styledBy }}</h4>
+			<h4 style="font-size:18px;margin-top: -8px;margin-left:180px">This Look Board Is Styled By {{ design.styledBy }}</h4>
 			<P id="paragraph-text"> like it?<span class="glyphicon glyphicon-heart" ><a ng-click=updateLikes()>{{ likes }}</span></a> people liked it {{descriptionss}}</p>
 	</div>
-	
+	 </div>
 	<div class="col-lg-4">
 	<h4 id="design-contact-style">Recommendations For Completing The Look</h4><br>
 		<div class="row">	
@@ -17,7 +33,7 @@
 			<img ng-src="images/matches/{{ x.imagePath }}" alt="" width="100%" class="img-responsive side-image" />
 		</div>
 		<div class="design-content">
-			<h2 style="font-size:18px">{{ x.title }}</h2>
+			<h2 style="font-size:14px">{{ x.title }}</h2>
 			<a class="profileSource" href="#">
 				<div class="thumbImageWrapper">            
 					<img src="images/avatars.jpg" alt="Designer" title="More">
@@ -30,23 +46,24 @@
 				</div>
 			</a>			
 		</div>
-		
 	</div>
-	</div>	
 	</div>
-	<hr>
-	<p>Description<br>{{design.description}}</p>
-          <hr>
-	            <span>
-		 shares:<a href=" " target="_blank">
-					<i class ="fa fa-facebook" id="facebook" aria-hidden="true"></i></a>
-				<a href=" " target="_blank">
-					<i class ="fa fa-twitter" id="twitter" aria-hidden="true"></i></a>
-				<a href="" target="_blank">
-					<i class ="fa fa-instagram" id="instagram" aria-hidden="true"></i></a>
-				</span>
-				<p class="data">TO GET THESE LOOK call<br> +918296058409 or email<br> styleme@wedelicious.com</p>
-	         <hr>	
+             <hr>
+	      <p>DESCRIPTION<br>{{design.description}}</p>
+        <hr>
+	        <span>
+			<p class="data">TO GET THESE LOOK call +918296058409 or email  styleme@wedelicious.com</p>
+		          Shares:<a href=" " target="_blank">
+					         <i class ="fa fa-facebook" id="facebook" aria-hidden="true"></i></a>
+				         <a href=" " target="_blank">
+					         <i class ="fa fa-twitter" id="twitter" aria-hidden="true"></i></a>
+				         <a href="" target="_blank">
+					         <i class ="fa fa-instagram" id="instagram" aria-hidden="true"></i></a>
+			</span>
+				
+	    <hr>	
+	</div>
+	      
     </div>
     </div>
     </div>	
@@ -54,3 +71,4 @@
 	<div class="gap"></div>
 	<div class="gap"></div>	
 </div>
+

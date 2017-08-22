@@ -54,15 +54,20 @@ margin:7px auto;
 }
 #paragraph-text{
 	color:#8a8a8a; 
-	text-align:center;
+	margin-left:180px;
 	margin-top:12px
 }
 .content-style{
-	text-align:center;
-	padding:7px;
-	font-size:18px;
-	color: black;
-	text-transform:uppercase
+	    margin-left:180px;
+	font-size: 14px;
+    text-transform: uppercase;
+    color: #000;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 20px 22px;
+    font-family: "Lato", Arial, Tahoma, sans-serif;
+    text-align: center;
+	
 }
 #facebook{
 	 color:#3b5998;
@@ -82,8 +87,8 @@ margin:7px auto;
 	border: 1px solid white;
 }
 .data{
-	text-align:right;
-	margin-top: -24px;
+	
+	margin-top: -15px;
 	font-size: 10px;
 }
 body{
@@ -124,6 +129,7 @@ h1,h2,h3,h4,h5,h6{
 p{
 	margin:0;
 	font-family: 'Open Sans', sans-serif;
+	color: #8a8a8a;
 }
 ul{
 	margin:0;
@@ -690,6 +696,7 @@ a.profileSource {
 .profileSource .profileSourceAttributionContent .title,.profileSource .profileSourceAttributionContent .fullname {
     color: #444;
     max-width: 414px;
+	font-size: 14px;
 }
 .profileSource .profileSourceAttributionContent .title,.profileSource .profileSourceAttributionContent .fullname {
     color: #444;
