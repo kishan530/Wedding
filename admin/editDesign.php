@@ -85,8 +85,8 @@
 	  // $outfit_type = mysqli_real_escape_string($con,$_POST['outfit_type']); 
 	   $occassion = mysqli_real_escape_string($con,$_POST['occassion']); 
 	   $season = mysqli_real_escape_string($con,$_POST['season']); 
-	   $couple_coordination = mysqli_real_escape_string($con,$_POST['couple_coordination']); 
-	   $wedding_after_dress = mysqli_real_escape_string($con,$_POST['wedding_after_dress']);
+	   $couple_coordination =  mysqli_real_escape_string($con,$_POST['couple_coordination']);
+	   $wedding_after_dress =  mysqli_real_escape_string($con,$_POST['wedding_after_dress']); 
        $likes = $_POST['likes'];	   
 	  $description = $_POST['description'];
 	  $id = mysqli_real_escape_string($con,$_POST['id']);
@@ -146,9 +146,9 @@
 	
 	
      if(count($errors)==0){
-		if(is_null($design_file_name))
+		 if(is_null($design_file_name) || $design_file_name=='')
 			$design_file_name = $image_path;
-		$sql = "Update design set design_title = '$design_title',designed_by = '$designed_by',styled_by = '$styled_by'category = '$category',style = '$style',occassion = '$occassion', season = '$season',couple_coordination = '$couple_coordination',wedding_after_dress = '$likes', description = '$description',  status = '$status',  image_path = '$design_file_name' where id = '$id' ";
+		$sql = "Update design set design_title = '$design_title',designed_by = '$designed_by',styled_by = '$styled_by',category = '$category',style = '$style',occassion = '$occassion', season = '$season',couple_coordination = '$couple_coordination',wedding_after_dress='$wedding_after_dress',likes= '$likes', description = '$description',  status = '$status',  image_path = '$design_file_name' where id = '$id' ";
 		//echo $sql;
 		if(mysqli_query($con, $sql)){
 			$message = "design updated successfully.";
@@ -340,13 +340,13 @@
 					<div class="col-lg-2">
 					<div class='form-group'>
 
-                  <input type="text" class="form-control" id="recommendation_title" name="recommendation_title[]" required >
+                  <input type="text" class="form-control" id="recommendation_title" name="recommendation_title[]">
 				  </div>
 				  </div>
 				  <div class="col-lg-2">
 					<div class='form-group'>
 				  
-				   <input type="text" class="form-control" id="recommendation_designed_by" name="recommendation_designed_by[]" required >
+				   <input type="text" class="form-control" id="recommendation_designed_by" name="recommendation_designed_by[]">
 				   </div>
 				   </div>
 				   <div class="col-lg-2">

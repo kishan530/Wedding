@@ -73,8 +73,13 @@ margin:7px auto;
 }
 #paragraph-text{
 	color:#8a8a8a; 
-	margin-left:180px;
 	margin-top:12px
+}
+#paragraph-text a{
+	padding: 0 5px;
+}
+#paragraph-text a span{
+color: #c4b392;
 }
 .content-style{
 	    margin-left:180px;
@@ -88,21 +93,37 @@ margin:7px auto;
     text-align: center;
 	
 }
+.look-board-content-style{
+	font-size: 14px;
+    text-transform: uppercase;
+    color: #000;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 15px 22px;
+    font-family: "Lato", Arial, Tahoma, sans-serif;
+    text-align: center;
+	
+}
+.rec-title{
+margin-bottom:15px;
+}
+.get-look-board{
+color: #b48f47;
+font-size:17px;
+font-weight: bold;
+}
 #facebook{
 	 color:#3b5998;
-	 margin-top:15px;
 	 padding-right:7px;
 	 border: 1px solid white;
 }
 #twitter{
 	color:#1dcaff;
-	margin-top:15px;
 	padding-right:7px;
 	border: 1px solid white;
 }
 #instagram{
 	color: #458eff;
-	margin-top:15px;
 	border: 1px solid white;
 }
 .data{
@@ -114,7 +135,7 @@ body{
 	padding:0;
 	margin:0;
 	background:#fff;
-	font-family: 'Roboto Condensed', sans-serif;
+	font-family: "Lato", Arial, Tahoma, sans-serif;
 }
 a{
 	text-decoration:none;
@@ -147,7 +168,7 @@ h1,h2,h3,h4,h5,h6{
  
 p{
 	margin:0;
-	font-family: 'Open Sans', sans-serif;
+	font-family: "Lato", Arial, Tahoma, sans-serif;
 	color: #8a8a8a;
 }
 ul{
@@ -568,11 +589,12 @@ header {
     border-radius: 8px;
 }
 .design-box .design-content h2{
-	font-weight: 600;
-    font-family: Arial,sans-serif;
-    text-transform: capitalize;
+	/*font-weight: 600;   
+    text-transform: capitalize;*/
+	font-family: "Lato",Arial,Tahoma,sans-serif;
     padding: 5px;
-	    font-size: 18px;
+	font-size: 13px;
+	color:#7e8184;
 }
 .gap{
 	margin:25px;
@@ -689,8 +711,8 @@ a.profileSource {
 }
 .thumbImageWrapper img {
     border-radius: 50%;
-    height: 40px;
-    width: 40px;
+   height: 34px;
+ width: 34px;
 }
 .profileSource .profileSourceAttributionContent {
     display: -webkit-box;
@@ -708,14 +730,16 @@ a.profileSource {
 }
 .profileSource .profileSourceAttributionContent .title {
     margin-top: 0;
-	font-size: 14px;
+	color: #717171;
+	font-size: 12px;
     font-weight: normal;
 	font-family: "Helvetica", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", "ＭＳ Ｐゴシック", sans-serif;
 }
-.profileSource .profileSourceAttributionContent .title,.profileSource .profileSourceAttributionContent .fullname {
-    color: #444;
-    max-width: 414px;
-	font-size: 14px;
+.profileSource .profileSourceAttributionContent .fullname {
+	font-size: 16px;
+	font-weight:bold;
+	line-height: 17px;
+	color: #555;
 }
 .profileSource .profileSourceAttributionContent .title,.profileSource .profileSourceAttributionContent .fullname {
     color: #444;
