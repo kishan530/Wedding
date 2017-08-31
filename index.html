@@ -29,6 +29,7 @@
 <!-- Required-js -->
 <!-- main slider-banner -->
 <script src="js/skdslider.min.js"></script>
+<script type='text/javascript' src='js/jquery.jqzoom-core.js'></script>
 <link href="css/skdslider.css" rel="stylesheet">
 <script src="app.js"></script>
 <script src="route.js"></script>
@@ -38,7 +39,7 @@
 <script src="makeupArtistCtrl.js"></script>
 
 
-<link href="css/style.css?version=1.07" rel="stylesheet" type="text/css" media="all" />
+<link href="css/style.css?version=1.09" rel="stylesheet" type="text/css" media="all" />
 <script type="text/javascript">
 		jQuery(document).ready(function(){
 			
@@ -97,15 +98,20 @@
     
      
       .drift-demo-trigger {
-        width: 30%;
-        margin-right: 24%;
+       /* width: 30%;
+        margin-right: 24%; */
       }
 
       .detail {
-        position: relative;
-        width: 40%;
-        margin-left: 5%;
-        float: left;
+        position: absolute;
+        width: 75%;
+		margin-left: 5%;
+		z-index: 5001;
+		left: 539px;
+		top: 21px;
+	}
+
+
       }
 
       
@@ -118,6 +124,7 @@
         .wrapper {
           text-align: center;
           width: auto;
+		   position : relative;
         }
 
         .detail, .drift-demo-trigger {
@@ -129,20 +136,17 @@
           width: auto;
           margin: 0 auto;
         }
-
         .detail {
           margin: 0;
           width: auto;
         }
-
-       
-
         .responsive-hint {
           display: none;
         }
 
         .drift-bounding-box {
           display: none;
+		 
         }
       }
     </style>
@@ -179,11 +183,10 @@
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				  <ul class="nav navbar-nav">
 					<li><a class="active" href="index.html">Home</a></li>
-					<li><a href="#">About</a></li>
-					<li><a href="#">Life Style</a></li>					
-					<li><a href="#">Fashion</a></li>
-					<li><a href="#!photography">Photography</a></li>
-                    <li><a href="#!makeup-artist">MakeupArtist</a></li>					
+					<li><a href="#">Wedding Fashion</a></li>
+					<li><a href="#">Styling Services</a></li>					
+					 <li><a href="#!makeup-artist">Makeup</a></li>	
+					<li><a href="#!photography">Photography</a></li>                 				
 					<li><a href="#">Contact</a></li>
 				  </ul>
 				</div><!-- /.navbar-collapse -->
@@ -209,7 +212,7 @@
 		
 	</div>
 	
-					
+				
 	
 <!-- here stars scrolling icon -->
 	<script type="text/javascript">

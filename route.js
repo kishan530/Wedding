@@ -30,6 +30,26 @@ app.directive('skdslider', function () {
   }
 });
 
+app.directive('jqzoom', function () {
+
+  return {
+    link: function (scope, element, attrs) {	  
+	  element.jqzoom({
+			zoomType: 'innerzoom',
+			lens:false,
+			preloadImages: false,
+			alwaysOn:false,
+			zoomWidth:200,
+			zoomHeight:300,
+			xOffset:0,
+			showEffect:'fadein',
+			hideEffect:'fadeout'
+	        });
+	  
+    }
+  }
+});
+
 /*app.directive('imageZoom', function () {
 
   return {
