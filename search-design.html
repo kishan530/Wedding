@@ -61,7 +61,7 @@
           <ul class="dropdown-menu style-dropdown-menu">
 		  
             <li ng-repeat="style in styles" ng-class="{active:isStyleSelected(style.id)}">
-			<label ng-click="getDesigns(style.id,0,selctedOccasion,0,0,0)" for="style{{ style.id }}"> <input id="style{{ style.id }}" type="checkbox" class="ng-pristine ng-untouched ng-valid" ng-bind="isStyleSelected(style.id)" > </input>{{ style.style }} </label>
+			<label ng-click="getDesigns(style.id,0,selctedOccasion,0,0,0)" for="style{{ style.id }}"> <input id="style{{ style.id }}" type="checkbox" class="ng-pristine ng-untouched ng-valid" ng-bind="isStyleSelected(style.id)" ></input>{{ style.style }} </label>
 			<!--<a ng-click="getDesigns(style.id,0,selctedOccasion,0,0,0)"> <input type="checkbox" ng-bind="isStyleSelected(style.id)" class="ng-pristine ng-untouched ng-valid" /> {{ style.style }}</a> -->
 			</li>                    
           </ul>

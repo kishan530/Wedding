@@ -58,14 +58,14 @@ $http.get("get-data.php",{ params: { category: $scope.category,  style: $style ,
 			$scope.applyFilters(JSON.stringify([]),0,0,JSON.stringify([]),$wad,$cc); 
 		}else{
 		 if($style>0){
-			// console.log($style);
+			 console.log($style);
 			if($scope.selctedStyle.indexOf($style) == -1) {
 				$scope.selctedStyle.push($style);
 			  }else {
-				 // console.log($scope.selctedStyle.indexOf($style));
-				// console.log($scope.selctedStyle);
+				  console.log($scope.selctedStyle.indexOf($style));
+				 console.log($scope.selctedStyle);
 				$scope.selctedStyle.splice($scope.selctedStyle.indexOf($style),1);
-				// console.log($scope.selctedStyle);
+				 console.log($scope.selctedStyle);
 			  }
 			}
 		if($season>0){
@@ -77,7 +77,7 @@ $http.get("get-data.php",{ params: { category: $scope.category,  style: $style ,
 			}
 		 $scope.selctedOutfit = $outfit;
 		 $scope.selctedOccasion = $occasion;
-		// $scope.selctedSeason = $season;
+		 //$scope.selctedSeason = $season;
 		$scope.applyFilters(JSON.stringify($scope.selctedStyle),$outfit,$occasion,JSON.stringify($scope.selctedSeason),0,0);
 		}
     };
