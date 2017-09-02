@@ -1,58 +1,12 @@
 <div ng-app="myApp" ng-controller="WeddingFashionCtrl">
 
 <div class="photos" id="photoshop">
+     <div class="" ng-repeat="fashion in fashions">
 		<div class="photo">
-			<img src="images/1.jpg">
-			<div class="photo-title">1</div>
+			<img src="images/fashion/{{ fashion.imagePath }}" alt="" width="50%" class="img-responsive side-image" />
+			<div class="photo-title">{{ fashion.Tittle }}</div>
 		</div>
-		<div class="photo">
-			<img src="images/6.jpeg">
-			<div class="photo-title">2</div>
-		</div>
-		<div class="photo">
-			<img src="images/3.jpg">
-			<div class="photo-title">3</div>
-		</div>
-		<div class="photo">
-			<img src="images/7.jpg">
-			<div class="photo-title">4</div>
-		</div>
-		<div class="photo">
-			<img src="images/2.jpg">
-			<div class="photo-title">5</div>
-		</div>
-		<div class="photo">
-			<img src="images/10.jpeg">
-			<div class="photo-title">6</div>
-		</div>
-		<div class="photo">
-			<img src="images/4.jpg">
-			<div class="photo-title">7</div>
-		</div>
-		<div class="photo">
-			<img src="images/8.jpeg">
-			<div class="photo-title">8</div>
-		</div>
-		<div class="photo">
-			<img src="images/5.jpeg">
-			<div class="photo-title">9</div>
-		</div>
-		<div class="photo">
-			<img src="images/9.jpeg">
-			<div class="photo-title">10</div>
-		</div>
-		<div class="photo">
-			<img src="images/3.jpg">
-			<div class="photo-title">11</div>
-		</div>
-		<div class="photo">
-			<img src="images/11.jpg">
-			<div class="photo-title">12</div>
-		</div>
-		<div class="photo">
-			<img src="images/.jpg">
-			<div class="photo-title"></div>
-		</div>
+     </div>
 	</div>
 	
 	<script type="text/javascript">
