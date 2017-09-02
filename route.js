@@ -17,8 +17,28 @@ $routeProvider.
 	when('/makeup-artist', { 
 		controller: 'makeupArtistCtrl', 
 		templateUrl: 'makeup-artist.html' 
-	});
+	}).
+	when('/Wedding-Fashion', { 
+		controller: 'WeddingFashionCtrl', 
+		templateUrl: 'Wedding-Fashion.html' 
+	}).
+	when('/Styling-Services', { 
+		controller: 'StylingServicesCtrl', 
+		templateUrl: 'Styling-Services.html' 
+	}).
+	when('/contact', { 
+		controller: 'contactCtrl', 
+		templateUrl: 'contact.html' 
+	}); 
+	
+	
+	
+	
 });
+
+
+
+
 
 app.directive('skdslider', function () {
 

@@ -44,6 +44,15 @@
             <li><a href="addartist.php"><i class="fa fa-circle-o"></i> Add New</a></li>
           </ul>
         </li>
+		<li class="treeview">
+          <a href="#">
+            <i class="fa fa-files-o"></i> <span>Wedding-FashionList</span>          
+          </a>
+		  <ul class="treeview-menu menu-open">
+            <li><a href="fashion-list.php"><i class="fa fa-circle-o"></i> List </a></li>
+            <li><a href="addfashion.php"><i class="fa fa-circle-o"></i> Add New</a></li>
+          </ul>
+        </li>
 		 <li class="treeview">
           <a href="style-list.php">
             <i class="fa fa-files-o"></i> <span>Style List</span>          
