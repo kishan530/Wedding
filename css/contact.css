@@ -106,3 +106,50 @@ h1{
 		  margin:auto;
 		  font-size:0px;
 		}
+		
+		/* StylingServices start */ 
+ #styling-services h1{
+	color:#bbb;
+	margin-top: 16px;
+}	
+#styling-services p {
+	color:#bbb;
+    margin-top: 25px;
+}
+.stylingdata{
+	    color: black;
+    margin-left: 10px;
+}
+#form_submit_button-data{
+	padding: 25px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-left: 256px;
+    background: black;
+    color: #bbb;
+}
+
+#dreamfurthure h1{
+	color: #bbb;
+	text-align: center;
+	margin-top: 54px;
+}
+.tiffany-img {
+	    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.wedding-services{
+background:black;
+ height:40px;
+ text-align:center;	
+}
+.wedding-services h1{
+	padding: 7px;
+}
+.wedding-services h1 span{
+	padding-right: 20px;
+}
+.stylefree{
+	padding-left: 20px;
+}
