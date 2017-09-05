@@ -10,13 +10,13 @@ $outp = array();
 $albums =  array();
 while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
 
-    $albums['id'] = $rs["id"];
-	$albums['name'] = $rs["name"];
-	$albums['description'] = $rs["description"];
+    $album['id'] = $rs["id"];
+	$album['name'] = $rs["name"];
+	$album['description'] = $rs["description"];
 	$image = $rs["image"];
-	$albums['imagePath'] = $image;
+	$album['imagePath'] = $image;
 	
-	$albums[] = $albums;
+	$albums[] = $album;
 }
 $outp['albums'] =$albums;
 $conn->close();

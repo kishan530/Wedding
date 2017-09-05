@@ -19,6 +19,7 @@
 }
 .skdslider ul.slides li img{
     width: 100%;
+	height: 100%;
 	border:0;
 }
 
@@ -342,4 +343,16 @@ text-decoration:underline;
     font-size: 15px;
     width: 100%;
 }
+}
+.bannerstyle {
+	margin-left: -20px;
+}
+.bannerstyle img {
+	height:260px;
+	width:385px;
+}
+.bannerstyle iframe {
+	width:385px;
+	height:170px; 
+	margin-top:10px;
 }
