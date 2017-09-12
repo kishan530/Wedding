@@ -25,11 +25,11 @@
      
    if($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    if (!isset($_POST["albums"])) {
+    if (!isset($_POST["album-name"])) {
                $errors[] = "albums is required";
        }
 	
-	  $name = mysqli_real_escape_string($con,$_POST['albums']); 
+	  $name = mysqli_real_escape_string($con,$_POST['album-name']); 
 	  $id = mysqli_real_escape_string($con,$_POST['id']);
 	  $status = $_POST['status'];
 	 $description = $_POST['description'];
@@ -118,7 +118,7 @@
 				
 				<div class="form-group">
                   <label for="name">name</label>
-                  <input type="text" class="form-control" id="albums" name="albums" placeholder="Enter albums Title" value="<?php echo $name; ?>" required >
+                  <input type="text" class="form-control" id="albums" name="album-name" placeholder="Enter albums Title" value="<?php echo $name; ?>" required >
                 </div>
 				
 				

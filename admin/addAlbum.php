@@ -8,11 +8,11 @@
    $message = '';
    if($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    if (!isset($_POST["albums"])) {
+    if (!isset($_POST["album-name"])) {
                $errors[] = "Albums is required";
        }
 	
-	 $name = mysqli_real_escape_string($con,$_POST['albums']); 
+	 $name = mysqli_real_escape_string($con,$_POST['album-name']); 
      $description=$_POST['description'];
 	 
 	 if(isset($_FILES['image'])){
@@ -95,7 +95,7 @@
 				
 				<div class="form-group">
                   <label for="name">name</label>
-                  <input type="text" class="form-control" id="name" name="name" placeholder="Enter Albums" value="<?php echo $name; ?>" required >
+                  <input type="text" class="form-control" id="name" name="album-name" placeholder="Enter Albums" value="<?php echo $name; ?>" required >
                 </div>	
 				<div class="form-group">
                   <label for="description">description</label>

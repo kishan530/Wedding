@@ -18,4 +18,6 @@ app.controller('lookBoardCtrl', function($scope,$routeParams, $http) {
 		   });
    };
    
+  
+   
 });

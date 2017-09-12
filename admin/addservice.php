@@ -2,17 +2,18 @@
 
 <?php
 
-	 $Tittle =  ''; 
+	 $Tittle = $type = ''; 
 	
    $errors = array();
    $message = '';
    if($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    if (!isset($_POST["service"])) {
-               $errors[] = "service is required";
+    if (!isset($_POST["Tittle"])) {
+               $errors[] = "Tittle is required";
        }
 	
-	 $Tittle = mysqli_real_escape_string($con,$_POST['service']); 
+	 $Tittle = mysqli_real_escape_string($con,$_POST['Tittle']); 
+	  $type = mysqli_real_escape_string($con,$_POST['type']); 
 	 if(isset($_FILES['image'])){
 	  $design_file_name = $_FILES['image']['name'];
 		  $file_size =$_FILES['image']['size'];
@@ -34,7 +35,7 @@
 	//mysqli_autocommit($con,FALSE);
 	//$today = date('Y-m-d H:i:s');
 		// Attempt insert query execution
-		$sql = "INSERT INTO styling_service(Tittle ,image, active) VALUES ('$Tittle ','$design_file_name','1')";
+		$sql = "INSERT INTO styling_service(Tittle ,image,type, active) VALUES ('$Tittle ','$design_file_name','$type','1')";
 		if(mysqli_query($con, $sql)){
 			$message = "service added successfully.";
 			 $Tittle = '';
@@ -91,7 +92,7 @@
 				
 				<div class="form-group">
                   <label for="Tittle">Tittle</label>
-                  <input type="text" class="form-control" id="service"  name="service" placeholder="Enter service" value="<?php echo $Tittle; ?>" required >
+                  <input type="text" class="form-control" id="Tittle"  name="Tittle" placeholder="Enter Tittle" value="<?php echo $Tittle; ?>" required >
                 </div>	
 				
               <div id="upload_image_widget">
@@ -100,8 +101,18 @@
                   <input type='file' id='inputFile' name='image'> 
 				<p class='help-block'>Supported formats JPEG, JPG and PNG</p>				  
                 </div>
-				</div>					
-				
+				</div>
+				<div class="form-group">
+                  <label>type</label>
+                  <select class="form-control" name="type">
+                     <option value="style board" <?php if($type) echo 'selected'; ?>>style board</option>
+                    <option value="couple co-ordination" <?php if(!$type) echo 'selected'; ?>>couple co-ordination</option>                  
+                  </select>
+                </div>
+				<!--<div class="form-group">
+                  <label for="type">type</label>
+                  <input type="text" class="form-control" id="type" name="type" placeholder="Enter type" value="<?php echo $type; ?>" required >
+                </div>-->
              </div>
 
               <div class="box-footer">

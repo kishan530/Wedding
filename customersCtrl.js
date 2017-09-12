@@ -5,7 +5,7 @@ app.controller('customersCtrl', function($scope, $http,$location) {
 	$scope.selctedOccasion = '0';
 	$scope.selctedSeason = [];
 	$scope.showGender = false;
-	
+	 $scope.sessionVal = '';
 	$scope.isStyleSelected = function(id) {
 		 //console.log(id);
 		// console.log($scope.selctedStyle.indexOf(id));
@@ -98,5 +98,14 @@ $http.get("get-data.php",{ params: { category: $scope.category,  style: $style ,
     };
    
    $scope.applyFilters(JSON.stringify([]),0,0,JSON.stringify([]),0,0); 
+   
+    $http.get("get-session.php",{ params: { 'test': 'test' }})
+   .then(function (response) {
+	   $scope.sessionVal = response.data;  
+	   console.log(response.data);
+	  
+	 
+	});
+   
    
 });

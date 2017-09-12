@@ -690,9 +690,15 @@ header {
 		column-count: 5;
 	}
 }
-
+/*
 #columns:hover .pin:not(:hover) {
 	opacity: 0.4;
+}
+*/
+
+#columns:hover .pin:hover {
+	border:5px solid #F9F9F9;
+	background-color:#F9F9F9;
 }
 
 

@@ -5,7 +5,7 @@
    $message = '';
    if (isset($_GET["Id"])) {
             $Id = mysqli_real_escape_string($con,$_GET['Id']); 
-			 $sql = "SELECT * FROM Wedding_Fashion WHERE Id =$Id";
+			 $sql = "SELECT * FROM wedding_fashion WHERE Id =$Id";
 			$result = mysqli_query($con,$sql);
 			$fashion = mysqli_fetch_array($result,MYSQLI_ASSOC);
 			
@@ -52,7 +52,7 @@
      if(count($errors)==0){
 		 	if(is_null($design_file_name))
 			$design_file_name = $image_path;
-		$sql = "Update Wedding_Fashion set Tittle = '$Tittle',image= '$design_file_name',active = '$status' where Id = '$Id' ";
+		$sql = "Update wedding_fashion set Tittle = '$Tittle',image= '$design_file_name',active = '$status' where Id = '$Id' ";
 		//echo $sql;
 		if(mysqli_query($con, $sql)){
 			$message = "fashion updated successfully.";

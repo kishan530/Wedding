@@ -345,14 +345,17 @@ text-decoration:underline;
 }
 }
 .bannerstyle {
-	margin-left: -20px;
+	    padding-right: 0px;
 }
-.bannerstyle img {
-	height:260px;
+.banner-style{
+       padding-left: 4px;
+}	   	   
+.banner-style img {
+	height: 440px;
 	width:385px;
 }
 .bannerstyle iframe {
-	width:385px;
-	height:170px; 
-	margin-top:10px;
+     width: 100%;
+     height:440px; 
+     border:0px;
 }

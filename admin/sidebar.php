@@ -62,6 +62,7 @@
             <li><a href="addservice.php"><i class="fa fa-circle-o"></i> Add New</a></li>
           </ul>
         </li>
+		
 		 <li class="treeview">
           <a href="style-list.php">
             <i class="fa fa-files-o"></i> <span>Style List</span>          

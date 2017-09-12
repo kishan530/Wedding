@@ -1,28 +1,71 @@
 <div ng-app="myApp" ng-controller="customersCtrl">
 
+<script>
+//$('#logout').hide();
 
 
+//var sessionId=$('#sessionvalue').val();
+//alert(sessionId);
+//if(sessionId!='{{ sessionVal}}')
+///{
+//alert('hello');
+//$('#logout').show();
+//}
+
+$("#logout").click(function(event){
+event.preventDefault();
+$('#sessionvalue').val('');
+$('#logout').hide();
+sessionId='';
+window.location.href = "logout.php";
+});
+
+$("#login-popup").click(function(event){
+event.preventDefault();
+var sessionId=$('#sessionvalue').val();
+if(sessionId!='')
+{
+window.location.href = "registration.html"
+}
+else{
+$('#myModal').modal('show');
+}
+});
+$("#openRegisterModel").click(function(event){
+//event.preventDefault();
+
+$('#myModal').modal('hide');
+$('#registerModal').modal('show');
+
+});
+</script>
+<input type="hidden" value="{{ sessionVal}}" id="sessionvalue" />
 <!-- top-header and slider -->
 	<div class="w3-slider">	
 	<!-- main-slider -->
 	<div class="row">
-	  <div class="col-md-8">
-		<ul id="demo1" skdslider>
-			<li>
-				<img src="images/banner3.jpg" alt="" />
-				<!--Slider Description example-->
+	  <div class="col-md-8 bannerstyle">
+	  <iframe id="video" src="//www.youtube.com/embed/5yAz6FOUvKA?rel=0" frameborder="0" allowfullscreen></iframe>
+		 <!--<ul id="demo1"skdslider>
+			 <li>
+			   <img src="images/banner3.jpg" alt="" /> 
+				 
+				Slider Description example
 				<div class="slide-desc">
 					<h2>The</h2>
 					<h3>NEW ELEGANCE</h3>
 					
-				</div>
-			</li>
+				</div> 
+			</li> 
 					
-		</ul>
+		</ul> -->
 		</div>
-		<div class="col-md-4 bannerstyle">
-		<img src="images/banner3.jpg"  alt="" />
-		<iframe id="video"src="//www.youtube.com/embed/9B7te184ZpQ?rel=0" frameborder="0" allowfullscreen></iframe>
+		<div class="col-md-4 banner-style" id="login-popup">
+		<!--<a href="#"> -->
+		<img src="images/banner.jpg"  alt="" />
+		
+		<!-- </a> -->
+		<!--<iframe id="video" src="//www.youtube.com/embed/9B7te184ZpQ?rel=0" frameborder="0" allowfullscreen></iframe> -->
 		</div>
 		</div>
 	</div>
@@ -135,8 +178,6 @@ src="https://www.youtube.com/embed/oHw5R5iCXQA?controls=0&autoplay=1">
 	</div>
 <!-- //top-brands -->
 
-
-
 <div class="row">
 	<div class="col-lg-12">
 			 <div class="btn-group">
@@ -207,7 +248,6 @@ src="https://www.youtube.com/embed/oHw5R5iCXQA?controls=0&autoplay=1">
  <div class="row"  style="margin:10px 0 10px 0" id="wrapper">
  
  <div id="columns">
- 
 	<div class="design-box pin" ng-repeat="x in names" ng-click="selectDesign(x.id)">
 		<div class="design-img">
 			<img ng-src="images/designs/{{ x.imagePath }}" alt="" width="100%" />
@@ -234,5 +274,130 @@ src="https://www.youtube.com/embed/oHw5R5iCXQA?controls=0&autoplay=1">
 	
 	
  </div>
+  <!-- Modal start-->
+ <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header" style="border-color: white;">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <div class="userlogo">
+					<h1><a href="index.html"><img src="images/logo3.png" alt="logo" width="150" height="60" /></a></h1>					
+				</div>
+        </div>
+        <div class="modal-body">
+          <div class="userlogo-dialog">  	
+                        <form action="login.php" method="post" role="form">
+                                <div class="form-group">
+                                        <input type="text" name="username" class="form-control" id="Username" placeholder="Username" required="" />
+                                        <div class="validation"></div>
+                                </div>
+                                <div class="form-group">
+                                        <input type="Password" class="form-control" name="password" id="Password" placeholder="Password" required=""/>
+                                        <div class="validation"></div>
+                                </div>
+                               
+                                 <div class="form-group">
+                                       <button type="submit" class="form-control data" name="send" id="sender" value="submit">Login</button>
+                                        
+                                </div>
+                            
+                        </form>
+					</div>
+					
+					<div class="passive-text">
+					<h1>Lost Your Password?</h1>
+					<hr style="width: 80%;">
+					<h1 style="text-align: center;color: #ccc;">New User? <span>SIGN UP NOW</span></h1>
+					</div>
+					<div class="">
+					<!-- <div class="form-group">
+                                      <button type="button" onclick="location.href='http://www.facebook.com'" name="Facebook" class="form-control" id="form-data">Sign up using Facebook</button>
+                                        
+                                </div>
+								<div class="form-group">
+                                       <button type="button" onclick="location.href='http://www.google.com'" name="Google+" class="form-control" id="form-data">Sign up using Google+</button>
+                                        
+                                </div> -->
+								<div class="form-group">
+                                       <button type="button" name="Email" class="form-control" id="openRegisterModel">Sign up </button>
+                                        
+                                </div>
+					 </div>
+        </div>
+       <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div> -->
+      </div>
+      
+    </div>
+	</div>
+ <!-- Modal end-->
+ 
+ 
+  <!-- Modal start for register-->
+ <div class="modal fade" id="registerModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header" style="border-color: white;">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <div class="userlogo">
+					<h1><a href="index.html"><img src="images/logo3.png" alt="logo" width="150" height="60" /></a></h1>					
+				</div>
+        </div>
+        <div class="modal-body">
+          <div class="login-page-text">  	
+                        <form action="user-register.php" method="post" role="form">
+                                <div class="form-grouped">
+                                        <input type="text" name="username" class="form-contrl" id="Username" placeholder="Enter Username" required />
+                                        
+                                </div>
+                                <div class="form-grouped">
+                                        <input type="text" class="form-contrl" name="mobile" id="mobile" placeholder="Enter mobile" required/>
+                                        
+                                </div>
+							    <div class="form-grouped">
+                                        <input type="email" class="form-contrl" name="email" id="email" placeholder="Enter ur email" required/>
+                                        
+                                </div>
+						        <div class="form-grouped">
+                                        <input type="Password" class="form-contrl" name="Password" id="Password" placeholder="Enter ur password" required/>
+                                        
+                                </div>
+								 <div class="form-grouped">
+                                        <input type="Password" class="form-contrl" name="confirmPassword" id="confirmPassword" placeholder="Reenter password" required/>
+                                        
+                                </div>
+							    
+								
+                               
+                              <!--   <div class="form-group">
+                                        <input type="submit" class="form-control data" name="send" id="send" value="register" placeholder="register" />
+                                        <div class="validation"></div>
+                                </div>-->
+								<div class="row form">
+									<!--<div class="col-xs-12" style="margin-left: 1px;">
+									  <button type="submit" class="btn btn-primary btn-block btn-flat" id="sender" value="Register">Register</button>
+									</div> -->
+									 <div class="form-group" style="width: 95%; margin-left: 13px;">
+                                       <button type="submit" class="form-control data" name="send" id="sender" value="submit">Register</button>
+                                        
+                                </div>
+        
+      </div>
+                            
+                        </form>
+					</div>
+       <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div> -->
+      </div>
+      
+    </div>
+ <!-- Modal end-->
+ 
  
 </div>

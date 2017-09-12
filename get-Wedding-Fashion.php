@@ -1,7 +1,7 @@
 <?php
 include('config.php');
 
-$result = $conn->query("SELECT * FROM Wedding_Fashion");
+$result = $conn->query("SELECT * FROM wedding_fashion");
 
 $outp = array();
 $fashions =  array();

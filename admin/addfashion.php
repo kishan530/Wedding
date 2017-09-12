@@ -34,7 +34,7 @@
 	//mysqli_autocommit($con,FALSE);
 	//$today = date('Y-m-d H:i:s');
 		// Attempt insert query execution
-		$sql = "INSERT INTO Wedding_Fashion(Tittle ,image, active) VALUES ('$Tittle ','$design_file_name','1')";
+		$sql = "INSERT INTO wedding_fashion(Tittle ,Image, active) VALUES ('$Tittle ','$design_file_name','1')";
 		if(mysqli_query($con, $sql)){
 			$message = "fashion added successfully.";
 			 $Tittle = '';

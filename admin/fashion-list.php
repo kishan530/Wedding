@@ -3,7 +3,7 @@
    $error = '';
    $count = 0;    
       
-      $sql = "SELECT * FROM Wedding_Fashion";
+      $sql = "SELECT * FROM wedding_fashion";
       $result = mysqli_query($con,$sql);
 	  $fashion = array();
 	  while($row = mysqli_fetch_array($result,MYSQLI_ASSOC))
