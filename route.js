@@ -29,6 +29,10 @@ $routeProvider.
 	when('/contact', { 
 		controller: 'contactCtrl', 
 		templateUrl: 'contact.html' 
+	}).
+	when('/booking', { 
+		controller: 'bookingCtrl', 
+		templateUrl: 'registration.html' 
 	}); 
 	
 	

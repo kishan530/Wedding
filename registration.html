@@ -9,12 +9,20 @@
 </head>
 <style>
 #registrationContainer{
-background-image: url("images/servicesbanner.png");
 text-align: center;
-height:40%;
 color:white;
 font-size:20px;
-padding:15px;
+padding: 9%;
+}
+.event-date{
+	width: 60px;
+	height: 80px;
+	background-image: url('images/event-date.jpg');
+}
+.slot{
+margin: 6px;
+font-size: 20px;
+color: #000;
 }
 .registration{      
     font-size:18px;
@@ -22,8 +30,7 @@ padding:15px;
 	}
 	.box{
 	    border: 1px solid black;
-    height:18%;
-    width: 60%;
+    width: 70%;
     margin-left:200px;
 	    padding-top: 10px;
 	}
@@ -69,8 +76,8 @@ background-color: Transparent;
 
 </style>
 </head>
-<body>
-<div class="container">
+<body ng-app="myApp" ng-controller="bookingCtrl">
+<div class="container" style="background-image: url('images/registration-background.jpg'); background-size: cover;">
 <div class="registration-banner" id="registrationContainer">
 <h1> hi krista</h1>
 <p>You are here to get an<br>Experience of a Life Time </p>
@@ -91,14 +98,16 @@ background-color: Transparent;
 </div>
 <div class="row box">
 <div class="col-md-2 buttonbox-data">
-<p>Fri<br>6<sup>th</sup><br><sub style="font-size:10px">oct</sub></p>
+<!-- <p>Fri<br>6<sup>th</sup><br><sub style="font-size:10px">oct</sub></p> -->
+<div class="event-date"></div>
 </div>
-<div class="col-md-2">
-<button><a href="#"> 9:00AM</a></button>
-<button><a href="#"><del>11:30AM</del></a></button>
-<button><a href="#"> 2:00PM</a></button>
-<button><a href="#">5:00PM</a></button>
+<div class="col-md-10">
+
+	<a href="#" ng-repeat="slot in slots" class="slot"> {{ slot.time }}</a>
+
 </div>
+
+<!--
 <div class="col-md-2">
 <button><a href="#"><del>9:30AM</del></a></button>
 <button><a href="#"><del>12:00PM</del></a></button>
@@ -123,6 +132,7 @@ background-color: Transparent;
 <button><a href="#">4:00PM</a></button>
 <button><a href="#">7:00PM</a></button>
 </div>
+-->
 </div>
 </body>
 </html>

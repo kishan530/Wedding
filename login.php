@@ -32,15 +32,20 @@
       $active = $row['active'];
 	$isAdmin =(bool) 0;
 	//  $count = 1;
-      }
-		 if($active == 1) {
+	
+	 if($active == 1) {
 		 $_SESSION['user']['id'] = $row['id'];
         $_SESSION['user']['name'] = $myusername;
 		 $_SESSION['user']['is_admin'] = $isAdmin;
 		// $_SESSION['is_admin'] = $isAdmin;
        // echo ($_SESSION['user']['id']); 
-         header("location:index.html");
+         header("location:/wedding/#!/booking");
+      }else
+	   {
+		 echo("your user name and password incorrect");  
+	   }
       }
+		
 	//	  echo var_dump( $row);
 	//  exit();
     
