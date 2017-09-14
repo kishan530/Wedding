@@ -27,15 +27,21 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="./css/contact.css">
+<link rel="stylesheet" href="css/contact.css">
 <script src="dist/jquery.xgallerify.js"></script> 
+
+<!--formden.js communicates with FormDen server to validate fields and submit via AJAX -->
+<script type="text/javascript" src="https://formden.com/static/cdn/formden.js"></script>
+<!-- Special version of Bootstrap that is isolated to content wrapped in .bootstrap-iso -->
+<link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
+
+
+<!-- Include Date Range Picker -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
-<script type="text/javascript" src="https://formden.com/static/cdn/formden.js"></script>
-<link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
-<link rel="stylesheet" href="https://formden.com/static/cdn/font-awesome/4.4.0/css/font-awesome.min.css" />
-<script type="text/javascript" src="js/bootstrap-timepicker.min.js"></script>
-<link type="text/css" href="css/bootstrap-timepicker.min.css" />
+
+
+
 <!-- Required-js -->
 <!-- main slider-banner -->
 <script src="js/skdslider.min.js"></script>
@@ -52,8 +58,22 @@
 <script src="WeddingFashionCtrl.js"></script>
 <script src="StylingServicesCtrl.js"></script>
 <script src="bookingCtrl.js"></script>
+<script src="successCtrl.js"></script>
 <link href="css/style.css?version=1.10" rel="stylesheet" type="text/css" media="all" />
 <script type="text/javascript">
+
+$("#logout").click(function(event){
+event.preventDefault();
+$('#sessionvalue').val('');
+$('#logout').hide();
+sessionId='';
+window.location.href = "logout.php";
+});
+
+
+
+
+
 		jQuery(document).ready(function(){
 			
 			 $('#slide-nav').addClass('original').clone().insertAfter('#slide-nav').addClass('cloned').css('position','fixed').css('top','0').css('margin-top','0').css('z-index','500').removeClass('original').hide();
@@ -170,7 +190,7 @@
 	src: url('fonts/Epic-Ride.ttf');
 	}
 	</style>
-	<style>.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: black}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: white !important;} .asteriskField{color: red;}</style>
+	<!--<style>.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: black}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: white !important;} .asteriskField{color: red;}</style>
 	
 <!---- img zoom end------>	
 </head>
@@ -187,7 +207,7 @@
 		</div>
 		 <div class="container">
 		<!-- navigation -->
-			<nav class="navbar navbar-default" id="slide-nav">
+			<nav class="navbar navbar-default" id="slide-nav" ng-app="myApp" ng-controller="mainCtrl">
 			 
 				<!-- Brand and toggle get grouped for better mobile display -->
 				<div class="navbar-header">
@@ -208,7 +228,7 @@
 					 <li><a href="#!makeup-artist">Makeup</a></li>	
 					<li><a href="#!photography">Photography</a></li>                 				
 					<li><a href="#!contact">Contact</a></li>
-					<li ng-if="sessionVal != '' " id="logout"><a href="#!contact">Logout</a></li>
+					<li ng-if="sessionVal != ''" id="logout"><a href="#" ng-click="logout()">Logout</a></li>
 				  </ul>
 				</div><!-- /.navbar-collapse -->
 						<div class="clearfix"> </div>
@@ -243,9 +263,7 @@
 								
 			});
 	</script>
-	<script type="text/javascript">
-            $('#timepicker1').timepicker();
-        </script>
+	
 <!-- //here ends scrolling icon -->
 <script>
 	$(document).ready(function(){

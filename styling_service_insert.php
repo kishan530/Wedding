@@ -7,7 +7,7 @@ $conn=mysqli_connect('localhost','root','','wedelicious');
 if($conn->connect_error){
 die("connection error :" . $conn->connect_error);
 }
-$sql=mysqli_query($conn,"insert into styling_form(date,time,message)values('$date','$time','$message')");
+$sql=mysqli_query($conn,"insert into styling_form(date,time,message,active)values('$date','$time','$message','1')");
 //if($sql);
 echo (mysqli_error($conn));
 echo "<script>

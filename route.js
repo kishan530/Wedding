@@ -33,8 +33,11 @@ $routeProvider.
 	when('/booking', { 
 		controller: 'bookingCtrl', 
 		templateUrl: 'registration.html' 
-	}); 
-	
+	}).
+	when('/success', { 
+		controller: 'successCtrl', 
+		templateUrl: 'success.html' 
+	});
 	
 	
 	

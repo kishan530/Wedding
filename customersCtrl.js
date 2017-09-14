@@ -5,7 +5,8 @@ app.controller('customersCtrl', function($scope, $http,$location) {
 	$scope.selctedOccasion = '0';
 	$scope.selctedSeason = [];
 	$scope.showGender = false;
-	 $scope.sessionVal = '';
+	 $scope.user = '';
+	   $scope.sessionVal = '';
 	$scope.isStyleSelected = function(id) {
 		 //console.log(id);
 		// console.log($scope.selctedStyle.indexOf(id));
@@ -96,16 +97,41 @@ $http.get("get-data.php",{ params: { category: $scope.category,  style: $style ,
     $scope.selectDesign=function(selected){
        $location.path("/look-board/"+selected);
     };
+	
+	 $scope.open = function () {
+            $scope.showModal = true;
+        };
+
+        $scope.ok = function () {
+            $scope.showModal = false;
+        };
+
+        $scope.cancel = function () {
+            $scope.showModal = false;
+        };
+	
+	
+	$scope.booking=function(){
+		console.log('booking');
+		if($scope.user =='')
+			 $scope.open();
+		else
+			$location.path("/booking");
+    };
    
    $scope.applyFilters(JSON.stringify([]),0,0,JSON.stringify([]),0,0); 
    
     $http.get("get-session.php",{ params: { 'test': 'test' }})
    .then(function (response) {
-	   $scope.sessionVal = response.data;  
+	   $scope.user = response.data;  
 	   console.log(response.data);
-	  
+	    $scope.sessionVal = response.data;
 	 
 	});
-   
+   $http.get("get-Wedding-Fashion.php",{ params: {'test':'test'}})
+			.then(function (response) {
+			console.log(response);
+			$scope.fashions = response.data.fashions;
+			}); 
    
 });

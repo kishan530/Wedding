@@ -3,7 +3,7 @@
 
 $styleType=$_GET['styleType'];
 //$styleType='style board';
-$result = $conn->query("SELECT * FROM styling_service WHERE type='$styleType'");
+$result = $conn->query("SELECT * FROM styling_service WHERE type='$styleType' order by id desc");
 
 $outp = array();
 $services =  array();

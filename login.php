@@ -30,18 +30,24 @@
 	//	  echo var_dump( $row);
 	//  exit();
       $active = $row['active'];
+	  $email = $row['email'];
+	  $mobile = $row['mobile'];
 	$isAdmin =(bool) 0;
 	//  $count = 1;
 	
 	 if($active == 1) {
 		 $_SESSION['user']['id'] = $row['id'];
         $_SESSION['user']['name'] = $myusername;
+		$_SESSION['user']['email'] = $email;
+		$_SESSION['user']['mobile'] = $mobile;
 		 $_SESSION['user']['is_admin'] = $isAdmin;
+		 
 		// $_SESSION['is_admin'] = $isAdmin;
        // echo ($_SESSION['user']['id']); 
-         header("location:/wedding/#!/booking");
+         header("location:/preview/#!/booking");
       }else
 	   {
+		   header("location:failure.html");
 		 echo("your user name and password incorrect");  
 	   }
       }
@@ -52,7 +58,9 @@
 	   
 	   else
 	   {
-		 echo("your user name and password incorrect");  
+		   header("location:failure.html"); // when u added server include /preview/ 
+		 
+		// echo("your user name and password incorrect");  
 	   }
    }
 ?>

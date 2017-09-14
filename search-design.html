@@ -12,20 +12,15 @@
 //$('#logout').show();
 //}
 
-$("#logout").click(function(event){
-event.preventDefault();
-$('#sessionvalue').val('');
-$('#logout').hide();
-sessionId='';
-window.location.href = "logout.php";
-});
+//$('#myModal').modal('show');
+
 
 $("#login-popup").click(function(event){
 event.preventDefault();
 var sessionId=$('#sessionvalue').val();
 if(sessionId!='')
 {
-window.location.href = "/wedding/#!/booking";
+window.location.href = "/preview/#!/booking";<!--preview-- when u upload to server>
 }
 else{
 $('#myModal').modal('show');
@@ -38,6 +33,14 @@ $('#myModal').modal('hide');
 $('#registerModal').modal('show');
 
 });
+$("#openLoginModel").click(function(event){
+//event.preventDefault();
+
+$('#registerModal').modal('hide');
+$('#myModal').modal('show');
+
+});
+
 </script>
 <input type="hidden" value="{{ sessionVal}}" id="sessionvalue" />
 <!-- top-header and slider -->
@@ -176,7 +179,44 @@ src="https://www.youtube.com/embed/oHw5R5iCXQA?controls=0&autoplay=1">
 			</div>
 			
 	</div>
+	
+	
+	<div class="row">
+		<div>
+			<div class="col-lg-12 wedding-services">
+				<h1><label><span>Wedding Fashion</span></label></h1>
+            </div>
+		</div>
+	</div>
+	
+	
+	<div class="photos" id="photoshop">
+     <div class="" ng-repeat="fashion in fashions">
+		<div class="photo">
+			<img src="images/fashion/{{ fashion.imagePath }}" alt="{{ fashion.Tittle }}" width="50%" class="img-responsive side-image" />
+			<!--<div class="photo-title">{{ fashion.Tittle }}</div>-->
+		</div>
+     </div>
+	</div>
+	
+	<script type="text/javascript">
+		var gallery = $('.photos').gallerify({
+			margin:5,
+			mode:'default',
+			lastRow:'hidden'
+		});	
+		//Demo async loading simulation
+		setTimeout(function(){
+			//$(".photos").append(generateRandomImage());
+			gallery.gallerify.renderAsyncImages();
+		}, 2000);
+		function generateRandomImage(){
+			return $('<div class="photo"><img src="http://placehold.it/'+ Math.floor((Math.random() * 900) + 200) + 'x' + Math.floor((Math.random() * 900) + 200) + '"><div class="title">random</div></div>');
+		}
+	</script>
 <!-- //top-brands -->
+
+<!--
 
 <div class="row">
 	<div class="col-lg-12">
@@ -212,7 +252,7 @@ src="https://www.youtube.com/embed/oHw5R5iCXQA?controls=0&autoplay=1">
             <li ng-repeat="style in styles" ng-class="{active:isStyleSelected(style.id)}">
 			<label ng-click="getDesigns(style.id,0,selctedOccasion,0,0,0)" for="style{{ style.id }}"> <input id="style{{ style.id }}" type="checkbox" class="ng-pristine ng-untouched ng-valid" ng-bind="isStyleSelected(style.id)" ></input>{{ style.style }} </label>
 			<!--<a ng-click="getDesigns(style.id,0,selctedOccasion,0,0,0)"> <input type="checkbox" ng-bind="isStyleSelected(style.id)" class="ng-pristine ng-untouched ng-valid" /> {{ style.style }}</a> -->
-			</li>                    
+		<!--	</li>                    
           </ul>
 		 </li>		
         <li class="dropdown">
@@ -239,12 +279,15 @@ src="https://www.youtube.com/embed/oHw5R5iCXQA?controls=0&autoplay=1">
 		
       </ul>
     </div>
-    <!-- /.navbar-collapse -->
+    <!-- /.navbar-collapse 
   </nav>
 </div>
 
 	</div>
- </div>
+ </div> 
+ -->
+ 
+ <!--
  <div class="row"  style="margin:10px 0 10px 0" id="wrapper">
  
  <div id="columns">
@@ -271,7 +314,7 @@ src="https://www.youtube.com/embed/oHw5R5iCXQA?controls=0&autoplay=1">
 	
 	
 	</div>
-	
+	 -->
 	
  </div>
   <!-- Modal start-->
@@ -279,10 +322,10 @@ src="https://www.youtube.com/embed/oHw5R5iCXQA?controls=0&autoplay=1">
     <div class="modal-dialog">
     
       <!-- Modal content-->
-      <div class="modal-content">
+      <div class="modal-content" style="border: 5px solid #eed89f;">
         <div class="modal-header" style="border-color: white;">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <div class="userlogo">
+          <div class="userlogo text-center">
 					<h1><a href="index.html"><img src="images/logo3.png" alt="logo" width="150" height="60" /></a></h1>					
 				</div>
         </div>
@@ -305,26 +348,17 @@ src="https://www.youtube.com/embed/oHw5R5iCXQA?controls=0&autoplay=1">
                             
                         </form>
 					</div>
-					
-					<div class="passive-text">
-					<h1>Lost Your Password?</h1>
-					<hr style="width: 80%;">
-					<h1 style="text-align: center;color: #ccc;">New User? <span>SIGN UP NOW</span></h1>
-					</div>
-					<div class="">
-					<!-- <div class="form-group">
-                                      <button type="button" onclick="location.href='http://www.facebook.com'" name="Facebook" class="form-control" id="form-data">Sign up using Facebook</button>
-                                        
-                                </div>
-								<div class="form-group">
-                                       <button type="button" onclick="location.href='http://www.google.com'" name="Google+" class="form-control" id="form-data">Sign up using Google+</button>
-                                        
-                                </div> -->
+							<div class="passive-text">
+									<h1>Lost Your Password?</h1>
+									<hr style="width: 80%;">
+									<h1 style="text-align: center;color: #ccc !important;;">New User? <span>SIGN UP NOW</span></h1>
+							</div>
+				
 								<div class="form-group">
                                        <button type="button" name="Email" class="form-control" id="openRegisterModel">Sign up </button>
                                         
                                 </div>
-					 </div>
+					 
         </div>
        <!-- <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -341,10 +375,10 @@ src="https://www.youtube.com/embed/oHw5R5iCXQA?controls=0&autoplay=1">
     <div class="modal-dialog">
     
       <!-- Modal content-->
-      <div class="modal-content">
+      <div class="modal-content" style="border:5px solid #eed89f;">
         <div class="modal-header" style="border-color: white;">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <div class="userlogo">
+          <div class="userlogo text-center">
 					<h1><a href="index.html"><img src="images/logo3.png" alt="logo" width="150" height="60" /></a></h1>					
 				</div>
         </div>
@@ -352,45 +386,41 @@ src="https://www.youtube.com/embed/oHw5R5iCXQA?controls=0&autoplay=1">
           <div class="login-page-text">  	
                         <form action="user-register.php" method="post" role="form">
                                 <div class="form-grouped">
-                                        <input type="text" name="username" class="form-contrl" id="Username" placeholder="Enter Username" required />
+                                        <input type="text" name="username" class="form-contrl" id="Username" placeholder="Enter Name" required />
                                         
                                 </div>
                                 <div class="form-grouped">
-                                        <input type="text" class="form-contrl" name="mobile" id="mobile" placeholder="Enter mobile" required/>
+                                        <input type="text" class="form-contrl" name="mobile" id="mobile" placeholder="Enter Mobile" required/>
                                         
                                 </div>
 							    <div class="form-grouped">
-                                        <input type="email" class="form-contrl" name="email" id="email" placeholder="Enter ur email" required/>
+                                        <input type="email" class="form-contrl" name="email" id="email" placeholder="Enter  Email" required/>
                                         
                                 </div>
 						        <div class="form-grouped">
-                                        <input type="Password" class="form-contrl" name="Password" id="Password" placeholder="Enter ur password" required/>
+                                        <input type="Password" class="form-contrl" name="Password" id="Password" placeholder="Enter Password" required/>
                                         
                                 </div>
 								 <div class="form-grouped">
-                                        <input type="Password" class="form-contrl" name="confirmPassword" id="confirmPassword" placeholder="Reenter password" required/>
+                                        <input type="Password" class="form-contrl" name="confirmPassword" id="confirmPassword" placeholder="Reenter Password" required/>
                                         
                                 </div>
-							    
-								
-                               
-                              <!--   <div class="form-group">
-                                        <input type="submit" class="form-control data" name="send" id="send" value="register" placeholder="register" />
-                                        <div class="validation"></div>
-                                </div>-->
-								<div class="row form">
-									<!--<div class="col-xs-12" style="margin-left: 1px;">
-									  <button type="submit" class="btn btn-primary btn-block btn-flat" id="sender" value="Register">Register</button>
-									</div> -->
-									 <div class="form-group" style="width: 95%; margin-left: 13px;">
+									 <div class="form-group" style="width:100%; margin-left:-4px;margin-top: 6.5px;">
                                        <button type="submit" class="form-control data" name="send" id="sender" value="submit">Register</button>
                                         
                                 </div>
-        
-      </div>
-                            
                         </form>
 					</div>
+					<div class="passive-text">
+									<hr style="width: 80%;">
+									<h1 style="text-align: center;color: #ccc;">If u have already account goto? <span>LOGIN Page</span></h1>
+							</div>
+				
+								<div class="form-group">
+                                       <button type="button" name="" class="form-control" id="openLoginModel">LOGIN </button>
+                                        
+                                </div>
+				</div>				
        <!-- <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div> -->

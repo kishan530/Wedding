@@ -17,4 +17,19 @@ app.controller("StylingServicesCtrl", function ($scope,$http) {
 			console.log(response.data.services);
 			}); 
 		};
+		
+		$scope.name = '';
+		$scope.greeting = 'Hello';
+
+	$http.get("get-session.php",{ params: { 'test': 'test' }})
+   .then(function (response) {
+	   $scope.greeting = 'Hi';
+	   $scope.user = response.data;
+	   $scope.name = $scope.user.name;
+	   $scope.email = $scope.user.email;
+	   $scope.mobile = $scope.user.mobile;
+	   //console.log(response.data);
+	});
+		
+		
    });

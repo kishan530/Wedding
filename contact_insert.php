@@ -9,7 +9,7 @@ $Message=$_POST["Message"];
 if($conn->connect_error){
 die("connection error :" . $conn->connect_error);
 }
-$sql=mysqli_query($conn,"insert into contact_us(Name,Email,PhoneNumber,Message)values('$Name','$Email','$PhoneNumber','$Message')");
+$sql=mysqli_query($conn,"insert into contact_us(Name,Email,PhoneNumber,Message,active)values('$Name','$Email','$PhoneNumber','$Message','1')");
 //if($sql);
 echo (mysqli_error($conn));
 

@@ -2,85 +2,15 @@
 
 <head>
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="https://formden.com/static/cdn/font-awesome/4.4.0/css/font-awesome.min.css" />
-</head>
-<style>
-#registrationContainer{
-text-align: center;
-color:white;
-font-size:20px;
-padding: 9%;
-}
-.event-date{
-	width: 60px;
-	height: 80px;
-	background-image: url('images/event-date.jpg');
-}
-.slot{
-margin: 6px;
-font-size: 20px;
-color: #000;
-}
-.registration{      
-    font-size:18px;
-	   
-	}
-	.box{
-	    border: 1px solid black;
-    width: 70%;
-    margin-left:200px;
-	    padding-top: 10px;
-	}
- .listStyle {
-     color:red;
-	 margin-top: 20px;
-	 list-style-type: none;
-    text-align: center;
-		 
-}
-.listStyle li p strong {
-    color:black;
-}
-.registration ul li span {
-color:red;
-}
-.horizantal-line{
-     width:80%
-}
-.customers-data h1{
-    text-align:center;
-	font-size: 20px;
-}
-h1 span{
-color:red;
-}
-.icon{
-    font-size: 7px;
-    padding: 5px;
-}
-.buttonbox-data p{
-     color:red;
-	 font-size:25px
-}
-.box button{
-background-color: Transparent;
-    background-repeat:no-repeat;
-    border: none;
-    cursor:pointer;
-    overflow: hidden;
-    outline:none;
-}
 
-</style>
 </head>
+	
+
 <body ng-app="myApp" ng-controller="bookingCtrl">
 <div class="container" style="background-image: url('images/registration-background.jpg'); background-size: cover;">
 <div class="registration-banner" id="registrationContainer">
-<h1> hi krista</h1>
-<p>You are here to get an<br>Experience of a Life Time </p>
+<h1> Hi {{ name }}</h1>
+<p>You are here to get an<br><span>Experience of a Life Time</span></p>
 </div>
 <div class="registration">
 <ul class="listStyle">
@@ -90,23 +20,25 @@ background-color: Transparent;
 </ul>
 </div>
 <hr class="horizantal-line">
-<h1 style="text-align:center;font-size:20px">Special price for the Event Day<span> 4250/-</span></h1>
+<h1 class="customers-data-value">Special price for the Event Day<span> 4250/-</span></h1>
 <hr class="horizantal-line">
 <div class="customers-data">
 <h1> Exclusive offer for Anahe Customers,shop at Anahe<br>for 8000/- or more and get youe makeover<br>absolutely<span> free</span></h1>
-<h1 style="color:red">Pick Your Slot</h1>
 </div>
-<div class="row box">
+<h1 class="customers-data-data">Pick Your Slot</h1>
+<div class="box">
+<div class="row">
 <div class="col-md-2 buttonbox-data">
 <!-- <p>Fri<br>6<sup>th</sup><br><sub style="font-size:10px">oct</sub></p> -->
 <div class="event-date"></div>
 </div>
 <div class="col-md-10">
 
-	<a href="#" ng-repeat="slot in slots" class="slot"> {{ slot.time }}</a>
-
+	<a  ng-repeat="slot in slots" class="slot" ng-click="bookSlot(slot.id)"> {{ slot.time }}</a>
+</div>
 </div>
 
+  
 <!--
 <div class="col-md-2">
 <button><a href="#"><del>9:30AM</del></a></button>

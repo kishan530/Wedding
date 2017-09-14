@@ -5,6 +5,6 @@
 	$user = $_SESSION['user'];
 	$isAdmin = $user['is_admin'];
 	
-	echo $user['id'];
+	echo (json_encode($_SESSION['user']));
    }
 ?>

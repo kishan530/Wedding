@@ -1,7 +1,7 @@
 <?php
 include('config.php');
 
-$result = $conn->query("SELECT * FROM styling_service");
+$result = $conn->query("SELECT * FROM styling_service order by id desc");
 
 $outp = array();
 $services =  array();

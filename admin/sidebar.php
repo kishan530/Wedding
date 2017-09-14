@@ -62,6 +62,33 @@
             <li><a href="addservice.php"><i class="fa fa-circle-o"></i> Add New</a></li>
           </ul>
         </li>
+		<li class="treeview">
+          <a href="#">
+            <i class="fa fa-files-o"></i> <span>styling-Services-tableList</span>          
+          </a>
+		  <ul class="treeview-menu menu-open">
+            <li><a href="styling-services-table-list.php"><i class="fa fa-circle-o"></i> List </a></li>
+         <!--   <li><a href="addstyling-services-table.php"><i class="fa fa-circle-o"></i> Add New</a></li> -->
+          </ul>
+        </li>
+		<li class="treeview">
+          <a href="#">
+            <i class="fa fa-files-o"></i> <span>contact-tableList</span>          
+          </a>
+		  <ul class="treeview-menu menu-open">
+            <li><a href="contact-list.php"><i class="fa fa-circle-o"></i> List </a></li>
+          <!--  <li><a href="addcontact.php"><i class="fa fa-circle-o"></i> Add New</a></li> -->
+          </ul>
+        </li>
+		<li class="treeview">
+          <a href="#">
+            <i class="fa fa-files-o"></i> <span>booking-List</span>          
+          </a>
+		  <ul class="treeview-menu menu-open">
+            <li><a href="booking-list.php"><i class="fa fa-circle-o"></i> List </a></li>
+         <!--   <li><a href="addbooking.php"><i class="fa fa-circle-o"></i> Add New</a></li> -->
+          </ul>
+        </li>
 		
 		 <li class="treeview">
           <a href="style-list.php">

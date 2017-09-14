@@ -3,7 +3,7 @@
    $error = '';
    $count = 0;    
       
-      $sql = "SELECT * FROM styling_service";
+      $sql = "SELECT * FROM booking";
       $result = mysqli_query($con,$sql);
 	  $Service = array();
 	  while($row = mysqli_fetch_array($result,MYSQLI_ASSOC))
@@ -27,12 +27,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-       Styling-Service List
+       booking-List
         <small></small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Service List</li>
+        <li class="active">booking-List</li>
       </ol>
     </section>
 
@@ -51,8 +51,13 @@
               <table class="table table-hover" id="Service">
                 <tr>
                   <th>Sl.No</th>
-                  <th>Tittle</th>
-				  <th>Type</th>
+                  <th>name</th>
+				  <th>email</th>
+				  <th>mobile</th>
+				  <th>selected_date</th>
+				  <th>selected_time</th>
+				  <th>amount</th>
+				   <th>booked_on</th>
                   <th>Status</th>
                   <th>Actions</th>
                 </tr>
@@ -64,8 +69,13 @@
 						?>
                 <tr>
                   <td><?php echo $i; ?></td>
-                  <td><?php echo $Service['Tittle']; ?></td>
-				  <td><?php echo $Service['type']; ?></td>
+                  <td><?php echo $Service['name']; ?></td>
+				  <td><?php echo $Service['email']; ?></td>
+				  <td><?php echo $Service['mobile']; ?></td>
+				  <td><?php echo $Service['selected_date']; ?></td>
+				  <td><?php echo $Service['selected_time']; ?></td>
+				  <td><?php echo $Service['amount']; ?></td>
+				  <td><?php echo $Service['booked_on']; ?></td>
                   <td>
 					<?php if($Service['active']>0) {?>
 				  <span class="label label-success">Active</span>
@@ -74,8 +84,8 @@
 				   <?php } ?>
 				  </td>
                   <td>
-				  <a href="editservice.php?Id=<?php echo $Service['Id']; ?>"><i class="fa fa-pencil-square-o"></i></a>
-				   <a href="delete-service.php?Id=<?php echo $Service['Id']; ?>" title="<?php echo $Service['Tittle']; ?>" class="delete"><i class="fa fa-trash-o"></i></a>
+				  <a href="editbooking.php?id=<?php echo $Service['id']; ?>"><i class="fa fa-pencil-square-o"></i></a>
+				   <a href="delete-booking.php?id=<?php echo $Service['id']; ?>" title="<?php echo $Service['name']; ?>" class="delete"><i class="fa fa-trash-o"></i></a>
 				  </td>
                 </tr>
                <?php
@@ -87,7 +97,7 @@
 						<?php
 							
 					  }else {
-						 echo "<span>No Service found </span>";
+						 echo "<span>No booking found </span>";
 					  }
 					?>
           </div>
