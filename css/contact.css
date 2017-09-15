@@ -118,6 +118,16 @@ h1{
 		  font-size:0px;
 		}
 		
+.photo-zoom	{
+	     position: relative;
+        }	
+.photos-zoom  {
+		  margin:auto;
+		  font-size:0px;
+		}		
+		
+		
+		
 		/* StylingServices start */ 
  #styling-services h1{
 	    color: white;
@@ -184,10 +194,15 @@ h1{
 	    width: 100%;
 		
 }
+.wedding-data-services{
+	padding-left: 0px!important;
+    padding-right: 28px !important;
+    margin-top: 15px !important;
+}
 .wedding-services{
 background:black;
  height:40px;
-   
+  padding-top: 5px; 
  text-align:center;	
 }
 .wedding-services h1 span{

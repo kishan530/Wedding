@@ -20,10 +20,10 @@ include("config.php");
 	  }
 	  else
 	  {
-		  echo '<script language="javascript">';
+		 
 		echo 'alert("Registration Successfully")';
-		echo '</script>';
-	   header("location:index.html");
+		
+	  // header("location:/wedding/#!/search-design#myModal");
 	  }
    }
 ?>

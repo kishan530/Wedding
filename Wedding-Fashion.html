@@ -1,8 +1,8 @@
 <div ng-app="myApp" ng-controller="WeddingFashionCtrl">
 
-<div class="photos" id="photoshop">
+<div class="photos-zoom" id="photoshop">
      <div class="" ng-repeat="fashion in fashions">
-		<div class="photo">
+		<div class="photo-zoom">
 			<img src="images/fashion/{{ fashion.imagePath }}" alt="{{ fashion.Tittle }}" width="50%" class="img-responsive side-image" />
 			<!--<div class="photo-title">{{ fashion.Tittle }}</div>-->
 		</div>
@@ -10,14 +10,14 @@
 	</div>
 	
 	<script type="text/javascript">
-		var gallery = $('.photos').gallerify({
+		var gallery = $('.photos-zoom').gallerify({
 			margin:5,
 			mode:'default',
 			lastRow:'hidden'
 		});	
 		//Demo async loading simulation
 		setTimeout(function(){
-			//$(".photos").append(generateRandomImage());
+			$(".photos-zoom").append(generateRandomImage());
 			gallery.gallerify.renderAsyncImages();
 		}, 2000);
 		function generateRandomImage(){

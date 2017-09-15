@@ -10,8 +10,7 @@ die("connection error :" . $conn->connect_error);
 $sql=mysqli_query($conn,"insert into styling_form(date,time,message,active)values('$date','$time','$message','1')");
 //if($sql);
 echo (mysqli_error($conn));
-echo "<script>
-    alert('details submited');
-    window.location.replace('Styling-Service.html');
-    </script>"
+echo('details submited');
+   header("location:/preview/#!/Styling-Services"); 
+    //$location.path("/");
 ?>

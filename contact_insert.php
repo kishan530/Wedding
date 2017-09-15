@@ -47,6 +47,6 @@ $to      = "baddala.venugopalreddy@gmail.com";
                               
                               mail($to, $subject, $message, $headers);
 
-  //	header('Location: contact.html');	
+  	header("location:/preview/#!/contact");	
 
 ?>

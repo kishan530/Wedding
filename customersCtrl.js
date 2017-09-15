@@ -5,8 +5,8 @@ app.controller('customersCtrl', function($scope, $http,$location) {
 	$scope.selctedOccasion = '0';
 	$scope.selctedSeason = [];
 	$scope.showGender = false;
-	 $scope.user = '';
-	   $scope.sessionVal = '';
+    $scope.user = '';
+    $scope.sessionVal = '';
 	$scope.isStyleSelected = function(id) {
 		 //console.log(id);
 		// console.log($scope.selctedStyle.indexOf(id));
@@ -92,7 +92,9 @@ $http.get("get-data.php",{ params: { category: $scope.category,  style: $style ,
 	   $scope.seasons = response.data.filters.seasons;
     //console.log(response.data.filters.occassions);
    });
-   
+    
+           
+	
    
     $scope.selectDesign=function(selected){
        $location.path("/look-board/"+selected);
@@ -123,9 +125,10 @@ $http.get("get-data.php",{ params: { category: $scope.category,  style: $style ,
    
     $http.get("get-session.php",{ params: { 'test': 'test' }})
    .then(function (response) {
+	   $scope.sessionVal = response.data;
 	   $scope.user = response.data;  
 	   console.log(response.data);
-	    $scope.sessionVal = response.data;
+	   // $scope.sessionVal = response.data;
 	 
 	});
    $http.get("get-Wedding-Fashion.php",{ params: {'test':'test'}})

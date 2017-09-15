@@ -18,7 +18,7 @@
       $mypassword = mysqli_real_escape_string($conn,$_POST['password']); 
       
 	  
-      $sql = "SELECT * FROM user WHERE username = '$myusername' AND password = '$mypassword' AND active =1";
+      $sql = "SELECT * FROM user WHERE email = '$myusername' AND password = '$mypassword' AND active =1";
       $result = mysqli_query($conn,$sql);
       $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 	// echo ($myusername);
@@ -32,12 +32,13 @@
       $active = $row['active'];
 	  $email = $row['email'];
 	  $mobile = $row['mobile'];
+	  $name = $row['username'];
 	$isAdmin =(bool) 0;
 	//  $count = 1;
 	
 	 if($active == 1) {
 		 $_SESSION['user']['id'] = $row['id'];
-        $_SESSION['user']['name'] = $myusername;
+        $_SESSION['user']['name'] = $name;
 		$_SESSION['user']['email'] = $email;
 		$_SESSION['user']['mobile'] = $mobile;
 		 $_SESSION['user']['is_admin'] = $isAdmin;
