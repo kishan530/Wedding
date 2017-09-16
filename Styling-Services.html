@@ -15,7 +15,7 @@
 				<p style="font-family: gotham-light">Meet with our stylists for a <b>Free <br>evaluation </b>& to show you how you<br>can look your very bestall with the <br><b>sensible use of budget</b> </p>
 			</div>
 	  </div>
-<div class="col-md-6 " style="padding: 114px;">  	
+<div class="col-md-6 " style="padding: 114px;padding-bottom:0px;padding-top:30px;">  	
                         <form action="styling_service_insert.php" method="post" role="form" class="contactForm">
                               
 								 <div class="form-group">
@@ -38,41 +38,35 @@
 					</div>	
 		</div>
                 <div class="row banner">
-					<img src="images/banner4.png" alt="" width="98%"/>
+					<img src="images/banner4.png" alt="" style="width: 98%;"/>
 				</div>
 	<div class="row" style="margin-top:3px">
-	    <div class="col-md-5 designbox" id="dreamfurthure">
-			<hr class="line">
+	    <div class="dreamfurthure-image" id="dreamfurthure">
+		     <img src="images/stylist bannercopy.jpg" alt="" height="585" style="width:100%"/>
+			<!--<!--<hr class="line">
 			<h1> Indian weddings are fun, Vibrant and buzzing with<br> fashion and Glamour. with the myriad of options<br>and styles to choose from,it gets tricky sometimes<br>to find your perfect fit we at wedelicious specialize<br>in creating your dream look based  on your <br>preferences.uniqueness, lifestyle within your<br> budget. right from your trousseau to creating a<br> top-to-toe look. We take care of it all.<br>So that u get to live the most special experience<br>and cherish the memories for a lifetime.</h1>
 			<!--<h1>vikram seth has been an integral part of the <br>Indian fashion and advertisng industry for<br>the last seven years.during the time he has<br>Worked with the countrie's best known<br>fashion magazines, styled editorial stories,<br>fashion runaways and commercial campaigns. </h1> -->
-			<hr class="linebottom">
+			<!--<hr class="linebottom"> -->
 	   </div>
-		<div class="col-md-7" style="padding-left: 0px;">
-  <div id="myCarousel" class="carousel slide" data-ride="carousel" style="width: 98%;">
+		<div class="stylist-profile">
+  <div id="myCarousel" class="carousel slide" data-ride="carousel" style="width: 96%;height:586px;">
     <!-- Indicators -->
-    <ol class="carousel-indicators">
+    <ol class="carousel-indicators" style="left:35px;bottom: -34px !important;">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
       <li data-target="#myCarousel" data-slide-to="1"></li>
       
     </ol>
 
     <!-- Wrapper for slides -->
-    <div class="carousel-inner">
+    <div class="carousel-inner" style="height:586px;">
 
       <div class="item active">
-        <img src="images/Vikram seth stylist bannerslider.jpg" class="tiffany-img" alt="Vikram seth" style="">
-        <div class="carousel-caption">
-          <h3></h3>
-          <p></p>
-        </div>
+        <img src="images/Vikram seth stylist bannerslider.jpg" class="tiffany-img" alt="Vikram seth" >
       </div>
 
       <div class="item">
-        <img src="images/Prachi stylist bannerslider.jpg" class="tiffany-img" alt="Prachi" style="">
-        <div class="carousel-caption">
-          <h3></h3>
-          <p></p>
-        </div>
+        <img src="images/Prachi stylist bannerslider.jpg" class="tiffany-img" alt="Prachi">
+      
       </div>
    
     </div>
@@ -97,18 +91,12 @@
 		</div>
 		</div>
 	<!-- top-brands -->			
-		<div class="top-brands" style="margin:10px 0 10px 0">
-			<div class="sliderfig">
-				<div id="three-columns">
-							<div class=" top-product-grids tp4" ng-repeat="service in services">
-								<div class="product-img">
-									<img src="images/service/{{ service.imagePath }}" alt="{{ service.Tittle }}" class="img-responsive side-image" height="280px"/>
+		<div class="row" style="margin:10px 0 10px 0">
+			<div class="">
+				<div class="service-image" ng-repeat="service in services">
+									<img src="images/service/{{ service.imagePath }}" alt="{{ service.Tittle }}" height="320px"/>
 									
-								</div> 
-														
-							</div> 
-								
-				</div>
+				</div> 
 			</div>
 		</div> 
 	

@@ -34,7 +34,16 @@
 </div>
 <div class="col-md-10">
 
-	<a  ng-repeat="slot in slots" class="slot" ng-click="bookSlot(slot.id)"> {{ slot.time }}</a>
+	
+	<span ng-repeat="slot in slots" class="slot">
+	
+	<a ng-click="bookSlot(slot.id)"  ng-if="!slot.booked"> {{ slot.time }}</a>
+	
+	<span ng-if="slot.booked" class="booked"> {{ slot.time }}</span>
+	
+	</span>
+	
+	
 </div>
 </div>
 

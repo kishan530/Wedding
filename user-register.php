@@ -1,5 +1,14 @@
 <?php
 include("config.php");
+session_start();
+   if (isset($_SESSION['user'])) {
+	$user = $_SESSION['user'];
+	$isAdmin = $user['is_admin'];
+		if($isAdmin==0){
+			
+			 header("location:index.html");
+		}
+   }
 	 $myusername = $email = $mypassword = $mobile= ''; 
 	
    $errors = array();
@@ -20,8 +29,16 @@ include("config.php");
 	  }
 	  else
 	  {
+		  $_SESSION['user']['id'] = $row['id'];
+        $_SESSION['user']['name'] = $myusername;
+		$_SESSION['user']['email'] = $email;
+		$_SESSION['user']['mobile'] = $mobile;
+		 $_SESSION['user']['is_admin'] = 0;
 		 
-		echo 'alert("Registration Successfully")';
+		// $_SESSION['is_admin'] = $isAdmin;
+       // echo ($_SESSION['user']['id']); 
+         header("location:/preview/#!/booking");
+	//	echo 'alert("Registration Successfully")';
 		
 	  // header("location:/wedding/#!/search-design#myModal");
 	  }

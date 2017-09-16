@@ -3,7 +3,7 @@ app.controller("bookingCtrl", function ($scope,$http,$location) {
 	$scope.name = '';
     $http.get("get-slots.php",{ params: {'test':'test'}})
 			.then(function (response) {
-			//console.log(response);
+			console.log(response);
 			$scope.slots = response.data.slots;
 			});
 	$http.get("get-session.php",{ params: { 'test': 'test' }})

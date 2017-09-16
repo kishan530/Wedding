@@ -93,6 +93,7 @@ $http.get("get-data.php",{ params: { category: $scope.category,  style: $style ,
     //console.log(response.data.filters.occassions);
    });
     
+		
            
 	
    

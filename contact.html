@@ -16,21 +16,21 @@
 		</ul>				
         </div>
 		<div class="col-md-6 sendmessage">  	
-                        <form action="contact_insert.php" method="post" role="form" class="contactForm">
+                        <form ng-submit="contactdata()" method="post" role="form" class="contactForm">
                                 <div class="form-group">
-                                        <input type="text" name="Name" class="form-control" id="name" placeholder=" Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                        <input type="text" name="Name" ng-model="Name" class="form-control" id="name" placeholder=" Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                                         <div class="validation"></div>
                                 </div>
                                 <div class="form-group">
-                                        <input type="email" class="form-control" name="Email" id="email" placeholder=" Email" data-rule="email" data-msg="Please enter a valid email" />
+                                        <input type="email" class="form-control" name="Email" ng-model="Email" id="email" placeholder=" Email" data-rule="email" data-msg="Please enter a valid email" />
                                         <div class="validation"></div>
                                 </div>
                                 <div class="form-group">
-                                        <input type="text" class="form-control" name="PhoneNumber" id="subject" placeholder="Phone Number" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                                        <input type="text" class="form-control" name="PhoneNumber" ng-model="PhoneNumber" id="subject" placeholder="Phone Number" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
                                         <div class="validation"></div>
                                 </div>
                                 <div class="form-group">
-                                        <textarea class="form-control" name="Message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                                        <textarea class="form-control" name="Message" ng-model="Message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
                                         <div class="validation"></div>
                                 </div>
                                  <div class="form-group">

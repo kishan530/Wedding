@@ -1,6 +1,7 @@
 
 #contactContainer {
     background-image: url("../images/servicesbanner.png");
+	background-repeat: no-repeat;
 	height: 650px;
 }
 span.fixed_w3 {
@@ -149,7 +150,7 @@ h1{
 }
 .styling-servicesstyle{
 	padding-left:194px;
-	padding-top:80px;
+	padding-top:30px;
 }
 #form_submit_button-data{
 	padding: 25px;
@@ -161,8 +162,8 @@ h1{
 	margin-bottom: 7px;
 }
 .services-background-img{
-	background-image: url("../images/servicesbanner.png");
-	    height: 552px;
+	background-image: url("../images/formbanner.jpg");
+	    height:438px;
     width: 100%;
 }
 .line{
@@ -175,9 +176,20 @@ h1{
          width: 100px;
         
 }
+.dreamfurthure-image{
+	width:37%;
+	float:left;
+	margin-right:3px;
+	
+}
+.stylist-profile{
+	width: 62%;
+    float: right;
+    margin-left: 3px;
+    height: 545px;
+}
 #dreamfurthure{
-	margin-top: 0px;
-    margin-bottom: 0px;
+	    padding: 0px;
 }
 
 #dreamfurthure h1{
@@ -252,6 +264,7 @@ margin-top: 15px;
     	
 }
 #sender{
+	    padding: 1px;
      text-align: center;
      border: 2px solid orange;
 	 margin-left: 2px;
@@ -300,7 +313,11 @@ margin-top: 15px;
 		}
 	
 	/* start registration */
+.carousel-inner > .item{
 	
+	
+	.transition(.2s ease-in-out left);
+}	
 #registrationContainer {
     text-align: center;
     color: white;
@@ -323,14 +340,24 @@ margin-top: 15px;
 .event-date{
 	width: 60px;
 	height: 80px;
-	background-image: url('images/event-date.jpg');
+	background-image:url('../images/event-date.jpg');
+}
+
+.booked{
+	    color: #9a9595;
+    text-decoration: line-through;
 }
 .slot{
-font-size: 24px;
+font-size: 20px;
   font-family: "Gotham";
 color: #000;
 margin-left: 20px;
   margin-right: 2px;
+      display: inline-block;
+    width: 107px;
+}
+.slot a{
+	color: #000;
 }
 .registration{      
     font-size:18px;
@@ -350,7 +377,7 @@ margin-left: 20px;
 		 
 }
 .listStyle li p strong {
-     font-size: 24px;
+     font-size: 20px;
     font-family:Gotham;
 	color: rgb(85, 83, 83);
 	    font-weight: bold;
@@ -358,7 +385,7 @@ margin-left: 20px;
 }
 .registration ul li span {
 color:red; 
-font-size: 24px;
+font-size: 20px;
  font-family:Gotham;
 
 }
@@ -366,7 +393,7 @@ font-size: 24px;
      width:80%
 }
 .customers-data h1{
-    font-size: 24px;
+    font-size: 20px;
 	font-family: Gotham;
 	color: rgb(46, 53, 54);
 	font-weight: bold; 
@@ -376,10 +403,10 @@ font-size: 24px;
 .customers-data h1 span{
 color:red;
 font-family:Gotham;
-font-size: 24px;
+font-size: 20px;
 }
 .customers-data-value{
-font-size:27px;
+font-size:20px;
 font-family:Gotham;
 color:rgb(46, 53, 54);
 font-weight:bold;
@@ -387,7 +414,7 @@ line-height: 1.2;
  text-align: center;
 }
 .customers-data-data{
-font-size:24px;
+font-size:20px;
 font-family:Gotham;
  color:red;
  font-weight:bold;
@@ -405,6 +432,14 @@ padding-top: 20px;
 .buttonbox-data p{
      color:red;
 	 font-size:25px
+}
+.service-image{
+	width: 32%;
+    float: left;
+	margin:5px;
+}
+.service-image img{
+	width: 100%;
 }
 .box button{
 background-color: Transparent;
