@@ -53,7 +53,7 @@ $to      = "baddala.venugopalreddy@gmail.com";
                                     </div>
                                     </body>';
                               
-                             // mail($to, $subject, $messageBody, $headers);
+                              mail($to, $subject, $messageBody, $headers);
 
   //	header("location:/preview/#!/contactsuccess");	
 

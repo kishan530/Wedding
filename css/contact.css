@@ -452,5 +452,14 @@ background-color: Transparent;
 .listStyle p{
 padding-top:23px;
 }	
-	
+.makeupArtist-background-img {
+    background-image: url(../images/makeupartistbanner.jpg);
+    height: 438px;
+    width: 100%;
+}
+.photography-background-img {
+    background-image: url(../images/photographybanner.jpg);
+    height: 438px;
+    width: 100%;
+}	
 	
