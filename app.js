@@ -18,7 +18,7 @@ app.factory('Session', function($http) {
 });
 
 app.run(function($rootScope){
-$rootScope.sessionVal = {name : ''}
+$rootScope.Session = '';
 });
 
 
@@ -34,6 +34,7 @@ app.controller("mainCtrl", function ($scope,$http,$location,Session) {
 	   $scope.user = response.data;  
 	   $scope.sessionVal = $scope.user;
 	   Session.saveSession(response.data);
+	    $scope.Session = Session.data;  
 	   console.log(Session.data);
 	   console.log(response.data);
 	  
@@ -42,13 +43,15 @@ app.controller("mainCtrl", function ($scope,$http,$location,Session) {
 	
 	
 	$scope.logout = function (){
-		 console.log(Session.data.user);
-		Session.data.user = '';
+		// console.log(Session.data.user);
+		//Session.data.user = '';
 		console.log(Session.data.user);
 		$http.get("logout.php",{ params: {'logout':'logout'}})
 			.then(function (response) {
 				$scope.sessionVal = '';
 				  Session.deleteSession();
+				  $scope.Session = Session.data;
+				   console.log(Session.data);
 				 $location.path("/");
 			}); 
 		};

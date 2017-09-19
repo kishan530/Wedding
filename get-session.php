@@ -3,8 +3,8 @@
 	
    if (isset($_SESSION['user'])) {
 	$user = $_SESSION['user'];
-	$isAdmin = $user['is_admin'];
+	//$isAdmin = $user['is_admin'];
 	
-	echo (json_encode($_SESSION['user']));
+	echo json_encode($_SESSION['user']);
    }
 ?>

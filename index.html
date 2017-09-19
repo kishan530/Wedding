@@ -62,13 +62,13 @@
 <link href="css/style.css?version=1.10" rel="stylesheet" type="text/css" media="all" />
 <script type="text/javascript">
 
-$("#logout").click(function(event){
+/*$("#logout").click(function(event){
 event.preventDefault();
 $('#sessionvalue').val('');
 $('#logout').hide();
 sessionId='';
 window.location.href = "logout.php";
-});
+});*/
 
 
 
@@ -228,7 +228,7 @@ window.location.href = "logout.php";
 					 <li><a href="#!makeup-artist">Makeup</a></li>	
 					<li><a href="#!photography">Photography</a></li>                 				
 					<li><a href="#!contact">Contact</a></li> 
-					<li ng-if="sessionVal.name != ''" id="logout"><a href="#" ng-click="logout()">Logout</a></li>
+					<li ng-if="Session != ''" id="logout"><a href="#" ng-click="logout()">Logout {{ Session.name }}</a></li>
 				  </ul>
 				</div><!-- /.navbar-collapse -->
 						<div class="clearfix"> </div>

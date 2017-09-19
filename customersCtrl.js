@@ -117,7 +117,7 @@ $http.get("get-data.php",{ params: { category: $scope.category,  style: $style ,
 			   .then(function (response) {
 				   $scope.sessionVal = response.data;
 				   $scope.user = response.data;  
-				   Session.data.user = response.data;
+				  $scope.Session = Session.data;
 				   console.log(response.data);
 				   // $scope.sessionVal = response.data;
 				 
@@ -149,7 +149,8 @@ $http.get("get-data.php",{ params: { category: $scope.category,  style: $style ,
 			   .then(function (response) {
 				   $scope.sessionVal = response.data;
 				   $scope.user = response.data;  
-				   Session.data.user = response.data;
+				    Session.saveSession(response.data);
+				  $scope.Session = Session.data;
 				   console.log(response.data);
 				   // $scope.sessionVal = response.data;
 				 
@@ -190,12 +191,13 @@ $http.get("get-data.php",{ params: { category: $scope.category,  style: $style ,
 	
 	$scope.booking=function(){
 		console.log('booking');
-		$('#myModal').modal('show');
+		//$('#myModal').modal('show');
+		$scope.Session = Session.data;
 		//console.log($scope.showDialog);
-		/*if($scope.user =='')
+		if($scope.Session =='')
 			$('#myModal').modal('show');
 		else
-			$location.path("/booking"); */
+			$location.path("/booking"); 
     };
    
    $scope.applyFilters(JSON.stringify([]),0,0,JSON.stringify([]),0,0); 
