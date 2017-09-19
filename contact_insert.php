@@ -1,10 +1,10 @@
 <?php
 include("config.php");
 $Name = $Email = $PhoneNumber = $Message = '';
-$Name=$_POST["Name"];
-$Email=$_POST["Email"];
-$PhoneNumber=$_POST["PhoneNumber"];
-$Message=$_POST["Message"];
+$Name=$_GET["Name"];
+$Email=$_GET["Email"];
+$PhoneNumber=$_GET["PhoneNumber"];
+$Message=$_GET["Message"];
 //echo "hello orld";
 /*$Name="hello";
 $Email="hello@gmail.com";
