@@ -32,14 +32,17 @@ app.controller("mainCtrl", function ($scope,$http,$location,Session) {
 	    $http.get("get-session.php",{ params: { 'test': 'test' }})
    .then(function (response) {
 	   $scope.user = response.data;  
-	   $scope.sessionVal = $scope.user;
-	   Session.saveSession(response.data);
-	    $scope.Session = Session.data;  
-	   console.log(Session.data);
-	   console.log(response.data);
-	  
-	 
+		localStorage.setItem("user", response.data);	  	 
 	});
+	
+	
+		$scope.getUser = function (){
+				if(!localStorage.getItem("user")){
+					return false;
+				}else{
+					return true;
+				}
+		};
 	
 	
 	$scope.logout = function (){
@@ -48,10 +51,7 @@ app.controller("mainCtrl", function ($scope,$http,$location,Session) {
 		console.log(Session.data.user);
 		$http.get("logout.php",{ params: {'logout':'logout'}})
 			.then(function (response) {
-				$scope.sessionVal = '';
-				  Session.deleteSession();
-				  $scope.Session = Session.data;
-				   console.log(Session.data);
+				localStorage.removeItem("user");
 				 $location.path("/");
 			}); 
 		};

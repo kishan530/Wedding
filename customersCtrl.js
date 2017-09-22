@@ -1,4 +1,4 @@
-app.controller('customersCtrl', function($scope, $http,$location,$timeout,Session, ) {
+app.controller('customersCtrl', function($scope, $http,$location,$timeout ) {
 	$scope.category = '1';
 	$scope.selctedStyle = [];
 	$scope.selctedOutfit = '0';
@@ -6,7 +6,6 @@ app.controller('customersCtrl', function($scope, $http,$location,$timeout,Sessio
 	$scope.selctedSeason = [];
 	$scope.showGender = false;
     $scope.user = '';
-    $scope.sessionVal = '';
 	$scope.loginError = '';
 	$scope.showDialog = false;
 	$scope.isStyleSelected = function(id) {
@@ -106,20 +105,11 @@ $http.get("get-data.php",{ params: { category: $scope.category,  style: $style ,
 	$scope.doregister = function () {  
 	$http.get("user-register.php",{ params: {'username': $scope.myusername,'email':$scope.email,'mobile':$scope.mobile, 'password':$scope.mypassword}})
 	.then(function (response) {
-		console.log($scope.myusername);
-		console.log($scope.email);
-		console.log($scope.mobile);
-		console.log($scope.mypassword);
-		console.log(response);
 	 if(response.data.success==true){
 			$('#registerModal').modal('hide');
 			$http.get("get-session.php",{ params: { 'test': 'test' }})
 			   .then(function (response) {
-				   $scope.sessionVal = response.data;
-				   $scope.user = response.data;  
-				  $scope.Session = Session.data;
-				   console.log(response.data);
-				   // $scope.sessionVal = response.data;
+				 localStorage.setItem("user", response.data);
 				 
 				});
 			$timeout(function () { $location.path("/booking"); }, 2000);
@@ -147,13 +137,7 @@ $http.get("get-data.php",{ params: { category: $scope.category,  style: $style ,
 			$('#myModal').modal('hide');
 			$http.get("get-session.php",{ params: { 'test': 'test' }})
 			   .then(function (response) {
-				   $scope.sessionVal = response.data;
-				   $scope.user = response.data;  
-				    Session.saveSession(response.data);
-				  $scope.Session = Session.data;
-				   console.log(response.data);
-				   // $scope.sessionVal = response.data;
-				 
+				 localStorage.setItem("user", response.data);				 
 				});
 			$timeout(function () { $location.path("/booking"); }, 2000);
 			//$location.path("/booking");
@@ -161,40 +145,14 @@ $http.get("get-data.php",{ params: { category: $scope.category,  style: $style ,
 		}else{
 			$scope.loginError = response.data.message;
 		}
-		
-		//console.log($scope.loginError);
-	   
+			   
 	}); 
 	};
-	
-	
-	//$scope.popupdemo = function ($scope, $dialog,event) {
-	//event.preventDefault();	
-	  //$timeout(function(){
-		//$dialog.dialog({}).open('modalContent.html');  
-	//  }, 3000); 
-   // console.log($scope.popupdemo);	  
-	//};
-	
-	 $scope.open = function () {
-            $scope.showModal = true;
-        };
-
-        $scope.ok = function () {
-            $scope.showModal = false;
-        };
-
-        $scope.cancel = function () {
-            $scope.showModal = false;
-        };
-	
+		
 	
 	$scope.booking=function(){
-		console.log('booking');
-		//$('#myModal').modal('show');
-		$scope.Session = Session.data;
-		//console.log($scope.showDialog);
-		if($scope.Session =='')
+	
+		if(!localStorage.getItem("user"))
 			$('#myModal').modal('show');
 		else
 			$location.path("/booking"); 
