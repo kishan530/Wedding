@@ -22,7 +22,7 @@ $sql=mysqli_query($conn,"insert into contact_us(Name,Email,PhoneNumber,Message,a
 
 //require_once('sendemail.php'); 
 
-$to      = "baddala.venugopalreddy@gmail.com";
+$to      = "styleme@wedelicious.com";
                                      $subject = "testing";
 
                                     $headers = "From: " .$Email. "\r\n";

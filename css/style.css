@@ -1579,6 +1579,7 @@ h3.agileits-icons-title {
 	.row {
 		margin-right: 0;
 		margin-left: 0;
+		height: auto;
 	}
 	.icon-box {
 		margin: 0;

@@ -3,7 +3,8 @@
 <style>.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: black}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: white !important;} .asteriskField{color: red;}</style>
 
 
-<div class="row services-background-img">
+<div class="row" id="services-background-img">
+
 		<div class="col-md-6" id="styling-services">
 			<div class="col-md-12 styling-servicesstyle">
 			
@@ -15,7 +16,7 @@
 				<p style="font-family: gotham-light">Meet with our stylists for a <b>Free <br>evaluation </b>& to show you how you<br>can look your very bestall with the <br><b>sensible use of budget</b> </p>
 			</div>
 	  </div>
-<div class="col-md-6 " style="padding: 114px;padding-bottom:0px;padding-top:30px;">  	
+<div class="col-md-6 form-styling">  	
                         <form action="styling_service_insert.php" method="post" role="form" class="contactForm">
                               
 								 <div class="form-group">
@@ -38,18 +39,18 @@
 					</div>	
 		</div>
                 <div class="row banner">
-					<img src="images/eventbanner.jpg" alt="" style="width:97.5%;margin-top:5px;"/>
+					<img src="images/eventbanner.jpg" alt="" id="styling-banner"/>
 				</div>
 	<div class="row" style="margin-top:3px">
 	    <div class="dreamfurthure-image" id="dreamfurthure">
-		     <img src="images/stylist bannercopy.jpg" alt="" height="585" style="width:100%"/>
+		     <img src="images/stylist bannercopy.jpg" alt="" height="585"  style="width:100%"/>
 			<!--<!--<hr class="line">
 			<h1> Indian weddings are fun, Vibrant and buzzing with<br> fashion and Glamour. with the myriad of options<br>and styles to choose from,it gets tricky sometimes<br>to find your perfect fit we at wedelicious specialize<br>in creating your dream look based  on your <br>preferences.uniqueness, lifestyle within your<br> budget. right from your trousseau to creating a<br> top-to-toe look. We take care of it all.<br>So that u get to live the most special experience<br>and cherish the memories for a lifetime.</h1>
 			<!--<h1>vikram seth has been an integral part of the <br>Indian fashion and advertisng industry for<br>the last seven years.during the time he has<br>Worked with the countrie's best known<br>fashion magazines, styled editorial stories,<br>fashion runaways and commercial campaigns. </h1> -->
 			<!--<hr class="linebottom"> -->
 	   </div>
-		<div class="stylist-profile">
-  <div id="myCarousel" class="carousel slide" data-ride="carousel" style="width: 96%;height:586px;">
+	<div class="stylist-profile">
+     <div id="myCarousel" class="carousel slide stylist-data" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators" style="left:35px;bottom: -34px !important;">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -58,7 +59,7 @@
     </ol>
 
     <!-- Wrapper for slides -->
-    <div class="carousel-inner" style="height:586px;">
+    <div class="carousel-inner stylist-data-source">
 
       <div class="item active">
         <img src="images/Vikram seth stylist bannerslider.jpg" class="tiffany-img" alt="Vikram seth" >
@@ -92,9 +93,9 @@
 		</div>
 	<!-- top-brands -->			
 		<div class="row" style="margin:10px 0 10px 0">
-			<div class="">
+			<div class="img-responsive">
 				<div class="service-image" ng-repeat="service in services">
-									<img src="images/service/{{ service.imagePath }}" alt="{{ service.Tittle }}" height="385px"/>
+									<img src="images/service/{{ service.imagePath }}" alt="{{ service.Tittle }}" class="img-responsive" height="385px"/>
 									
 				</div> 
 			</div>

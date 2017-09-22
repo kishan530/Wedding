@@ -16,7 +16,7 @@ include("config.php");
 	   // $name = 'kishan';
 		 //$email = 'kishan@1gmail.com';
 		  //$mobile = '9741725044';
-		   $selected_date = '2017-10-05';
+		   $selected_date = '2017-10-06';
 		   // $selected_time = '8:50';
 			$amount = '4250';
 			$booked_on = new DateTime();

@@ -5,7 +5,7 @@ include('config.php');
 // $description = $_GET['description'];
  //$description = 1;
 $result = $conn->query("SELECT * FROM slots");
-$bookingResult = $conn->query("SELECT * FROM booking where selected_date = '2017-10-05' ");
+$bookingResult = $conn->query("SELECT * FROM booking where selected_date = '2017-10-06' ");
 $outp = array();
 $slots =  array();
 $i = 1;
