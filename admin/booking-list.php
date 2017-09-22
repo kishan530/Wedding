@@ -3,7 +3,7 @@
    $error = '';
    $count = 0;    
       
-      $sql = "SELECT * FROM booking";
+      $sql = "SELECT b.id,b.name,b.email,b.mobile,b.selected_date,s.time,s.amount,s.booked_on FROM booking b,slots s where s.id=b.selected_time";
       $result = mysqli_query($con,$sql);
 	  $Service = array();
 	  while($row = mysqli_fetch_array($result,MYSQLI_ASSOC))
@@ -73,7 +73,7 @@
 				  <td><?php echo $Service['email']; ?></td>
 				  <td><?php echo $Service['mobile']; ?></td>
 				  <td><?php echo $Service['selected_date']; ?></td>
-				  <td><?php echo $Service['selected_time']; ?></td>
+				  <td><?php echo $Service['time']; ?></td>
 				  <td><?php echo $Service['amount']; ?></td>
 				  <td><?php echo $Service['booked_on']; ?></td>
                   <td>
