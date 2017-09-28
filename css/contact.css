@@ -96,7 +96,7 @@ h1{
 	}
 @media (max-width:1200px){	
 #send {
-    color:white;	
+    color:black;	
 	}
 }
 #sendtext{
@@ -598,14 +598,14 @@ padding-top:23px;
     width: 100%;
 }
 
-/*.photography-background-img {
+.photography-background-img {
     background-image: url(../images/photographybanner.jpg);
 	 background-size: 100%;
 	 background-repeat: no-repeat;
     height: 438px;
     width: 100%;
-}	*/
-@media (min-width:360px){
+}	
+/*@media (min-width:360px){
 	#sendtext{
 		color:black;
 	}
@@ -622,4 +622,4 @@ padding-top:23px;
 	background-repeat: no-repeat;
 	height: auto;
 }
-}
+} */
