@@ -3,7 +3,7 @@
    $error = '';
    $count = 0;    
       
-      $sql = "SELECT * FROM styling_form";
+      $sql = "SELECT * FROM photography_requests where category = 2";
       $result = mysqli_query($con,$sql);
 	  $Service = array();
 	  while($row = mysqli_fetch_array($result,MYSQLI_ASSOC))
@@ -27,12 +27,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-       Styling-Service-table-List
+       photography-requests-List
         <small></small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Service-table-List</li>
+        <li class="active">photography-requests-List</li>
       </ol>
     </section>
 
@@ -51,9 +51,10 @@
               <table class="table table-hover" id="Service">
                 <tr>
                   <th>Sl.No</th>
-                  <th>date</th>
-				  <th>time</th>
-				  <th>message</th>
+                  <th>Location</th>
+				  <th>Events</th>
+				  <th>Budget</th>
+				 <th> Additional Requirement</th>
                   <th>Status</th>
                   <th>Actions</th>
                 </tr>
@@ -65,9 +66,10 @@
 						?>
                 <tr>
                   <td><?php echo $i; ?></td>
-                  <td><?php echo $Service['date']; ?></td>
-				  <td><?php echo $Service['time']; ?></td>
-				  <td><?php echo $Service['message']; ?></td>
+                  <td><?php echo $Service['location']; ?></td>
+				  <td><?php echo $Service['events']; ?></td>
+				  <td><?php echo $Service['budget']; ?></td>
+				  <td><?php echo $Service['additionalrequirement']; ?></td>
                   <td>
 					<?php if($Service['active']>0) {?>
 				  <span class="label label-success">Active</span>
@@ -76,8 +78,8 @@
 				   <?php } ?>
 				  </td>
                   <td>
-				  <a href="editstyling-service-table.php?id=<?php echo $Service['id']; ?>"><i class="fa fa-pencil-square-o"></i></a>
-				   <a href="delete-styling-service-table.php?id=<?php echo $Service['id']; ?>" title="<?php echo $Service['date']; ?>" class="delete"><i class="fa fa-trash-o"></i></a>
+				  <a href="editphotography-requests.php?id=<?php echo $Service['id']; ?>"><i class="fa fa-pencil-square-o"></i></a>
+				   <a href="delete-photography-requests.php?id=<?php echo $Service['id']; ?>" title="<?php echo $Service['location']; ?>" class="delete"><i class="fa fa-trash-o"></i></a>
 				  </td>
                 </tr>
                <?php

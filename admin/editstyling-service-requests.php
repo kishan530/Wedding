@@ -5,7 +5,7 @@
    $message = '';
    if (isset($_GET["id"])) {
             $id = mysqli_real_escape_string($con,$_GET['id']); 
-			 $sql = "SELECT * FROM styling_form WHERE id =$id";
+			 $sql = "SELECT * FROM styling_requests WHERE id =$id";
 			$result = mysqli_query($con,$sql);
 			$Service = mysqli_fetch_array($result,MYSQLI_ASSOC);
 			
@@ -17,11 +17,11 @@
 			
 			$count = mysqli_num_rows($result);
 			if($count==0){
-				 $errors[] = " Service-table found";
+				 $errors[] = " Service-requests found";
 				 }
 			
        }else{
-		 $errors[] = "No Service-table found";
+		 $errors[] = "No Service-requests found";
 	   }
      
    if($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -40,12 +40,12 @@
      if(count($errors)==0){
 		 	if(is_null($design_file_name))
 			$design_file_name = $image_path;
-		$sql = "Update styling_form set  date= '$date',time= '$time',message = '$message',active='1' where id = '$id' ";
+		$sql = "Update styling_requests set  date= '$date',time= '$time',message = '$message',active='1' where id = '$id' ";
 		//echo $sql;
 		if(mysqli_query($con, $sql)){
-			$message = "Service-table updated successfully.";
+			$message = "Service-requests updated successfully.";
 		} else{
-			 $errors[]= "Could not able to update Service-table " . mysqli_error($con);
+			 $errors[]= "Could not able to update Service-requests " . mysqli_error($con);
 		}
 	  } 
 	  
@@ -68,13 +68,13 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Edit  Styling-Sedvice-table
-        <small>edit Service-table here</small>
+        Edit  Styling-Sedvice-requests
+        <small>edit Service-requests here</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
        <!--  <li><a href="#">Projects</a></li> -->
-        <li class="active">Edit Service-table</li>
+        <li class="active">Edit Service-requests</li>
       </ol>
     </section>
 
@@ -93,7 +93,7 @@
 			?>
 			
             <!-- form start -->
-            <form role="form" action="editstyling-service-table.php?id=<?php echo $Service['id']; ?>" method="POST" enctype="multipart/form-data">
+            <form role="form" action="editstyling-service-requests.php?id=<?php echo $Service['id']; ?>" method="POST" enctype="multipart/form-data">
 			<input type="hidden" name="id" value="<?php echo $Service['id']; ?>" >
               <div class="form-group">
                   <label for="date">date</label>

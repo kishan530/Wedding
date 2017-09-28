@@ -137,7 +137,8 @@ $http.get("get-data.php",{ params: { category: $scope.category,  style: $style ,
 			$('#myModal').modal('hide');
 			$http.get("get-session.php",{ params: { 'test': 'test' }})
 			   .then(function (response) {
-				 localStorage.setItem("user", response.data);				 
+				    localStorage.setItem("user", response.data);
+				// $window.localStorage["user"] =  JSON.stringify(response.data);				 
 				});
 			$timeout(function () { $location.path("/booking"); }, 2000);
 			//$location.path("/booking");

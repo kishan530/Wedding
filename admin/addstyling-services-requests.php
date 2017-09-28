@@ -20,13 +20,13 @@
 	//mysqli_autocommit($con,FALSE);
 	//$today = date('Y-m-d H:i:s');
 		// Attempt insert query execution
-		$sql = "INSERT INTO styling_form(date,time,message,active) VALUES ('$date ','$time','$message','1')";
+		$sql = "INSERT INTO styling_requests(date,time,message,active) VALUES ('$date ','$time','$message','1')";
 		if(mysqli_query($con, $sql)){
-			$message = "service-table added successfully.";
+			$message = "service-requests added successfully.";
 			 $date = '';
 			  
 		} else{
-			 $errors[]= "Could not able to save service-table " . mysqli_error($con);
+			 $errors[]= "Could not able to save service-requests " . mysqli_error($con);
 		}
 	  }
 	  
@@ -50,13 +50,13 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Add Styling-Service-table
-        <small>add new Service-table here</small>
+        Add Styling-Service-requests
+        <small>add new Service-requests here</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
        <!--  <li><a href="#">Projects</a></li> -->
-        <li class="active">Add Service-table</li>
+        <li class="active">Add Service-requests</li>
       </ol>
     </section>
 
@@ -72,7 +72,7 @@
 			<?php } ?>
             <!-- form start -->
 			
-            <form role="form" action="addstyling-services-table.php" method="POST" enctype="multipart/form-data">
+            <form role="form" action="addstyling-services-requests.php" method="POST" enctype="multipart/form-data">
               <div class="box-body">
 				
 				<div class="form-group">

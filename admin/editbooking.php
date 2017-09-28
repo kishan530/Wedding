@@ -27,6 +27,26 @@
        }else{
 		 $errors[] = "No booking-table found";
 	   }
+	   
+$result = $con->query("SELECT * FROM slots");
+$slots =  array();
+$i = 1;
+while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
+
+	if($i==1){
+		$id = $rs["id"];
+		if($id>20 && $id<52){
+			$id = $rs["id"];
+			$slot['id'] = $rs["id"];
+			$slot['time'] = $rs["time"];		
+			$slots[$id] = $slot;
+		}
+	}
+	if($i==2)
+	$i = 0;
+	
+	$i = $i+1;
+}
      
    if($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -48,7 +68,7 @@
      if(count($errors)==0){
 		 	if(is_null($design_file_name))
 			$design_file_name = $image_path;
-		$sql = "Update booking set  name= '$name',email= '$email',mobile = '$mobile',selected_date = '$selected_date',selected_time = '$selected_time',amount = '$amount',booked_on = '$booked_on',active='1' where id = '$id' ";
+		$sql = "Update booking set  name='$name',email= '$email',mobile = '$mobile',selected_date = '$selected_date',selected_time = '$selected_time',amount = '$amount',booked_on = '$booked_on',active='1' where id = '$id' ";
 		//echo $sql;
 		if(mysqli_query($con, $sql)){
 			$message = "booking-table updated successfully.";
@@ -119,19 +139,19 @@
                   <label for="selected_date">selected_date</label>
                   <input type="text" class="form-control" id="selected_date" name="selected_date" placeholder="Enter selected_date" value="<?php echo $selected_date; ?>" required >
                 </div>
-				<div class="form-group">
-                  <label for="selected_time">selected_time</label>
-                  <input type="text" class="form-control" id="selected_time" name="selected_time" placeholder="Enter selected_time" value="<?php echo $selected_time; ?>" required >
+				 <div class="form-group">
+                    <label for="selected_time">selected_time</label>
+				   <select id="selected_time" name="selected_time"  class="form-control">
+						<option>Select</option>
+						<?php foreach($slots as $s){ ?>
+                        <option value="<?php echo $s['id']; ?>" <?php if($selected_time==$s['id']) echo 'selected'; ?>><?php echo $s['time']; ?></option>
+						<?php } ?>
+                   </select>
                 </div>
 				<div class="form-group">
                   <label for="amount">amount</label>
                   <input type="text" class="form-control" id="amount" name="amount" placeholder="Enter amount" value="<?php echo $amount; ?>" required >
                 </div>
-				<div class="form-group">
-                  <label for="booked_on">booked_on</label>
-                  <input type="text" class="form-control" id="booked_on" name="booked_on" placeholder="Enter booked_on" value="<?php echo $booked_on; ?>" required >
-                </div>
-             </div>
 		        <div class="form-group">
                   <label>Status</label>
                   <select class="form-control" name="status">
@@ -142,6 +162,7 @@
               <div class="box-footer">
                 <button type="submit" class="btn btn-primary">Update</button>
               </div>
+			  </div>
 			  </div>
             </form>
 			<?php } ?>

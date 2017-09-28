@@ -4,6 +4,38 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
+.social-logos{
+	float:right;
+}
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+  float:right;
+}
+
+.fa-instagram {
+  background: #972fba;
+  color: white;
+  float:right;
+}
+.fa-google {
+  background: #dd4b39;
+  color: white;
+  float:right;
+}
+.fa {
+  padding: 5px;
+  font-size:15px;
+  width: 30px;
+  text-align: center;
+  text-decoration: none;
+  margin:18px 2px; 
+  border-radius:50%;
+  
+  
+}
+
+
 .dropdown-menu>li:focus, .dropdown-menu>li:hover {
     color: #FFFFFF;
     text-decoration: none;
@@ -525,14 +557,14 @@ header {
     padding: 10px 0;
     border-top: 2px solid #c4b392 ;
 }
-.logo a {
+/*.logo  a {
     font-size: 40px;
     text-decoration: none;
     color: #FFAC3A;
     font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase;
-}
+}*/
 .logo p {
     font-size: 13px;
     color: #333;
@@ -3200,7 +3232,7 @@ border:none;
 }
 @media (max-width: 414px){
 .logo a {
-    font-size: 32px;
+    font-size:25px;
 }
 .container-fluid>.navbar-collapse, .container-fluid>.navbar-header, .container>.navbar-collapse, .container>.navbar-header {
     width: 84%;

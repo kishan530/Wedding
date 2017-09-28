@@ -6,6 +6,8 @@
 	
    $errors = array();
    $message = '';
+   $slots =  array();
+
    if($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (!isset($_POST["name"])) {
@@ -21,6 +23,7 @@
 	  $booked_on = mysqli_real_escape_string($con,$_POST['booked_on']);
 	 
      if(count($errors)==0){
+		 
 	//mysqli_autocommit($con,FALSE);
 	//$today = date('Y-m-d H:i:s');
 		// Attempt insert query execution
@@ -28,17 +31,21 @@
 		if(mysqli_query($con, $sql)){
 			$message = "booking-table added successfully.";
 			 $date = '';
+			 
 			  
 		} else{
 			 $errors[]= "Could not able to save booking-table " . mysqli_error($con);
 		}
 	  }
+	  $result = $con->query("SELECT * FROM slots");
+
 	  
 	  if(count($errors)>0){
 		//echo var_dump($errors);
 		//exit();
 	  }
    }
+   
 ?>
 
  
@@ -85,19 +92,24 @@
                 </div>	
 				<div class="form-group">
                   <label for="email">email</label>
-                  <input type="text" class="form-control" id="email"  name="email" placeholder="Enter email" value="<?php echo $email; ?>" required >
+                  <input type="email" class="form-control" id="email"  name="email" placeholder="Enter email" value="<?php echo $email; ?>" required >
                 </div>	
 				<div class="form-group">
                   <label for="mobile">mobile</label>
-                  <input type="text" class="form-control" id="mobile"  name="mobile" placeholder="Enter mobile" value="<?php echo $mobile; ?>" required >
+                  <input type="mobile" class="form-control" id="mobile"  name="mobile" placeholder="Enter mobile" value="<?php echo $mobile; ?>" required >
                 </div>
 				<div class="form-group">
                   <label for="selected_date">selected_date</label>
                   <input type="text" class="form-control" id="selected_date" name="selected_date" placeholder="Enter selected_date" value="<?php echo $selected_date; ?>" required >
                 </div>
-				<div class="form-group">
-                  <label for="selected_time">selected_time</label>
-                  <input type="text" class="form-control" id="selected_time" name="selected_time" placeholder="Enter selected_time" value="<?php echo $selected_time; ?>" required >
+				 <div class="form-group">
+                    <label for="selected_time">selected_time</label>
+				   <select id="selected_time" name="selected_time"  class="form-control">
+						<option>Select</option>
+						<?php foreach($slots as $s){ ?>
+                        <option value="<?php echo $s['id']; ?>" <?php if($selected_time==$s['id']) echo 'selected'; ?>><?php echo $s['time']; ?></option>
+						<?php } ?>
+                   </select>
                 </div>
 				<div class="form-group">
                   <label for="amount">amount</label>
