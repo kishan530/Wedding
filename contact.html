@@ -1,36 +1,43 @@
 <div ng-app="myApp" ng-controller="contactCtrl">
 
-		<div class="container" id="contactContainer">
-		<div class="row">
-		<div class="col-md-6">
-		<!--<h1> <span class="fixed_w3">KREA</span> <span class="fixed_w3standard"> BRUSH</span> </h1> -->
-		<h1 class="datarow">Contact Us</h1>						
-		<div class="text_center">
-		<button type="submit" class="btn btn-primary btn-lg">GET IN TOUCH </button>
-		</div>
-		<h1 id="lable">HAVE A QUESTION? GIVE US A CALL OR<BR> FILL OUT THE CONTACT FORM -WE'D<BR> LOVE TO HERE FORM YOU. </h1>
-		<ul class="contact-data">
-			<!--<li><i class="fa fa-home fa-2x"></i> Office:Plot No.12,3rd Floor,Raj Cyber Vihar, HUDA Techno<br><span style="margin-left:40px;"> Layout Sector II,HI-Tech City,Madhapur,Hyderabad-500081</span></li>-->
-			<li><i class="fa fa-phone fa-2x"></i> Phone: +918296058409</li>
-			<li><i class="fa fa-envelope fa-2x"></i> Email:styleme@wedelicious.com</li>
-		</ul>				
-        </div>
-		<div class="col-md-6 sendmessage">  	
+    <div class="container" id="contactContainer">
+	  <div class="row">
+		   <div class="col-md-6">
+				<!--<h1> <span class="fixed_w3">KREA</span> <span class="fixed_w3standard"> BRUSH</span> </h1> -->
+				  <h1 class="datarow">Contact Us</h1>						
+				<div class="text_center">
+					<button type="submit" class="btn btn-primary btn-lg">GET IN TOUCH </button>
+				</div>
+					<h1 id="lable">HAVE A QUESTION? GIVE US A CALL OR<BR> FILL OUT THE CONTACT FORM -WE'D<BR> LOVE TO HERE FORM YOU. </h1>
+				<ul class="contact-data">
+					<!--<li><i class="fa fa-home fa-2x"></i> Office:Plot No.12,3rd Floor,Raj Cyber Vihar, HUDA Techno<br><span style="margin-left:40px;"> Layout Sector II,HI-Tech City,Madhapur,Hyderabad-500081</span></li>-->
+					<li><i class="fa fa-phone fa-2x"></i> Phone: +918296058409</li>
+					<li><i class="fa fa-envelope fa-2x"></i> Email:styleme@wedelicious.com</li>
+				</ul>				
+            </div>
+		<div class="col-md-6 sendmessage">
+		                <div class="text-center"> <label style="color: #ef0d0d;" > {{ nameerror}} </label> </div>
+	                    <div class="text-center"> <label style="color: #ef0d0d;" > {{ emailerror}} </label> </div>
+						<div class="text-center"> <label style="color: #ef0d0d;" > {{ PhoneNumbererror}} </label> </div>
                         <form ng-submit="contactdata()" method="post" role="form" class="contactForm">
                                 <div class="form-group">
-                                        <input type="text" name="Name" ng-model="Name" class="form-control" id="name" placeholder=" Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+								<input type="text" name="Name" ng-model="Name" class="form-control" id="Name" placeholder=" Name" pattern="[a-zA-Z]+"  maxlength="60" /required>
+                                       <!-- <input type="text" name="Name" ng-model="Name" class="form-control" id="name" placeholder=" Name" pattern="[a-zA-Z]+"  ng-pattern-restrict ng-minlength="4"/required  ng-minlength="4" pattern="[a-zA-Z]+" ng-pattern-restrict /> -->
+                                        <div class="validation"></div>
+                                </div>
+
+                                <div class="form-group">
+                                       <input type="text" class="form-control" name="Email" ng-model="Email" id="email" placeholder=" Email" data-rule="email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" /required>
                                         <div class="validation"></div>
                                 </div>
                                 <div class="form-group">
-                                        <input type="email" class="form-control" name="Email" ng-model="Email" id="email" placeholder=" Email" data-rule="email" data-msg="Please enter a valid email" />
+                                 <input type="text" class="form-control" name="PhoneNumber" ng-model="PhoneNumber" id="PhoneNumber" placeholder="Phone Number" maxlength="10"  pattern="[0-9]{10}"  /required>
+                                    
+                                        <!--<input type="test" class="form-control" name="PhoneNumber" ng-model="PhoneNumber"data-ng-pattern="/^(\+\d{1,3}[- ]?)?\d{10}$/" id="PhoneNumber" placeholder="Phone Number" ng-minlength="10"/required> -->
                                         <div class="validation"></div>
-                                </div>
+                                </div> 
                                 <div class="form-group">
-                                        <input type="mobile" class="form-control" name="PhoneNumber" ng-model="PhoneNumber" id="subject" placeholder="Phone Number" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-                                        <div class="validation"></div>
-                                </div>
-                                <div class="form-group">
-                                        <textarea class="form-control" name="Message" ng-model="Message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                                        <textarea type="text" class="form-control" name="Message" rows="5" ng-model="Message" placeholder="Message" pattern="[a-zA-Z]+" ng-pattern-restrict /required></textarea>
                                         <div class="validation"></div>
                                 </div>
                                  <div class="form-group">
@@ -39,10 +46,10 @@
                                 </div>
                             
                         </form>
-					</div>
-					
+					</div>	
 		 
 		</div>
-		</div>
-		</div>
+	</div>
+</div>
+	
 	

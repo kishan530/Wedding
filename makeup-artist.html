@@ -1,34 +1,34 @@
 <div ng-app="myApp" ng-controller="makeupArtistCtrl">
 
-<div class="row">
+    <div class="row">
      <div class="makeupArtist-background-img">
 		<div class="col-md-6" id="styling-services">
 			<div class="col-md-12 styling-servicesstyle">
-			
-			
 				<h1 style="font-family: epic-ride"> <!--Krista,--></h1>
-				
 				<p style="font-family: gotham-light"><br><b></b><br></p>
 				<p style="font-family: gotham-light"><b></b><br><b></b> </p>
 				<p style="font-family: gotham-light"><b><br></b><br><br><b></b> </p>
 			</div>
-	  </div>
-<div class="col-md-6 form-styling">  	
-                        <form action="makeupartist_insert.php" method="post" role="form" class="contactForm">
-                              
+	    </div>
+<div class="col-md-6 form-styling"> 
+ 	                     <div class="text-center"> <label style="color: #ef0d0d;">{{ errorNumber }} </label> </div>
+						 <div class="text-center"> <label style="color:green;">{{ successmessage }} </label> </div>
+                        <form ng-submit="makeupartistdata()" method="post" role="form" class="contactForm">
+                            
 								 <div class="form-group">
-										<input type="text" class="form-control" id="location" name="location" placeholder=" Enter Location" type="text"/>
+										<input type="text" class="form-control" id="location" ng-model="location" name="location" placeholder=" Enter Location"  pattern="[a-zA-Z]+" ng-pattern-restrict type="text"/required>
 								</div>
                                 <div class="form-group">
-                                        <input type="text" class="form-control" name="events" id="events" placeholder="Number of Events" />
+                                        <input type="text" class="form-control" ng-model="events" name="events" id="events" placeholder="Number of Events"  /required>
+										
                                         <div class="validation"></div>
                                 </div>
 								<div class="form-group">
-                                        <input type="text" class="form-control" name="budget" id="budget" placeholder="budget" />
+                                        <input type="text" class="form-control" ng-model="budget" name="budget" id="budget" placeholder="budget" /required>
                                         <div class="validation"></div>
                                 </div>
 								<div class="form-group">
-                                        <textarea class="form-control" name="additionalrequirement" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="additional Requirement"></textarea>
+                                        <textarea class="form-control" ng-model="additionalrequirement" name="additionalrequirement" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="additional Requirement"  pattern="[a-zA-Z]+" ng-pattern-restrict /required></textarea>
                                         <div class="validation"></div>
                                 </div>
                                  <div class="form-group">
@@ -37,9 +37,9 @@
                                 </div>					
 								
                         </form>
-					</div>	
 				</div>	
-		</div>
+			</div>	
+        </div>
 
 
 

@@ -3,9 +3,9 @@
 	
    $errors = array();
    $message = '';
-   if (isset($_GET["Id"])) {
-            $Id = mysqli_real_escape_string($con,$_GET['Id']); 
-			 $sql = "SELECT * FROM contact_us WHERE Id =$Id";
+   if (isset($_GET["ID"])) {
+            $Id = mysqli_real_escape_string($con,$_GET['id']); 
+			 $sql = "SELECT * FROM contact_us WHERE ID =$id";
 			$result = mysqli_query($con,$sql);
 			$Service = mysqli_fetch_array($result,MYSQLI_ASSOC);
 			

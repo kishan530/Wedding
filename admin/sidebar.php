@@ -63,6 +63,24 @@
           </ul>
         </li>
 		<li class="treeview">
+          <a href="edithome-page-banner.php">
+            <i class="fa fa-files-o"></i> <span> Update Banners</span>          
+          </a>
+		<!--  <ul class="treeview-menu menu-open">
+            <li><a href="home-page-banner-list.php"><i class="fa fa-circle-o"></i> List </a></li>
+           <li><a href="add home-page-banner.php"><i class="fa fa-circle-o"></i> Add New</a></li> 
+          </ul> -->
+        </li>
+		<li class="treeview">
+          <a href="home-page-banner-list.php">
+            <i class="fa fa-files-o"></i> <span>Articles-Request</span>          
+          </a>
+		  <ul class="treeview-menu menu-open">
+            <li><a href="article-list.php"><i class="fa fa-circle-o"></i> List </a></li>
+           <li><a href="addArticle.php"><i class="fa fa-circle-o"></i> Add New</a></li> 
+          </ul> 
+        </li>
+		<li class="treeview">
           <a href="booking-list.php">
             <i class="fa fa-files-o"></i> <span>booking-List</span>          
           </a>

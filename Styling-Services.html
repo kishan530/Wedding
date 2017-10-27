@@ -4,104 +4,101 @@
 
 
 <div class="row" id="services-background-img">
-     <div class="services-background-img">
+    <div class="services-background-img">
 		<div class="col-md-6" id="styling-services">
 			<div class="col-md-12 styling-servicesstyle">
-			
-			
 				<h1 style="font-family: epic-ride"> {{name ? 'Hi' : 'Hello'}} {{ name }} <!--Krista,--></h1>
-				
 				<p style="font-family: gotham-light">Are you ready to<br><b>BOOK </b>Your to personalized styling <br> experience ?</p>
 				<p style="font-family: gotham-light">When you <b>look good</b>,<br> you <b>feel content and happy</b> .</p>
 				<p style="font-family: gotham-light">Meet with our stylists for a <b>Free <br>evaluation </b>& to show you how you<br>can look your very bestall with the <br><b>sensible use of budget</b> </p>
 			</div>
-	  </div>
-<div class="col-md-6 form-styling">  	
-                        <form action="styling_service_insert.php" method="post" role="form" class="contactForm">
-                              
-								 <div class="form-group">
-										<input type="" class="form-control" id="date" name="date" placeholder="MM/DD/YYYY" type="text"/>
-								</div>
-                                <div class="form-group">
-                                        <input type="time" class="form-control" name="time" id="Time" placeholder="Select Time" />
-                                        <div class="validation"></div>
-                                </div>
-								<div class="form-group">
-                                        <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Any Message"></textarea>
-                                        <div class="validation"></div>
-                                </div>
-                                 <div class="form-group">
-                                        <button type="submit" class="form-control " name="send" id="sendtext" value="submit">submit</button>
+	    </div>
+         <div class="col-md-6 form-styling">
+  	        <div class="text-center"> <label style="color:#ffac3a;">{{successmessage}} </label> </div>
+                 <form ng-submit="stylingservicedata()" method="post" role="form" class="contactForm">
+                    <div class="form-group">
+						<input type="text" class="form-control" id="date" ng-model="date" name="date" placeholder="YYYY/MM/DD" type="text"/required>
+					</div>
+                    <div class="form-group">
+                         <input type="time" class="form-control" ng-model="time" name="time" id="Time" ng-pattern="/^(0?[1-9]|1[012]):[0-5][0-9]$/" placeholder="Select Time" required/>
+                         <div class="validation"></div>
+                    </div>
+					<div class="form-group">
+                         <textarea class="form-control" ng-model="message" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Any Message" required></textarea>
+                         <div class="validation"></div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="form-control " name="send" id="sendtext" value="submit">submit</button>
                                         
-                                </div>					
+                    </div>	          
+												
 								
-                        </form>
-					</div>	
-		</div>
-                <div class="row banner">
-					<img src="images/eventbanner.jpg" alt="" id="styling-banner"/>
-				</div>
-	<div class="row" style="margin-top:3px">
+                </form>
+	    </div>	
+	</div>
+        
+    <div class="banner">
+	    <a href=""><img src="images/banner/{{ banners.adBanner }}" alt="" width="100%" id="styling-banner" /></a>
+	</div>
+		 
+	<div class="" style="margin-top:3px"> 
 	    <div class="dreamfurthure-image" id="dreamfurthure">
 		     <img src="images/stylist bannercopy.jpg" alt="" height="585"  style="width:100%"/>
 			<!--<!--<hr class="line">
 			<h1> Indian weddings are fun, Vibrant and buzzing with<br> fashion and Glamour. with the myriad of options<br>and styles to choose from,it gets tricky sometimes<br>to find your perfect fit we at wedelicious specialize<br>in creating your dream look based  on your <br>preferences.uniqueness, lifestyle within your<br> budget. right from your trousseau to creating a<br> top-to-toe look. We take care of it all.<br>So that u get to live the most special experience<br>and cherish the memories for a lifetime.</h1>
 			<!--<h1>vikram seth has been an integral part of the <br>Indian fashion and advertisng industry for<br>the last seven years.during the time he has<br>Worked with the countrie's best known<br>fashion magazines, styled editorial stories,<br>fashion runaways and commercial campaigns. </h1> -->
 			<!--<hr class="linebottom"> -->
-	   </div>
-	<div class="stylist-profile">
-     <div id="myCarousel" class="carousel slide stylist-data" data-ride="carousel">
+	     </div>
+	     <div class="stylist-profile">
+            <div id="myCarousel" class="carousel slide stylist-data" data-ride="carousel">
     <!-- Indicators -->
-    <ol class="carousel-indicators" style="left:35px;bottom: -34px !important;">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
+             <ol class="carousel-indicators" style="left:35px;bottom: -34px !important;">
+                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                 <li data-target="#myCarousel" data-slide-to="1"></li>
       
-    </ol>
-
+            </ol>
     <!-- Wrapper for slides -->
-    <div class="carousel-inner stylist-data-source">
-
-      <div class="item active">
-        <img src="images/Vikram seth stylist bannerslider.jpg" class="tiffany-img" alt="Vikram seth" >
-      </div>
-
-      <div class="item">
-        <img src="images/Prachi stylist bannerslider.jpg" class="tiffany-img" alt="Prachi">
+   <div class="carousel-inner stylist-data-source">
+        <div class="item active">
+            <img src="images/Vikram seth stylist bannerslider.jpg" class="tiffany-img" alt="Vikram seth" >
+         </div>
+        <div class="item">
+             <img src="images/Prachi stylist bannerslider.jpg" class="tiffany-img" alt="Prachi">
       
-      </div>
+        </div>
    
-    </div>
+    </div> 
 
     <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
-		</div>
-	</div>
-	<div class="row">
+			<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+				<span class="glyphicon glyphicon-chevron-left"></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="right carousel-control" href="#myCarousel" data-slide="next">
+			    <span class="glyphicon glyphicon-chevron-right"></span>
+			    <span class="sr-only">Next</span>
+			</a>
+        </div>
+	 </div>
+</div>
+	<!--<div class="row"> -->
 		<div class="col-md-12 wedding-data-services ">
 			<div class="wedding-services">
 				<h1><label ng-click="serviceclick('Style Board')"><span>Style Board</span>&nbsp &nbsp &nbsp</label>|&nbsp &nbsp; &nbsp;<label ng-click="serviceclick('Couple Co-ordination')"><span>Couple Co-ordination</span></label></h1>
             </div>
 		</div>
-		</div>
+		<!--</div>-->
 	<!-- top-brands -->			
-		<div class="row" style="margin:10px 0 10px 0">
+	<!--	<div class="row" style="margin:10px 0 10px 0">-->
 			<div class="img-responsive">
 				<div class="service-image" ng-repeat="service in services">
-									<img src="images/service/{{ service.imagePath }}" alt="{{ service.Tittle }}" class="img-responsive" height="385px"/>
+					<img src="images/service/{{ service.imagePath }}" alt="{{ service.Tittle }}" class="img-responsive" height="385"/>
 									
 				</div> 
 			</div>
-		</div> 
+	<!--	</div> -->
 	
-	</div>
+</div>
 	
 
 
@@ -110,7 +107,7 @@
 		var date_input=$('input[name="date"]'); //our date input has the name "date"
 		var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
 		date_input.datepicker({
-			format: 'mm/dd/yyyy',
+			format: 'yyyy/mm/dd',
 			container: container,
 			todayHighlight: true,
 			autoclose: true,

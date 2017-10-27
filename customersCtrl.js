@@ -102,7 +102,7 @@ $http.get("get-data.php",{ params: { category: $scope.category,  style: $style ,
        $location.path("/look-board/"+selected);
     }; 
 	
-	$scope.doregister = function () {  
+/*	$scope.doregister = function () {  
 	$http.get("user-register.php",{ params: {'username': $scope.myusername,'email':$scope.email,'mobile':$scope.mobile, 'password':$scope.mypassword}})
 	.then(function (response) {
 	 if(response.data.success==true){
@@ -117,10 +117,6 @@ $http.get("get-data.php",{ params: { category: $scope.category,  style: $style ,
 			}else{
 			$scope.loginError = response.data.message;
 		}
-		
-			
-			
-	   
 	}); 
 	};
 	
@@ -148,7 +144,7 @@ $http.get("get-data.php",{ params: { category: $scope.category,  style: $style ,
 		}
 			   
 	}); 
-	};
+	}; 
 		
 	
 	$scope.booking=function(){
@@ -157,7 +153,7 @@ $http.get("get-data.php",{ params: { category: $scope.category,  style: $style ,
 			$('#myModal').modal('show');
 		else
 			$location.path("/booking"); 
-    };
+    }; */
    
    $scope.applyFilters(JSON.stringify([]),0,0,JSON.stringify([]),0,0); 
    
@@ -174,5 +170,16 @@ $http.get("get-data.php",{ params: { category: $scope.category,  style: $style ,
 			console.log(response);
 			$scope.fashions = response.data.fashions;
 			}); 
+	$http.get("get-articles.php",{ params: {'test':'test'}})
+			.then(function (response) {
+			console.log(response);
+			$scope.articles = response.data.articles;
+			}); 
+					
+			$http.get("get-banner.php",{ params: {'test':'test'}})
+			.then(function (response) {
+			console.log(response);
+			$scope.banners = response.data.banners;
+			});
    
 });

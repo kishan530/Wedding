@@ -18,6 +18,10 @@ app.controller('lookBoardCtrl', function($scope,$routeParams, $http) {
 		   });
    };
    
-  
+  $http.get("get-banner.php",{ params: {'test':'test'}})
+			.then(function (response) {
+			console.log(response);
+			$scope.fashions = response.data.fashions;
+			}); 
    
 });
