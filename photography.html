@@ -1,47 +1,60 @@
 <div ng-app="myApp" ng-controller="photographyCtrl">
-    <div class="col-md-12 photography-background-img">
+    <div class="container">
        <div class="row">
-     
-		<div class="col-md-6" id="styling-services">
-			<div class="col-md-12 styling-servicesstyle">
+      <div class="photography-background-img">
+		<div class="col-md-2" id="styling-services">
+			<!--<div class="col-md-12 styling-servicesstyle">
 				<h1 style="font-family: epic-ride"> </h1>
 				<p style="font-family: gotham-light"><br><b></b><br></p>
 				<p style="font-family: gotham-light"><b></b><br><b></b> </p>
 				<p style="font-family: gotham-light"><b><br></b><br><br><b></b> </p>
-			</div>
+			</div>-->
 	    </div>
-                    <div class="col-md-6 form-styling">
+                    <div class="col-md-10 form-styling">
   	                     <div class="text-center"> <label style="color: #ef0d0d;">{{errorNumber}} </label> </div>
 						 <div class="text-center"> <label style="color:green;">{{successmessage}} </label> </div>
-                        <form ng-submit="photographydata()" method="post" role="form" class="contactForm">
-                              
-								 <div class="form-group">
-										<input type="text" class="form-control" id="location" ng-model="location" name="location" placeholder=" Enter Location"  pattern="[a-zA-Z]+" ng-pattern-restrict type="text"/required>
+                        <form ng-submit="photographydata()" method="post" role="form" class="contactForm" style="margin-top: -15px;">
+                                <div class="row">
+								<div class="col-md-4">
+									 <div class="forms-group">
+											<input type="text" class="form-control height"  id="location" ng-model="location" name="location" placeholder=" Enter Location"  pattern="[a-zA-Z]+" ng-pattern-restrict type="text"/required>
+									</div>
 								</div>
-                                <div class="form-group">
-                                        <input type="text" class="form-control" ng-model="events" name="events" id="events" placeholder="Number of Events"  /required>
-                                        <div class="validation"></div>
-                                </div>
+								<div class="col-md-4">
+									<div class="form-group">
+											<input type="text" class="form-control height" ng-model="events" name="events" id="events" placeholder="Number of Events"  /required>
+											<div class="validation"></div>
+									</div>
+								</div>
+								<div class="col-md-4">	
+									<div class="form-group">
+											<input type="text" class="form-control height"  ng-model="budget" name="budget" id="budget" placeholder="budget" /required>
+											<div class="validation"></div>
+									</div>
+									</div></div>
 								<div class="form-group">
-                                        <input type="text" class="form-control"  ng-model="budget" name="budget" id="budget" placeholder="budget" /required>
+                                        <input class="form-control height" ng-model="additionalrequirement" name="additionalrequirement" data-rule="required" data-msg="Please write something for us" style="margin-top: 0px;" placeholder="Additional Requirement"  pattern="[a-zA-Z]+" ng-pattern-restrict required>
                                         <div class="validation"></div>
                                 </div>
-								<div class="form-group">
-                                        <textarea class="form-control" ng-model="additionalrequirement" name="additionalrequirement" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Additional Requirement"  pattern="[a-zA-Z]+" ng-pattern-restrict required></textarea>
-                                        <div class="validation"></div>
-                                </div>
-                                 <div class="form-group">
-                                        <button type="submit" class="form-control " name="send" id="send" value="submit">submit</button>
+                                 <div class="form-group" style="width:250px; margin-left: 35%;margin-top: -7px; font-size:15px">
+                                        <button type="submit" class="form-control height" name="send" id="send" value="submit">submit</button>
                                         
                                 </div>					
 								
                         </form>
 					</div>
-				</div>	
+				  </div>	
+				</div>
+				
 		</div>
 
-
-
+	
+	<div class="row">
+        <div class="col-md-12">
+				<img src="images/prewedding-shoot-banner.jpg" alt="" width="100%" class="photography-img">
+			</div>
+	</div>
+</div>
 <!--	<div class="text-center">
 		<h2 style="color:red;font-size:20px;margin-bottom:20px"> COMING SOON ...<h2>
 	</div>
@@ -105,5 +118,5 @@
 		</div>				
 	</div>		
     </div>-->
-</div> 
+ 
 	

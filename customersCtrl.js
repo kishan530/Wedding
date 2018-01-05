@@ -1,4 +1,5 @@
 app.controller('customersCtrl', function($scope, $http,$location,$timeout ) {
+	
 	$scope.category = '1';
 	$scope.selctedStyle = [];
 	$scope.selctedOutfit = '0';
@@ -94,15 +95,12 @@ $http.get("get-data.php",{ params: { category: $scope.category,  style: $style ,
     //console.log(response.data.filters.occassions);
    });
     
-		
-           
-	
-   
     $scope.selectDesign=function(selected){
        $location.path("/look-board/"+selected);
     }; 
 	
-/*	$scope.doregister = function () {  
+//<!--datastart-->
+	$scope.doregister = function () {  
 	$http.get("user-register.php",{ params: {'username': $scope.myusername,'email':$scope.email,'mobile':$scope.mobile, 'password':$scope.mypassword}})
 	.then(function (response) {
 	 if(response.data.success==true){
@@ -112,8 +110,8 @@ $http.get("get-data.php",{ params: { category: $scope.category,  style: $style ,
 				 localStorage.setItem("user", response.data);
 				 
 				});
-			$timeout(function () { $location.path("/booking"); }, 2000);
-			
+			//$timeout(function () { $location.path("/booking"); }, 2000);
+			$timeout(function () { $location.path("/contest"); }, 2000);
 			}else{
 			$scope.loginError = response.data.message;
 		}
@@ -136,7 +134,8 @@ $http.get("get-data.php",{ params: { category: $scope.category,  style: $style ,
 				    localStorage.setItem("user", response.data);
 				// $window.localStorage["user"] =  JSON.stringify(response.data);				 
 				});
-			$timeout(function () { $location.path("/booking"); }, 2000);
+			//$timeout(function () { $location.path("/booking"); }, 2000);
+			$timeout(function () { $location.path("/contest"); }, 2000);
 			//$location.path("/booking");
 			//$scope.dismiss();
 		}else{
@@ -152,10 +151,12 @@ $http.get("get-data.php",{ params: { category: $scope.category,  style: $style ,
 		if(!localStorage.getItem("user"))
 			$('#myModal').modal('show');
 		else
-			$location.path("/booking"); 
-    }; */
-   
-   $scope.applyFilters(JSON.stringify([]),0,0,JSON.stringify([]),0,0); 
+			//$location.path("/booking"); 
+            $location.path("/contest");
+    }; 
+  // <!--dataend -->
+  
+  $scope.applyFilters(JSON.stringify([]),0,0,JSON.stringify([]),0,0); 
    
     $http.get("get-session.php",{ params: { 'test': 'test' }})
    .then(function (response) {
@@ -175,11 +176,11 @@ $http.get("get-data.php",{ params: { category: $scope.category,  style: $style ,
 			console.log(response);
 			$scope.articles = response.data.articles;
 			}); 
-					
-			$http.get("get-banner.php",{ params: {'test':'test'}})
+	$http.get("get-banner.php",{ params: {'test':'test'}})
 			.then(function (response) {
 			console.log(response);
 			$scope.banners = response.data.banners;
-			});
+			});				
+			
    
 });

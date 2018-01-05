@@ -93,6 +93,7 @@ h1{
 	 margin-top: 10px;
 	font-size: 20px;
     color: white;
+	padding: 0px;
 	}
 @media (max-width:1200px){	
 #send {
@@ -152,7 +153,10 @@ h1{
 		
 		
 		
-		/* StylingServices start */ 
+		/* StylingServices start */
+.banner{
+    margin-top: -39px;
+}	
  #styling-services h1{
 	    color: white;
    
@@ -185,14 +189,17 @@ h1{
 	margin-bottom: 7px;
 }
 .form-styling{
-	padding: 114px;
+	padding:95px;
 	padding-bottom:0px;
-	padding-top:30px;
+	padding-top:0px;
 }
 @media (max-width:768px){	
 .form-styling {
     padding:5px;	
 	}
+}
+.form-control.height{
+	height:30px;
 }
 @media (max-width:768px){	
 #services-background-img {
@@ -203,16 +210,17 @@ h1{
 #services-background-img {
     background-image: url("../images/formbanner.jpg");
 	background-repeat: no-repeat;
-	height: auto;
+	width: 100%;
 }
 }
 
 /*#services-background-img{
 	background-image: url("../images/formbanner.jpg");
-	    height:438px;
-    width: 100%;
+	       height: 435px;
+           width: 97.6%;
+         margin-bottom: -41px;
 }
-@media only screen and (max-width:1200px) {
+/*@media only screen and (max-width:1200px) {
  #services-background-img { 
              background-image: url("../images/formbanner.jpg");
              background-size: 100%;
@@ -231,7 +239,7 @@ h1{
 }*/		
 @media (max-width:768px){	
 .styling-servicesstyle {
-    padding-left:50px;
+    padding-left:15px;
     padding-top:2px; 
 		
 	}
@@ -265,8 +273,8 @@ h1{
 	height:586px;
 }*/
 #styling-banner{
-	width:98%;
-	margin-top:45px;
+       width: 97.5%;
+    margin-top: 43px;
 }
 @media (max-width:1200px){
 #styling-banner {
@@ -288,7 +296,7 @@ h1{
 	width: 62%;
     float: right;
     margin-left: 3px;
-    height: 545px;
+   /* height: 545px; */
 }
 @media (max-width:1200px){
 .stylist-profile {
@@ -317,12 +325,12 @@ h1{
 }
 .wedding-data-services{
 	padding-left: 0px!important;
-    padding-right: 28px !important;
-    margin-top: 15px !important;
+    padding-right:30px !important;
+    margin-top: 7px !important;
 }
-@media (max-width:1200px){
+@media (max-width:768px){
 .wedding-data-services {
-   width:108%;  
+  padding-right: 0px !important;  
 }
 }
 .wedding-services{
@@ -364,6 +372,15 @@ background:black;
     border-color: #f2f2f2;
     box-shadow: 0 4px 2px -2px #D8DBDB;
     border-radius:19px;
+}
+
+.trans-input {
+	 padding: 3px 10px !important  ;
+    
+    border-radius: 0 !important;
+    background: none !important;
+    border: none !important;
+    height: 20px !important;
 }
 
 .form-control {
@@ -427,9 +444,9 @@ margin-top: 15px;
     margin-top: 15px;
     	
 }
-.row form{
+/*.row form{
         margin-top:15px;
-		}
+		}*/
 	
 	/* start registration */
 .carousel-inner > .item{
@@ -440,11 +457,12 @@ margin-top: 15px;
 #registrationContainer {
     text-align: center;
     color: white;
-    padding: 3%;
+    padding: 2%;
 }
 #registrationContainer h1{
          font-family: epic-ride;
-         font-size: 95.73pt;
+         /*font-size: 95.73pt;*/
+		  font-size:39.73pt;
 }
 @media (max-width:768px){	
 #registrationContainer h1 {
@@ -593,7 +611,7 @@ padding-top:23px;
 }	
 .makeupArtist-background-img {
     background-image: url(../images/makeupartistbanner.jpg);
-     background-size: 100%;
+     background-size: 97.5%;
 	 background-repeat: no-repeat;
     height:438px;
     width: 100%;
@@ -601,11 +619,19 @@ padding-top:23px;
 
 .photography-background-img {
     background-image: url(../images/photographybanner.jpg);
-	 background-size: 100%;
+	 background-size: 97.5%;
 	 background-repeat: no-repeat;
-    height: 438px;
+    height:175px;
     width: 100%;
-}	
+}
+.photography-img{	
+  margin-top:1%;
+ }
+/*@media (min-width:1200px){
+.photography-img{	
+  margin-top:50%;
+ }
+}*/
 /*@media (min-width:360px){
 	#sendtext{
 		color:black;
@@ -624,3 +650,93 @@ padding-top:23px;
 	height: auto;
 }
 } */
+.Your_sponsored_look_comprise_of_a_beautiful_out {
+  font-size: 20px !important;
+  font-family: "Roboto";
+  color: rgb(0, 0, 0)!important;
+  line-height: 1.2;
+  text-align: center;
+  margin-top: 40px;
+  left: 121.154px;
+  top: 180.29px;
+  z-index: 28;
+}
+.Bride_Alert {
+  font-size: 20px !important;
+  font-family:Garamond !important;
+  color: rgb(240, 161, 79)!important;
+  line-height: 1.2;
+  -moz-transform: matrix( 5.24443792241692,0,0,5.24663516262011,0,0);
+  -webkit-transform: matrix( 5.24443792241692,0,0,5.24663516262011,0,0);
+  -ms-transform: matrix( 5.24443792241692,0,0,5.24663516262011,0,0);
+   margin-top: 40px;
+  left: 465.496px;
+  top: 95.059px;
+  z-index: 27;
+}
+.bride-alert-landing{
+	  background-image: url(../images/banner/bridealert-landingpage.jpg);
+     background-size: 97.5%;
+	 background-repeat: no-repeat;
+    height:1320px;
+    width: 100%;
+}
+.bride-alert-bride{
+	font-size: 20px;
+    font-family: "Garamond";
+    color: rgb(234, 143, 62);
+    line-height: 1.2;
+    -moz-transform: matrix( 4.62284669869007,0,0,4.62669380735972,0,0);
+    -webkit-transform: matrix( 4.62284669869007,0,0,4.62669380735972,0,0);
+    -ms-transform: matrix( 4.62284669869007,0,0,4.62669380735972,0,0);
+    position: absolute;
+    left: 170.997px;
+    /* top: 243.559px; */
+    z-index: 8;
+}
+.One_lucky_bride_a_month{
+	font-size: 20px;
+    font-family: "Roboto";
+    color: rgb(78, 76, 76);
+    line-height: 1.2;
+    text-align: center;
+    -moz-transform: matrix( 1.08505079825835,0,0,1.08549898485085,0,0);
+    -webkit-transform: matrix( 1.08505079825835,0,0,1.08549898485085,0,0);
+    -ms-transform: matrix( 1.08505079825835,0,0,1.08549898485085,0,0);
+    position: absolute;
+    left: 54.171px;
+    top: 100.994px;
+    z-index: 4;
+}
+.Are_you_that_lucky_bride{
+	font-size: 20px;
+    font-family: "Roboto";
+    color: rgb(219, 58, 77);
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 1.2;
+    text-align: center;
+    -moz-transform: matrix( 1.3985309233135,0,0,1.39952877487083,0,0);
+    -webkit-transform: matrix( 1.3985309233135,0,0,1.39952877487083,0,0);
+    -ms-transform: matrix( 1.3985309233135,0,0,1.39952877487083,0,0);
+    position: absolute;
+    left: 100.182px;
+    top: 244.559px;
+    z-index: 7;
+}
+.look_comprise_of_a_beautiful_out{
+	    font-size: 25px;
+    font-family: "Roboto";
+    color: rgb(78, 76, 76);
+    line-height: 1.2;
+    text-align: center;
+    -moz-transform: matrix( 0.85576923076923,0,0,0.85637982195846,0,0);
+    -webkit-transform: matrix( 0.85576923076923,0,0,0.85637982195846,0,0);
+    -ms-transform: matrix( 0.85576923076923,0,0,0.85637982195846,0,0);
+    position: absolute;
+    left: 6.875px;
+    top: 295.069px;
+    width: 530.916px;
+    height: 108.112px;
+    z-index: 5;
+}

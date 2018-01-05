@@ -18,7 +18,7 @@
    display: none;
 }
 .skdslider ul.slides li img{
-    width: 100%;
+    width: 98.7%;
 	height: 100%;
 	border:0;
 }
@@ -346,6 +346,7 @@ text-decoration:underline;
 }
 .bannerstyle {
 	    padding-right: 0px;
+		margin-bottom: 5px;
 }
 .banner-style{
        padding-left: 4px;

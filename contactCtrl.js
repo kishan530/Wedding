@@ -9,15 +9,15 @@ app.controller("contactCtrl", function ($scope,$http,$location) {
 		  $scope.nameerror= '';
 		  $scope.emailerror= '';
 		  $scope.PhoneNumbererror= '';
-		 var REGEXP =/[a-zA-Z]+/;
+		 var regx =/[a-zA-Z]+\\.?/;
 	
 	if($scope.NAME=='') {
       $scope.nameerror="please enter name";
 	  $scope.error = true;
     }
 	
-	if(!REGEXP .test($scope.NAME)) {
-      $scope.nameerror="It allows ";
+	if(!regx .test($scope.NAME)) {
+      $scope.nameerror="It allows only alphabits ";
 	  $scope.error = true;
     }
 	
@@ -42,7 +42,6 @@ app.controller("contactCtrl", function ($scope,$http,$location) {
 	  $scope.error = true;
     }
 	
-	
 	if($scope.error==false){
 	 console.log($scope.nameerror);
 	 console.log($scope.emailerror);
@@ -60,11 +59,8 @@ app.controller("contactCtrl", function ($scope,$http,$location) {
 	});
 	}
 
-	
 	};
-	
 	 
-   
    });
    
    

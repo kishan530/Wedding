@@ -1,10 +1,9 @@
 <div ng-app="myApp" ng-controller="StylingServicesCtrl">
 <!-- Inline CSS based on choices in "Settings" tab -->
 <style>.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: black}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: white !important;} .asteriskField{color: red;}</style>
-
-
+<div class="container">
 <div class="row" id="services-background-img">
-    <div class="services-background-img">
+    <div class="services-background-img"  id="services-background-img"> 
 		<div class="col-md-6" id="styling-services">
 			<div class="col-md-12 styling-servicesstyle">
 				<h1 style="font-family: epic-ride"> {{name ? 'Hi' : 'Hello'}} {{ name }} <!--Krista,--></h1>
@@ -35,20 +34,22 @@
 								
                 </form>
 	    </div>	
-	</div>
-        
-    <div class="banner">
-	    <a href=""><img src="images/banner/{{ banners.adBanner }}" alt="" width="100%" id="styling-banner" /></a>
-	</div>
-		 
-	<div class="" style="margin-top:3px"> 
+	</div> 
+ </div>
+		<div class="row">
+			<div class="banner">
+				<a href=""><img src="images/banner/{{ banners.adBanner }}" alt="" width="100%" id="styling-banner" /></a>
+			</div> 
+		</div>
+
+<div class="row" style="margin-top:3px"> 
 	    <div class="dreamfurthure-image" id="dreamfurthure">
 		     <img src="images/stylist bannercopy.jpg" alt="" height="585"  style="width:100%"/>
 			<!--<!--<hr class="line">
 			<h1> Indian weddings are fun, Vibrant and buzzing with<br> fashion and Glamour. with the myriad of options<br>and styles to choose from,it gets tricky sometimes<br>to find your perfect fit we at wedelicious specialize<br>in creating your dream look based  on your <br>preferences.uniqueness, lifestyle within your<br> budget. right from your trousseau to creating a<br> top-to-toe look. We take care of it all.<br>So that u get to live the most special experience<br>and cherish the memories for a lifetime.</h1>
 			<!--<h1>vikram seth has been an integral part of the <br>Indian fashion and advertisng industry for<br>the last seven years.during the time he has<br>Worked with the countrie's best known<br>fashion magazines, styled editorial stories,<br>fashion runaways and commercial campaigns. </h1> -->
 			<!--<hr class="linebottom"> -->
-	     </div>
+	    </div>
 	     <div class="stylist-profile">
             <div id="myCarousel" class="carousel slide stylist-data" data-ride="carousel">
     <!-- Indicators -->
@@ -63,7 +64,7 @@
             <img src="images/Vikram seth stylist bannerslider.jpg" class="tiffany-img" alt="Vikram seth" >
          </div>
         <div class="item">
-             <img src="images/Prachi stylist bannerslider.jpg" class="tiffany-img" alt="Prachi">
+             <img src="images/Prachi stylist bannerslider.jpg"  class="tiffany-img" alt="Prachi">
       
         </div>
    
@@ -81,25 +82,26 @@
         </div>
 	 </div>
 </div>
-	<!--<div class="row"> -->
-		<div class="col-md-12 wedding-data-services ">
-			<div class="wedding-services">
-				<h1><label ng-click="serviceclick('Style Board')"><span>Style Board</span>&nbsp &nbsp &nbsp</label>|&nbsp &nbsp; &nbsp;<label ng-click="serviceclick('Couple Co-ordination')"><span>Couple Co-ordination</span></label></h1>
-            </div>
-		</div>
-		<!--</div>-->
-	<!-- top-brands -->			
-	<!--	<div class="row" style="margin:10px 0 10px 0">-->
+       <div class="row">
+			<div class="wedding-data-services">
+				<div class="wedding-services">
+					<h1><label ng-click="serviceclick('Style Board')"><span>Style Board</span>&nbsp &nbsp &nbsp</label>|&nbsp &nbsp; &nbsp;<label ng-click="serviceclick('Couple Co-ordination')"><span>Couple Co-ordination</span></label></h1>
+				</div>
+			</div> 
+		</div> 
+<!--<div class="row" style="margin:10px 0 10px 0">-->
+	    <div class="row">
 			<div class="img-responsive">
 				<div class="service-image" ng-repeat="service in services">
-					<img src="images/service/{{ service.imagePath }}" alt="{{ service.Tittle }}" class="img-responsive" height="385"/>
+					 <img src="images/service/{{ service.imagePath }}" alt="{{ service.Tittle }}" class="img-responsive" height="385"/>
 									
 				</div> 
 			</div>
-	<!--	</div> -->
+		</div>
+<!--</div> -->
 	
 </div>
-	
+</div>	
 
 
 <script>
@@ -114,3 +116,6 @@
 		})
 	})
 </script>
+		</div>	
+
+

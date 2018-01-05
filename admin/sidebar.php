@@ -150,7 +150,12 @@
           </a>
 		 
         </li>
+		 <li class="treeview">
+          <a href="contest-list.php">
+            <i class="fa fa-files-o"></i> <span>contest List</span>          
+          </a>
 		 
+        </li>
 		  
         
 		

@@ -47,8 +47,11 @@ $routeProvider.
 	when('/success', { 
 		controller: 'successCtrl', 
 		templateUrl: 'success.html' 
+	}).
+	when('/contest', { 
+		controller: 'contestCtrl', 
+		templateUrl: 'contest.html' 
 	});
-	
 	
 	
 });

@@ -138,7 +138,6 @@
                 <div class="form-group">
                   <label for="catogery">catogery</label>
 				  <select id="catogery" name="catogery"  class="form-control">
-									<option>Select</option>
 									<option value="2" <?php if($catogery) echo 'selected'; ?>>Testimonial</option>
 							        <option value="1" <?php if($catogery) echo 'selected'; ?>>Blog</option>
                                    <option value="0" <?php if(!$catogery) echo 'selected'; ?>>events</option>

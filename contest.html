@@ -1,0 +1,180 @@
+ <html>
+<head>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+ 
+</head>
+<body ng-app="myApp" ng-controller="contestCtrl">
+<div class="Container">
+<div class="" style="background-image: url('images/event-signup.jpg'); background-size: cover;">
+<div class="registration-banner" id="registrationContainer">
+
+<h1 class="Bride_Alert">Bride Alert</h1>
+<p class="Your_sponsored_look_comprise_of_a_beautiful_out">Your sponsored look comprise of a beautiful outfit, accessories and jewelry to go along.<br> Styled with the perfect makeup and hairdo.Completed with a bridal fashion photoshoot</p>
+<p class="Your_sponsored_look_comprise_of_a_beautiful_out" style="margin-top:25px">We are accepting entries for the February&March brides.</p>
+</div>
+
+	  <div class="row">
+		 <div class="col-md-2"></div>
+		<div class="col-md-8 text-center">
+		             
+                        <form ng-submit="contest()" method="post" role="form" enctype="multipart/form-data">
+						    
+                                <div class="form-group">
+								<input type="text" name="name" ng-model="name" class="form-control" id="name" placeholder=" Name" pattern="[a-zA-Z]+"  maxlength="60" /required>
+                                      
+                                        <div class="validation"></div>
+                                </div>
+
+                                <div class="form-group">
+                                       <input type="text" class="form-control" name="email" ng-model="email" id="email" placeholder=" Email" data-rule="email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" /required>
+                                        <div class="validation"></div>
+                                </div>
+                                <div class="form-group">
+                                 <input type="text" class="form-control" name="mobile" ng-model="mobile" id="mobile" placeholder="Mobile" maxlength="10"  pattern="[0-9]{10}"  /required>
+                                    
+                                        <div class="validation"></div>
+                                </div>							
+								<!--<div class="form-group">
+								<input type ="file" file-model="file" name="file" class="form-control">
+								<!--<button ng-click = "uploadFile()">upload me</button>
+								</div>
+								<!--<div class="form-group">
+                                 <input type="text" class="form-control" name="location" ng-model="location" id="location" placeholder="Location"  /required>
+                                </div>-->
+							
+								<!--<div id="form1" runat="server">
+								<!--<div class="form-group">
+									<select class="form-control" name="events" ng-model="events" id="slct" onchange="change();">
+									
+									<option value=""disabled selected> Number of events</option> 
+										<option value="1" >1</option>
+										<option value="2" >2</option>
+										<option value="3" >3</option>
+										<option value="4" >4</option>
+                                        <option value="5" >5</option>										 
+								    </select>
+								</div>-->
+								<!--<img src="images/add-image.jpg" alt="" id="slct" onclick="change();"><br>Add another event
+								
+								 <div id="container">
+								<!--<div class="col-md-4">
+								<div class="form-group">
+                                 <input type='text'  class="form-control" name="eventsName"  id="events" placeholder=" event name"  /required>
+                                </div>
+								</div>
+								
+								<div class="col-md-4">
+								<div class="form-group">
+						          <input type='text'  class="form-control" id="date" ng-model="date" name="date" placeholder="YYYY/MM/DD" /required>
+					             </div>
+								</div>
+								<div class="col-md-4">
+								<div class="form-group">
+						          <select  class="form-control" name="day_or_night" ng-model="day_or_night" value="day">
+										<option value=""disabled selected >Select your option</option>
+										<option value="Day" >Day</option>
+										<option value="Night" >Night</option>
+										<option value="Day&Nignts" >Day&Night</option>
+																				 
+								    </select>
+					             </div>
+								</div>-->
+								<!--</div>
+								</div>-->
+								<div class="form-group">
+                                        <textarea type="text" class="form-control" name="message" rows="5" ng-model="message" placeholder="Message" pattern="[a-zA-Z]+" ng-pattern-restrict /required></textarea>
+                                        <div class="validation"></div>
+                                </div>
+                                <div class="form-group">
+                                     <button type="submit" class="form-control data" name="send" id="send" value="submit" style="color:black">submit</button>
+                                         
+                                </div>
+								
+                            
+                        </form>
+					</div>	
+		 <div class="col-md-2"></div>
+		
+		</div>
+	 </div>
+</div>
+           <!--     <div class="wedding-services" style="margin-bottom: 8px;">
+			        <h1><label><span>Outfit/ Accessories/ Jewellery/ Makeup & Hair/ and Photoshoot</span></label></h1>
+                </div>
+           <div id="four-columns">
+					<img src="images/Outfit.png" alt="" width="100%"  class="img-responsive side-image" />
+					<img src="images/accessories.png" alt="" width="100%"  class="img-responsive side-image" />
+					<img src="images/jewellery.png" alt="" width="100%"  class="img-responsive side-image" />
+					<img src="images/makeup & hair.png" alt="" width="100%" class="img-responsive side-image" />
+					<img src="images/photoshoot.png" alt="" width="100%" class="img-responsive side-image" />
+		    </div>
+  <script type="text/javascript">
+$(function () {
+    $("#slct").bind("click", function () {
+        var div = $("<div />");
+        div.html(GetDynamicTextBox(""));
+		//div.html(GeteventsName(""));
+		//div.html(Getdate(""));
+		//div.html(Getday_or_night(""));
+        $("#container").append(div);
+		//$( ".datepicker" ).datepicker();
+		
+    });
+    
+    $("body").on("click", ".remove", function () {
+        $(this).closest("div").remove();
+    });
+});
+function GetDynamicTextBox(value) {
+         // var availList ="<div class='col-md-4'><div class='form-group'><input type='text' class='form-control' name='eventsName[]' ng-model='eventsName[]' id='events' placeholder='event name'></div></div>
+		 // <div class='col-md-4'><div class='form-group'><input type='text' class='form-control' id='date' ng-model='date[]' name='date[]' placeholder='YYYY/MM/DD'></div></div>
+		  //<div class='col-md-4'><div class='form-group'><select class='form-control' name='day_or_night[]' ng-model='day_or_night[]'><option value=''disabled selected >Select</option><option value='Day'>Day</option><option value='Night'>Night</option><option value='Day&Nignts'>Day&Night</option></select></div></div>";
+     var availList = '<div class="col-md-4"><div class="form-group"><input name = "DynamicTextBox[]" type="text" class="form-control" ng-model="eventsName" id="events" placeholder="event name" value = "' + value + '"/></div></div>&nbsp;' +
+	 '<div class="col-md-4"><div class="form-group"><input name = "DynamicTextBox[]" type="text" class="form-control" id="date" ng-model="date" placeholder="YYYY/MM/DD" value = "' + value + '"/></div></div>&nbsp;'+ 
+	 '<div class="col-md-4"><div class="form-group"><input name = "DynamicTextBox[]"class="form-control" ng-model="day_or_night"/><option value="' + value + '"disabled selected >Select</option><option value="Day">Day</option><option value="Night">Night</option><option value="Day&Nignts">Day&Night</option></div></div>&nbsp;'+
+            '<input type="button" value="Remove" class="remove" />';
+	return  availList;
+}
+
+ 
+</script>-->
+
+<!--	<script type="text/javascript">
+     function change() {
+	 alert('hello');
+        var select = document.getElementById("slct");
+        var divv = document.getElementById("container");
+        var value = select.value;
+		var i = 0;
+		var toAppend = '';
+		//for(i=1; i<=value;i++)
+		{
+			toAppend += "<div class='col-md-4'><div class='form-group'><input type='text' class='form-control' name='eventsName['value']' ng-model='eventsName[]' id='events' placeholder='event name'></div></div><div class='col-md-4'><div class='form-group'><input type='text' class='form-control date' id='date' ng-model='date[]' name='date[]' placeholder='YYYY/MM/DD' class='datepicker'></div></div><div class='col-md-4'><div class='form-group'><select class='form-control' name='day_or_night[]' ng-model='day_or_night[]'><option value=''disabled selected >Select</option><option value='Day'>Day</option><option value='Night'>Night</option><option value='Day&Nignts'>Day&Night</option></select></div></div>";
+			
+		//	toAppend += "<div class='col-md-4'><div class='form-group'><input type='text' class='form-control' name='eventsName'[+i+]'' ng-model='eventsName[]' id='events' placeholder='event name'></div></div><div class='col-md-4'><div class='form-group'><input type='text' class='form-control date' id='date' ng-model='date[]' name='date[]' placeholder='YYYY/MM/DD'></div></div><div class='col-md-4'><div class='form-group'><select class='form-control' name='day_or_night[]' ng-model='day_or_night'[]><option value=''disabled selected >Select</option><option value='Day'>Day</option><option value='Night'>Night</option><option value='Day&Nignts'>Day&Night</option></select></div></div>";
+			
+		//	toAppend += "<div class='col-md-4'><div class='form-group'><input type='text' class='form-control' name='eventsName"+i+"' ng-model='eventsName' id='events' placeholder='event name'></div></div><div class='col-md-4'><div class='form-group'><input type='text' class='form-control' id='date' ng-model='date' name='date' placeholder='YYYY/MM/DD'></div></div><div class='col-md-4'><div class='form-group'><select class='form-control' name='day_or_night' ng-model='day_or_night'><option value=''disabled selected >Select</option><option value='Day'>Day</option><option value='Night'>Night</option><option value='Day&Nignts'>Day&Night</option></select></div></div>";
+			
+		}
+		//alert(toAppend);
+		divv.innerHTML=toAppend; 
+			return;
+	
+     }
+
+	 </script>
+
+	 <script type="text/javascript">
+            $(document).ready(function(){
+		var date_input=$('input[name="date"]'); //our date input has the name "date"
+		var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+		date_input.datepicker({
+			format: 'yyyy/mm/dd',
+			container: container,
+			todayHighlight: true,
+			autoclose: true,
+		})
+	})
+        </script>-->
+</body>
+</html>
