@@ -1,3 +1,59 @@
+
+ <div class="" ng-app="myApp" ng-controller="contestCtrl">
+       <div class="row">
+          <div class="bride-alert-landing">
+	     
+	           <div class="bride-alert-content">
+				<div class="bride-alert-box">
+					 <h1 class="bride-alert-bride"><span>Bride Alert</span></h1>
+					 <p class="One_lucky_bride_a_month">One lucky bride a month wins a sponsored look <br> for one of their wedding functions</p>
+				</div>
+				<div class="bride-alert-description">
+					 <h1 class="Are_you_that_lucky_bride">Are you that lucky bride?  </h1>
+					 <p class="look_comprise_of_a_beautiful_out">Your sponsored look comprise of a beautiful outfit,<br> accessories and jewelry to go along.Styled with the<br> perfect makeup and hairdo.Completed with a<br> bridal fashion photoshoot</p>
+				</div>
+                
+                 
+				 <div class="sendmessage">
+		               
+	                   
+						
+                        <form ng-submit="contest()" method="post" role="form" >
+						<div class="text-data-form-data bride-alert-form">
+                                <div class="form-group">
+								<input type="text" name="name" ng-model="name" class="form-control" id="name" placeholder=" Name" pattern="[a-zA-Z]+"  maxlength="60" /required>
+								 <div class="text-center"> <label style="color: #ef0d0d;" > {{ nameerror}} </label> </div>
+                                       <!-- <input type="text" name="Name" ng-model="Name" class="form-control" id="name" placeholder=" Name" pattern="[a-zA-Z]+"  ng-pattern-restrict ng-minlength="4"/required  ng-minlength="4" pattern="[a-zA-Z]+" ng-pattern-restrict /> -->
+                                        <div class="validation"></div>
+                                </div>
+
+                                <div class="form-group">
+                                       <input type="text" class="form-control" name="email" ng-model="email" id="email" placeholder=" Email" data-rule="email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" /required>
+									     <div class="text-center"> <label style="color: #ef0d0d;" > {{ emailerror}} </label> </div>
+                                        <div class="validation"></div>
+                                </div>
+                                <div class="form-group">
+                                 <input type="text" class="form-control" name="mobile" ng-model="mobile" id="mobile" placeholder="Phone " maxlength="10"  pattern="[0-9]{10}"   /required>
+								
+								  <div class="text-center"> <label style="color: #ef0d0d;" > {{ PhoneNumbererror}} </label> </div>
+                                    
+                                        <!--<input type="test" class="form-control" name="PhoneNumber" ng-model="PhoneNumber"data-ng-pattern="/^(\+\d{1,3}[- ]?)?\d{10}$/" id="PhoneNumber" placeholder="Phone Number" ng-minlength="10"/required> -->
+                                        <div class="validation"></div>
+                                </div> 
+                                
+                                 <div class="form-group">
+                                        <button type="submit" class="form-control data" name="send" id="send" value="submit">submit</button>
+                                        
+                                </div>
+                            </div>
+                        </form>
+					</div>
+                </div>  
+			 </div>	
+		</div>
+				
+	</div>
+
 <div ng-app="myApp" ng-controller="customersCtrl">
 
 <script>
@@ -46,51 +102,7 @@ $('#myModal').modal('show');
 </script>
 <input type="hidden" value="{{ sessionVal}}" id="sessionvalue" />
 
- <div class="container" ng-app="myApp" ng-controller="contestCtrl">
-       <div class="row">
-          <div class="bride-alert-landing">
-	        <div class="col-md-6"></div>	
-	           <div class="col-md-6" style="margin-top: 22%;">			   
-                 <h1 class="bride-alert-bride">Bride Alert</h1>
-				 <p class="One_lucky_bride_a_month">One lucky bride a month wins a sponsored look <br> for one of their wedding functions</p>
-				 <h1 class="Are_you_that_lucky_bride">Are you that lucky bride?  </h1>
-                 <p class="look_comprise_of_a_beautiful_out">Your sponsored look comprise of a beautiful outfit,<br> accessories and jewelry to go along.Styled with the<br> perfect makeup and hairdo.Completed with a<br> bridal fashion photoshoot</p>
-                 
-				 <div class="sendmessage" style="margin-top:65%">
-		                <div class="text-center"> <label style="color: #ef0d0d;" > {{ nameerror}} </label> </div>
-	                    <div class="text-center"> <label style="color: #ef0d0d;" > {{ emailerror}} </label> </div>
-						<div class="text-center"> <label style="color: #ef0d0d;" > {{ PhoneNumbererror}} </label> </div>
-                        <form ng-submit="contest()" method="post" role="form" >
-						<div class="text-data-form-data" style="    margin-left: 136px;width: 347px;">
-                                <div class="form-group">
-								<input type="text" name="name" ng-model="name" class="form-control" id="name" placeholder=" Name" pattern="[a-zA-Z]+"  maxlength="60" style="margin-bottom: 25px;" /required>
-                                       <!-- <input type="text" name="Name" ng-model="Name" class="form-control" id="name" placeholder=" Name" pattern="[a-zA-Z]+"  ng-pattern-restrict ng-minlength="4"/required  ng-minlength="4" pattern="[a-zA-Z]+" ng-pattern-restrict /> -->
-                                        <div class="validation"></div>
-                                </div>
 
-                                <div class="form-group">
-                                       <input type="text" class="form-control" name="email" ng-model="email" id="email" placeholder=" Email" data-rule="email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" style="margin-bottom: 25px;" /required>
-                                        <div class="validation"></div>
-                                </div>
-                                <div class="form-group">
-                                 <input type="text" class="form-control" name="mobile" ng-model="mobile" id="mobile" placeholder="Phone " maxlength="10"  pattern="[0-9]{10}"   /required>
-                                    
-                                        <!--<input type="test" class="form-control" name="PhoneNumber" ng-model="PhoneNumber"data-ng-pattern="/^(\+\d{1,3}[- ]?)?\d{10}$/" id="PhoneNumber" placeholder="Phone Number" ng-minlength="10"/required> -->
-                                        <div class="validation"></div>
-                                </div> 
-                                
-                                 <div class="form-group" style="padding:30px">
-                                        <button type="submit" class="form-control data" name="send" id="send" value="submit" style="color:black">submit</button>
-                                        
-                                </div>
-                            </div>
-                        </form>
-					</div>
-                </div>  
-			 </div>	
-		</div>
-				
-	</div>
 <!-- top-header and slider -->
 	<!--<div class="w3-slider">		
 	<div class="row">"style="padding: 60px 0px 0px 90px;"
