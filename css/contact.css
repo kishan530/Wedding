@@ -673,20 +673,23 @@ padding-top:23px;
   z-index: 27;
 }
 .bride-alert-landing{
-	 background-image: url(../images/bridealert-landingpage.jpg);
+	 background-image: url(../images/bridealert-landingpage3.jpg);
 	background-size: cover;
 	background-repeat: no-repeat;
-	height: 703px;
-	width: 643px;
+	height: 706px;
+	width: 100%;
 	margin:0 auto;
 	position: relative;
+}
+.sendmessage{
+padding: 10px;
 }
 
 .bride-alert-content{
 position:absolute;
-left: 39%;
+left: 44%;
 padding-top: 100px;
-width: 65%;
+width: 56%;
 text-align: center;
 }
 .bride-alert-box{
@@ -748,11 +751,67 @@ color: #000 !important;
 margin: 0 auto !important;
 width: 70%;
 }
+.pre-wedding{
+background-color: #d36563;
+padding: 18px;
+width: 100%;
+margin: 0 auto;
+text-align: center;
+font-family: roboto;
+}
+@media (min-width:650px){
+.pre-wedding.mobile{
+display:none;
+}
+}
+.pre-wedding .avail-discount{
+font-size: 15px;
+text-align: center;
+color: #ebc1c0;
+font-weight: bold;
+margin:0;
+}
+.pre-wedding .couple-shoot{
+margin-top: 10px;
+margin-bottom: 10px;
+font-weight: bold;
+font-size: 19px;
+font-family: roboto;
+}
+.pre-wedding .couple-shoot span{
+color: #7f1c14;
+}
+
+.pre-wedding .includes{
+font-size: 14px;
+color: #FFF;
+font-weight: bold;
+margin:0;
+}
 @media (max-width:650px){	
 .bride-alert-landing{
-height: 421px;
-width: 361px;
+height: 367px;
+width: 408px;
 background: none;
+}
+.pre-wedding{
+width: 408px;
+margin:0 auto;
+}
+.pre-wedding.web{
+display:none;
+}
+.pre-wedding.mobile{
+display:black !important;
+}
+.pre-wedding .avail-discount{
+font-size: 13px;
+}
+.pre-wedding .couple-shoot{
+font-size: 14px;
+}
+.pre-wedding .includes{
+font-size: 13px;
 }
 .bride-alert-landing:after{
 	content: ' ';
@@ -764,14 +823,14 @@ background: none;
     height: 100%;
     z-index: -1;
     opacity: 0.4;
-	 background-image: url(../images/bridealert-landingpage.jpg);
+	 background-image: url(../images/bridealert-landingpage2.jpg);
 	 background-size: cover;
 	background-repeat: no-repeat;
 }
 .bride-alert-content {
-  left: 0;
+  left: 80px;
 padding-top: 18px;
-width: 87%;
+width: 80%;
 }
 .bride-alert-box {
     width: 80%;
@@ -781,7 +840,7 @@ width: 87%;
     font-size: 27px;
 	}
 .One_lucky_bride_a_month {
-    font-size: 12px;
+    font-size: 10px;
     padding: 0;
 }
 .bride-alert-description {
@@ -794,17 +853,30 @@ width: 87%;
     font-size: 12px;
 	}
 .bride-alert-form  .text-center {
-    font-size: 11px;
+    font-size: 10px;
 }
 .bride-alert-form .form-control {
     height: 30px;
 	}
+
 }
 @media (max-width:450px){	
 .bride-alert-landing{
 width: 350px;
 }
+.pre-wedding{
+width: 350px;
+}
+.pre-wedding .avail-discount{
+font-size: 9px;
+}
+.pre-wedding .couple-shoot{
+font-size: 10px;
+}
+.pre-wedding .includes{
+font-size: 9px;
+}
 .look_comprise_of_a_beautiful_out {
-    font-size: 12px;
+    font-size: 10px;
 	}
 }
