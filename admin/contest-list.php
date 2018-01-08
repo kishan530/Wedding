@@ -57,7 +57,8 @@
 				  <th>Email</th>
                   <th>Mobile</th>
 				  <th>Message</th>
-				  <th>File</th>
+				  <th>File1</th>
+				  <th>File2</th>
 				  <th>Date of Wedding</th>
 				  <th>Number of Events</th>
 				  <th>Location</th>
@@ -78,6 +79,11 @@
                  <td>
 				  <a href="../images/contest/<?php echo $contest['file']; ?>" data-fancybox data-caption="<?php echo $contest['name']; ?>">
 				  <img src="../images/contest/<?php echo $contest['file']; ?>" height="50" width="50" id="imgbox" />
+				  </a>
+				  </td>
+				   <td>
+				  <a href="../images/contest/<?php echo $contest['file1']; ?>" data-fancybox data-caption="<?php echo $contest['name']; ?>">
+				  <img src="../images/contest/<?php echo $contest['file1']; ?>" height="50" width="50" id="imgbox" />
 				  </a>
 				  </td>
 				  <td><?php echo $contest['date']; ?></td>

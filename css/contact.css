@@ -625,11 +625,27 @@ padding-top:23px;
 .photography-img{	
   margin-top:1%;
  }
-/*@media (min-width:1200px){
+ .photoshoot{
+	margin-top:-15px; 
+ }
+ .clientphoto{
+	 width:250px;
+	 margin-left: 35%;
+	 margin-top: -7px;
+	 font-size:15px
+ }
+@media (max-width:450px){
 .photography-img{	
   margin-top:50%;
  }
-}*/
+ .photoshoot{
+	margin-top:70px; 
+ }
+.clientphoto{
+	margin-left: 15%;
+	margin-top: -5px;
+}
+}
 /*@media (min-width:360px){
 	#sendtext{
 		color:black;
@@ -676,13 +692,13 @@ padding-top:23px;
 	 background-image: url(../images/bridealert-landingpage3.jpg);
 	background-size: cover;
 	background-repeat: no-repeat;
-	height: 706px;
+	height: 609px;
 	width: 100%;
 	margin:0 auto;
 	position: relative;
 }
 .sendmessage{
-padding: 10px;
+padding: 12px;
 }
 
 .bride-alert-content{
@@ -753,7 +769,7 @@ width: 70%;
 }
 .pre-wedding{
 background-color: #d36563;
-padding: 18px;
+padding: 18.5px;
 width: 100%;
 margin: 0 auto;
 text-align: center;
@@ -793,6 +809,8 @@ margin:0;
 height: 367px;
 width: 408px;
 background: none;
+
+
 }
 .pre-wedding{
 width: 408px;

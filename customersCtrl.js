@@ -7,6 +7,7 @@ app.controller('customersCtrl', function($scope, $http,$location,$timeout ) {
 	$scope.selctedSeason = [];
 	$scope.showGender = false;
     $scope.user = '';
+	$scope.contestId = 0;
 	$scope.loginError = '';
 	$scope.showDialog = false;
 	$scope.isStyleSelected = function(id) {
@@ -182,5 +183,109 @@ $http.get("get-data.php",{ params: { category: $scope.category,  style: $style ,
 			$scope.banners = response.data.banners;
 			});				
 			
-   
+ 
+
+
+
+	$scope.contest = function () { 
+	
+	
+	 var fd = new FormData();
+		// console.log('hello'+$scope.name);
+         fd.append('name', $scope.name);
+		 fd.append('email', $scope.email);
+		 fd.append('mobile', $scope.mobile);
+		 
+		 
+		 //console.log('form-data'+fd.name);
+		// console.log(fd);
+      /*   $http.post("contest.php", fd, {
+           //  transformRequest: angular.identity,
+            //headers: {'Content-Type': "application/x-www-form-urlencoded"},
+			 // headers: {'Content': undefined}
+         })
+         .then(function(response){
+			 
+			 console.log(response);
+	    console.log($scope.name);
+		console.log($scope.email);
+	    console.log($scope.mobile);
+		$scope.contestId = response.data.contestId;
+	  $location.path("/Bride-Alert");
+          //  console.log("Success");
+         });
+	*/
+	
+      
+       $http.get("contest.php",{ params: {'name': $scope.name,'email': $scope.email,'mobile': $scope.mobile}})
+	.then(function (response) {
+		 console.log(response);
+	    console.log($scope.name);
+		console.log($scope.email);
+	    console.log($scope.mobile);
+		
+		//$scope.contestId = angular.fromJson(response.data).contestId;
+		 console.log($scope.contestId);
+	  $location.path("/Bride-Alert");
+	   
+	}); 
+	};       
+	
+	
+	
+	app.directive('fileModel', ['$parse', function ($parse) {
+    return {
+    restrict: 'A',
+    link: function(scope, element, attrs) {
+        var model = $parse(attrs.fileModel);
+        var modelSetter = model.assign;
+
+        element.bind('change', function(){
+            scope.$apply(function(){
+                modelSetter(scope, element[0].files[0]);
+            });
+        });
+    }
+   };
+}]);
+	 $scope.BrideAlert = function () {
+        var file = $scope.file;
+		var uploadUrl = "BrideAlert.php";
+             //  fileUpload.uploadFileToUrl(file, uploadUrl,$scope );
+          $scope.uploadFileToUrl(file, uploadUrl,$scope);
+         	
+	    console.log($scope.date);
+        console.log($scope.location);
+		console.log($scope.file);
+		console.log($scope.file1);
+	 };
+	 $scope.uploadFileToUrl = function(file, uploadUrl, $scope){
+		   console.log($scope.location);
+		     console.log($scope.contestId);
+         var fd = new FormData();
+		// console.log('hello'+$scope.name);
+         fd.append('date', $scope.date);
+		 fd.append('location', $scope.location);
+		 fd.append('file',$scope.file);
+		 fd.append('file1',$scope.file1);
+		   fd.append('contestId', $scope.contestId);
+		 
+		 //console.log('form-data'+fd.name);
+		// console.log(fd);
+         $http.post(uploadUrl, fd, {
+             transformRequest: angular.identity,
+            // headers: {'Content-Type': "application/x-www-form-urlencoded"},
+			  headers: {'Content-Type': undefined}
+         })
+         .then(function(response){
+			  $location.path("/success");
+			 console.log(response);
+          //  console.log("Success");
+         });
+         
+     };
+	
+	
+    
+
 });

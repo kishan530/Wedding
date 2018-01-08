@@ -1,0 +1,52 @@
+<div ng-app="myApp" ng-controller="customersCtrl">
+<div class="Container">
+
+<div class="" style="background-image: url('images/registration-background.jpg'); background-size: cover;">
+<div class="registration-banner" id="registrationContainer" style="padding: 9%;">
+<p><span>Thank you for entering the contest !</span><br> You are one step closer to being that one lucky bride.</p>
+</div>
+<div class="row">
+		 <div class="col-md-2"></div>
+		<div class="col-md-8 text-center">
+		             
+                        <form ng-submit="BrideAlert()" method="post" role="form" enctype="multipart/form-data">
+								<div class="form-group">
+						          <input type='text'  class="form-control" id="date" ng-model="date" name="date" placeholder="YYYY/MM/DD" /required>
+					            </div>
+                                <div class="form-group">
+                                 <input type="text" class="form-control" name="location" ng-model="location" id="location" placeholder="Location"  /required>
+                                </div>							
+							<div class="form-group">
+								   <input type ="file" file-model="file" name="file" class="form-control">
+							</div>
+								
+							<div class="form-group">
+								   <input type ="file" file-model="file1" name="file1" class="form-control">
+							</div>	
+                             <div class="form-group">
+                                 <button type="submit" class="form-control data" name="send" id="send" value="submit" style="color:black">submit</button>
+                                         
+                             </div>
+								
+                            
+                        </form>
+					</div>	
+		    <div class="col-md-2"></div>
+		
+		  </div>
+	   </div>
+   </div>
+</div>
+
+	 <script type="text/javascript">
+            $(document).ready(function(){
+		var date_input=$('input[name="date"]'); //our date input has the name "date"
+		var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+		date_input.datepicker({
+			format: 'yyyy/mm/dd',
+			container: container,
+			todayHighlight: true,
+			autoclose: true,
+		})
+	})
+        </script>

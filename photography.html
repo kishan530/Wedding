@@ -13,7 +13,7 @@
                     <div class="col-md-10 form-styling">
   	                     <div class="text-center"> <label style="color: #ef0d0d;">{{errorNumber}} </label> </div>
 						 <div class="text-center"> <label style="color:green;">{{successmessage}} </label> </div>
-                        <form ng-submit="photographydata()" method="post" role="form" class="contactForm" style="margin-top: -15px;">
+                        <form ng-submit="photographydata()" method="post" role="form" class="contactForm photoshoot">
                                 <div class="row">
 								<div class="col-md-4">
 									 <div class="forms-group">
@@ -31,12 +31,16 @@
 											<input type="text" class="form-control height"  ng-model="budget" name="budget" id="budget" placeholder="budget" /required>
 											<div class="validation"></div>
 									</div>
-									</div></div>
-								<div class="form-group">
+									</div>
+									</div>
+									
+								      <div class="form-group">
                                         <input class="form-control height" ng-model="additionalrequirement" name="additionalrequirement" data-rule="required" data-msg="Please write something for us" style="margin-top: 0px;" placeholder="Additional Requirement"  pattern="[a-zA-Z]+" ng-pattern-restrict required>
                                         <div class="validation"></div>
-                                </div>
-                                 <div class="form-group" style="width:250px; margin-left: 35%;margin-top: -7px; font-size:15px">
+                                      </div>
+								     
+									
+                                 <div class="form-group clientphoto">
                                         <button type="submit" class="form-control height" name="send" id="send" value="submit">submit</button>
                                         
                                 </div>					

@@ -10,7 +10,6 @@ $routeProvider.
 		controller: 'customersCtrl', 
 		templateUrl: 'failure.html' 
 	}).
-	
 	when('/look-board/:board?', { 
 		controller: 'lookBoardCtrl', 
 		templateUrl: 'look-board.html' 
@@ -51,9 +50,15 @@ $routeProvider.
 	when('/contest', { 
 		controller: 'contestCtrl', 
 		templateUrl: 'contest.html' 
+	}).
+	when('/Bride-Alert', { 
+		controller: 'customersCtrl', 
+		templateUrl: 'Bride-Alert.html' 
+	}).
+	when('/BrideAlert-Success', { 
+		controller: 'BrideAlert-SuccessCtrl', 
+		templateUrl: 'BrideAlert-Success.html' 
 	});
-	
-	
 });
 
 
