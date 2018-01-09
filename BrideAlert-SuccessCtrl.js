@@ -1,4 +1,4 @@
-app.controller("successCtrl", function ($scope,$http) {
+app.controller("BrideAlert-SuccessCtrl", function ($scope,$http) {
 	
 	
 	

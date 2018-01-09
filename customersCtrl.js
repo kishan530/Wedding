@@ -255,17 +255,17 @@ $http.get("get-data.php",{ params: { category: $scope.category,  style: $style ,
           $scope.uploadFileToUrl(file, uploadUrl,$scope);
          	
 	    console.log($scope.date);
-        console.log($scope.location);
+        console.log($scope.city);
 		console.log($scope.file);
 		console.log($scope.file1);
 	 };
 	 $scope.uploadFileToUrl = function(file, uploadUrl, $scope){
-		   console.log($scope.location);
+		   console.log($scope.city);
 		     console.log($scope.contestId);
          var fd = new FormData();
 		// console.log('hello'+$scope.name);
          fd.append('date', $scope.date);
-		 fd.append('location', $scope.location);
+		 fd.append('city', $scope.city);
 		 fd.append('file',$scope.file);
 		 fd.append('file1',$scope.file1);
 		   fd.append('contestId', $scope.contestId);
@@ -278,7 +278,7 @@ $http.get("get-data.php",{ params: { category: $scope.category,  style: $style ,
 			  headers: {'Content-Type': undefined}
          })
          .then(function(response){
-			  $location.path("/success");
+			  $location.path("/BrideAlert-Success");
 			 console.log(response);
           //  console.log("Success");
          });

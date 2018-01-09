@@ -10,7 +10,7 @@ $contests =  array();
 while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
 
     $contest['id'] = $rs["id"];
-	$contest['location'] = $rs["location"];
+	$contest['city'] = $rs["city"];
 	$contest['date'] = $rs["date"];
 	$contest['file'] = $rs["file"];
 	$contest['file1'] = $rs["file1"];

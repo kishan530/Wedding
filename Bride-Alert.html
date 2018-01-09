@@ -1,9 +1,9 @@
 <div ng-app="myApp" ng-controller="customersCtrl">
 <div class="Container">
 
-<div class="" style="background-image: url('images/registration-background.jpg'); background-size: cover;">
-<div class="registration-banner" id="registrationContainer" style="padding: 9%;">
-<p><span>Thank you for entering the contest !</span><br> You are one step closer to being that one lucky bride.</p>
+<div class="" style="background-image: url('images/event-signup.jpg'); background-size: cover;">
+<div class="registration-banner" id="registrationContainer" style="padding: 5%;">
+<p style="color:black !important;">Thank you for entering the contest !<br> You are one step closer to being that one lucky bride.</p>
 </div>
 <div class="row">
 		 <div class="col-md-2"></div>
@@ -11,10 +11,10 @@
 		             
                         <form ng-submit="BrideAlert()" method="post" role="form" enctype="multipart/form-data">
 								<div class="form-group">
-						          <input type='text'  class="form-control" id="date" ng-model="date" name="date" placeholder="YYYY/MM/DD" /required>
+						          <input type='text'  class="form-control" id="date" ng-model="date" name="date" placeholder="wedding date" /required>
 					            </div>
                                 <div class="form-group">
-                                 <input type="text" class="form-control" name="location" ng-model="location" id="location" placeholder="Location"  /required>
+                                 <input type="text" class="form-control" name="city" ng-model="city" id="city" placeholder="city"  /required>
                                 </div>							
 							<div class="form-group">
 								   <input type ="file" file-model="file" name="file" class="form-control">

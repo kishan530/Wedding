@@ -61,7 +61,8 @@
 				  <th>File2</th>
 				  <th>Date of Wedding</th>
 				  <th>Number of Events</th>
-				  <th>Location</th>
+				  <th>City</th>
+				   <th>Coupon_code</th>
 				  <th>Day/Night</th>
                 </tr>
 				<?php		
@@ -88,7 +89,8 @@
 				  </td>
 				  <td><?php echo $contest['date']; ?></td>
 				  <td><?php echo $contest['events']; ?></td>
-				  <td><?php echo $contest['location']; ?></td>
+				  <td><?php echo $contest['city']; ?></td>
+				  <td><?php echo $contest['coupon_code']; ?></td>
 				  <td><?php echo $contest['day_or_night']; ?></td>
                   <td>
 				 <!-- <a href="editcontest.php?Id=<?php echo $contest['id']; ?>"><i class="fa fa-pencil-square-o"></i></a>
