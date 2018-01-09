@@ -49,4 +49,4 @@ $outp['contests'] =$contests;
 $conn->close();
 
 echo(json_encode($outp));
-?>
+?>*/
