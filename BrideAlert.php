@@ -2,8 +2,10 @@
 include("config.php");
 $date = $events = $file_name= $city= '';
 
-$seed = str_split('abcdefghijklmnopqrstuvwxyz'
+/*$seed = str_split('abcdefghijklmnopqrstuvwxyz'
                  .'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+                 ); // and any other characters*/
+$seed = str_split('ABCDEFGHIJKLMNOPQRSTUVWXYZ'
                  ); // and any other characters
 shuffle($seed); // probably optional since array_is randomized; this may be redundant
 $rand = '';
@@ -85,9 +87,9 @@ $coupon_result = array();
 $coupon_result['message'] = '';
 $coupon_result ['stutus'] = false;
 if (mysqli_query($conn, $sql)){
-$coupon_result ['message'] = 'insert data successfully';
+$coupon_result ['message'] = 'updated data successfully';
 $coupon_result ['stutus'] = true;
-$coupon_result ['couponCode'] = $rand;
+$coupon_result ['couponCode'] = $coupon_code;
  $last_id = mysqli_insert_id($conn);
 }else{
 	$coupon_result ['message'] = mysqli_error($conn);
@@ -95,18 +97,19 @@ $coupon_result ['stutus'] = false;
 //echo (mysqli_error($conn));
 }
 
-$outp['coupon'] =$coupon_result;
-$conn->close(coupon_result);
-
-echo(json_encode($outp));
 //echo $sql;
-if (mysqli_query($conn, $sql)){
+/*if (mysqli_query($conn, $sql)){
  //echo "insert data successfully";
  //$sql="insert into contest(date,location,file,file1)values('$date','$location','$file_name','$file_name1')";
 }else{
-echo (mysqli_error($conn));
-echo "insert fail";
-}
+//echo (mysqli_error($conn));
+//echo "insert fail";
+} */
+
+$outp['coupon'] =$coupon_result;
+//$conn->close(coupon_result);
+
+echo($coupon_code);
 
  
   	//header("location:/preview/#!/success");	

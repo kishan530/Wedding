@@ -8,6 +8,7 @@ app.controller('customersCtrl', function($scope, $http,$location,$timeout ) {
 	$scope.showGender = false;
     $scope.user = '';
 	$scope.contestId = 0;
+	$scope.couponCode = '';
 	$scope.loginError = '';
 	$scope.showDialog = false;
 	$scope.isStyleSelected = function(id) {
@@ -278,7 +279,8 @@ $http.get("get-data.php",{ params: { category: $scope.category,  style: $style ,
 			  headers: {'Content-Type': undefined}
          })
          .then(function(response){
-			  $location.path("/BrideAlert-Success");
+			$scope.couponCode = response.data;
+			  $location.path("/BrideAlert-Success").search({code: $scope.couponCode});;
 			 console.log(response);
           //  console.log("Success");
          });
