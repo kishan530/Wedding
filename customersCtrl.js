@@ -10,6 +10,11 @@ app.controller('customersCtrl', function($scope, $http,$location,$timeout ) {
 	$scope.contestId = 0;
 	$scope.couponCode = '';
 	$scope.loginError = '';
+	$scope.Message = '';
+    $scope.email = '';
+    $scope.nameerror= '';
+    $scope.emailerror= '';
+    $scope.PhoneNumbererror= '';
 	$scope.showDialog = false;
 	$scope.isStyleSelected = function(id) {
 		 //console.log(id);
@@ -189,36 +194,56 @@ $http.get("get-data.php",{ params: { category: $scope.category,  style: $style ,
 
 
 	$scope.contest = function () { 
-	
+	 $scope.error = false;
+		  $scope.nameerror= '';
+		  $scope.emailerror= '';
+		  $scope.PhoneNumbererror= '';
+		 
 	
 	 var fd = new FormData();
 		// console.log('hello'+$scope.name);
          fd.append('name', $scope.name);
 		 fd.append('email', $scope.email);
 		 fd.append('mobile', $scope.mobile);
-		 
-		 
-		 //console.log('form-data'+fd.name);
-		// console.log(fd);
-      /*   $http.post("contest.php", fd, {
-           //  transformRequest: angular.identity,
-            //headers: {'Content-Type': "application/x-www-form-urlencoded"},
-			 // headers: {'Content': undefined}
-         })
-         .then(function(response){
-			 
-			 console.log(response);
-	    console.log($scope.name);
-		console.log($scope.email);
-	    console.log($scope.mobile);
-		$scope.contestId = response.data.contestId;
-	  $location.path("/Bride-Alert");
-          //  console.log("Success");
-         });
-	*/
+    /* var regx =/[a-zA-Z]+\\.?/;
 	
-      
-       $http.get("contest.php",{ params: {'name': $scope.name,'email': $scope.email,'mobile': $scope.mobile}})
+	if($scope.name=='') {
+      $scope.nameerror="please enter name";
+	  $scope.error = true;
+    }
+	
+	if(!regx .test($scope.name)) {
+      $scope.nameerror="It allows only alphabits ";
+	  $scope.error = true;
+    }*/
+	
+	var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+	
+	if($scope.email=='') {
+      $scope.emailerror="please enter email address";
+	  $scope.error = true;
+    }
+	
+	if(!re.test($scope.email)) {
+      $scope.emailerror="please enter here valide email address";
+	  $scope.error = true;
+    }
+	var PHONE_REGEXP = /^[789]\d{9}$/;
+	if($scope.mobile=='') {
+      $scope.PhoneNumbererror="please enter mobilenumber";
+	  $scope.error = true;
+    }
+  if(!PHONE_REGEXP.test($scope.mobile)) {
+      $scope.PhoneNumbererror=" Invalid mobilenumber";
+	  $scope.error = true;
+    } 
+     
+		
+	if($scope.error==false){
+	 console.log($scope.nameerror);
+	 console.log($scope.emailerror);
+     console.log($scope.PhoneNumbererror);
+     $http.get("contest.php",{ params: {'name': $scope.name,'email': $scope.email,'mobile': $scope.mobile}})
 	.then(function (response) {
 		 console.log(response);
 	    console.log($scope.name);
@@ -229,8 +254,9 @@ $http.get("get-data.php",{ params: { category: $scope.category,  style: $style ,
 		 console.log($scope.contestId);
 	  $location.path("/Bride-Alert");
 	   
-	}); 
-	};       
+	 }); 
+    }
+  };       
 	
 	
 	
@@ -259,7 +285,6 @@ $http.get("get-data.php",{ params: { category: $scope.category,  style: $style ,
         console.log($scope.city);
 		console.log($scope.file);
 		console.log($scope.file1);
-		//console.log($scope.coupon_code);
 	 };
 	 $scope.uploadFileToUrl = function(file, uploadUrl, $scope){
 		   console.log($scope.city);
@@ -271,8 +296,7 @@ $http.get("get-data.php",{ params: { category: $scope.category,  style: $style ,
 		 fd.append('city', $scope.city);
 		 fd.append('file',$scope.file);
 		 fd.append('file1',$scope.file1);
-		   fd.append('contestId', $scope.contestId);
-		  // fd.append('coupon_code', $scope.coupon_code);
+		 fd.append('contestId', $scope.contestId);
 		 
 		 //console.log('form-data'+fd.name);
 		// console.log(fd);

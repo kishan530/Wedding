@@ -56,14 +56,14 @@
                   <th>Name</th>
 				  <th>Email</th>
                   <th>Mobile</th>
-				  <th>Message</th>
+				 
 				  <th>File1</th>
 				  <th>File2</th>
 				  <th>Date of Wedding</th>
-				  <th>Number of Events</th>
+				  
 				  <th>City</th>
 				   <th>Coupon_code</th>
-				  <th>Day/Night</th>
+				 
                 </tr>
 				<?php		
 						$i = 0;
@@ -76,7 +76,7 @@
                   <td><?php echo $contest['name']; ?></td>
 				  <td><?php echo $contest['email']; ?></td>
 				  <td><?php echo $contest['mobile']; ?></td>
-				  <td><?php echo $contest['message']; ?></td>
+				 
                  <td>
 				  <a href="../images/contest/<?php echo $contest['file']; ?>" data-fancybox data-caption="<?php echo $contest['name']; ?>">
 				  <img src="../images/contest/<?php echo $contest['file']; ?>" height="50" width="50" id="imgbox" />
@@ -88,10 +88,10 @@
 				  </a>
 				  </td>
 				  <td><?php echo $contest['date']; ?></td>
-				  <td><?php echo $contest['events']; ?></td>
+				  
 				  <td><?php echo $contest['city']; ?></td>
 				  <td><?php echo $contest['coupon_code']; ?></td>
-				  <td><?php echo $contest['day_or_night']; ?></td>
+				  
                   <td>
 				 <!-- <a href="editcontest.php?Id=<?php echo $contest['id']; ?>"><i class="fa fa-pencil-square-o"></i></a>
 				   <a href="delete-contest.php?Id=<?php echo $contest['id']; ?>" title="<?php echo $contest['name']; ?>" class="delete"><i class="fa fa-trash-o"></i></a>-->
