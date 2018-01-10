@@ -636,14 +636,24 @@ padding-top:23px;
  }
 @media (max-width:450px){
 .photography-img{	
-  margin-top:50%;
+  margin-top:45%;
  }
  .photoshoot{
-	margin-top:70px; 
+	margin-top:5px; 
  }
 .clientphoto{
-	margin-left: 15%;
-	margin-top: -5px;
+	margin-left: 4%;
+    margin-top: 10px;
+    width: 295px;
+}
+.form-control.height{
+	height:auto;
+}
+#registrationContainer p span{
+	font-size:18px;
+}
+#registrationContainer p {
+	font-size:18px;
 }
 }
 /*@media (min-width:360px){

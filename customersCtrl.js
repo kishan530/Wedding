@@ -259,10 +259,12 @@ $http.get("get-data.php",{ params: { category: $scope.category,  style: $style ,
         console.log($scope.city);
 		console.log($scope.file);
 		console.log($scope.file1);
+		//console.log($scope.coupon_code);
 	 };
 	 $scope.uploadFileToUrl = function(file, uploadUrl, $scope){
 		   console.log($scope.city);
 		     console.log($scope.contestId);
+			 console.log($scope.coupon_code);
          var fd = new FormData();
 		// console.log('hello'+$scope.name);
          fd.append('date', $scope.date);
@@ -270,6 +272,7 @@ $http.get("get-data.php",{ params: { category: $scope.category,  style: $style ,
 		 fd.append('file',$scope.file);
 		 fd.append('file1',$scope.file1);
 		   fd.append('contestId', $scope.contestId);
+		  // fd.append('coupon_code', $scope.coupon_code);
 		 
 		 //console.log('form-data'+fd.name);
 		// console.log(fd);

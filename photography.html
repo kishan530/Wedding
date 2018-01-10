@@ -1,6 +1,5 @@
 <div ng-app="myApp" ng-controller="photographyCtrl">
     <div class="container">
-       <div class="row">
       <div class="photography-background-img">
 		<div class="col-md-3" id="styling-services">
 			<!--<div class="col-md-12 styling-servicesstyle">
@@ -14,7 +13,7 @@
   	                     <div class="text-center"> <label style="color: #ef0d0d;">{{errorNumber}} </label> </div>
 						 <div class="text-center"> <label style="color:green;">{{successmessage}} </label> </div>
                         <form ng-submit="photographydata()" method="post" role="form" class="contactForm photoshoot">
-                                <div class="row">
+                             <div class="row">
 								<div class="col-md-4">
 									 <div class="forms-group">
 											<input type="text" class="form-control height"  id="location" ng-model="location" name="location" placeholder=" Enter Location"  pattern="[a-zA-Z]+" ng-pattern-restrict type="text"/required>
@@ -31,33 +30,25 @@
 											<input type="text" class="form-control height"  ng-model="budget" name="budget" id="budget" placeholder="budget" /required>
 											<div class="validation"></div>
 									</div>
-									</div>
-									</div>
-									
-								      <div class="form-group">
-                                        <input class="form-control height" ng-model="additionalrequirement" name="additionalrequirement" data-rule="required" data-msg="Please write something for us" style="margin-top: 0px;" placeholder="Additional Requirement"  pattern="[a-zA-Z]+" ng-pattern-restrict required>
-                                        <div class="validation"></div>
-                                      </div>
-								     
-									
-                                 <div class="form-group clientphoto">
-                                        <button type="submit" class="form-control height" name="send" id="send" value="submit">submit</button>
-                                        
-                                </div>					
-								
+								</div>
+							 </div>
+								<div class="col-md-12">
+								    <div class="form-group">
+                                      <input class="form-control height" ng-model="additionalrequirement" name="additionalrequirement" data-rule="required" data-msg="Please write something for us" style="margin-top: 0px;" placeholder="Additional Requirement"  pattern="[a-zA-Z]+" ng-pattern-restrict required>
+                                    <div class="validation"></div>
+                                </div>
+								</div>
+                                    <div class="form-group clientphoto">
+                                       <button type="submit" class="form-control height" name="send" id="send" value="submit">submit</button>
+                                    </div> 
                         </form>
 					</div>
 				  </div>	
-				</div>
-				
-		</div>
-
-	
-	<div class="row">
+		     </div>
         <div class="col-md-12">
 				<img src="images/prewedding-shoot-banner.jpg" alt="" width="100%" class="photography-img">
-			</div>
-	</div>
+		</div>
+	
 </div>
 <!--	<div class="text-center">
 		<h2 style="color:red;font-size:20px;margin-bottom:20px"> COMING SOON ...<h2>
