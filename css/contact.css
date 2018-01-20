@@ -908,3 +908,15 @@ font-size: 9px;
     font-size: 10px;
 	}
 }
+.privacy-policy{
+	margin-top:3%;
+	font-size: 15px;
+    font-family: "Roboto";
+    color: rgb(78, 76, 76);
+    line-height: 2.2;
+    padding: 5px;
+}
+
+.privacy-policy h1{
+  color: rgb(234, 143, 62);
+}

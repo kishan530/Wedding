@@ -46,7 +46,7 @@ app.controller("contactCtrl", function ($scope,$http,$location) {
 	 console.log($scope.nameerror);
 	 console.log($scope.emailerror);
      console.log($scope.PhoneNumbererror);	 
-	$http.get("contact_insert.php",{ params: {'Name': $scope.Name,'Email':$scope.Email,'PhoneNumber':$scope.PhoneNumber, 'Message':$scope.Message}})
+	$http.get("contact_insert.php",{ params: {'Name': $scope.Name,'Email':$scope.Email,'PhoneNumber':$scope.PhoneNumber, 'Message':$scope.Message,'Message':$scope.Message}})
 	.then(function (response) {
 		//console.log(response);
 		

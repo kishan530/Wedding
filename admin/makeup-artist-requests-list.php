@@ -55,6 +55,7 @@
 				  <th>Events</th>
 				  <th>Budget</th>
 				 <th> Additional Requirement</th>
+				  <th>created_at</th>
                   <th>Status</th>
                   <th>Actions</th>
                 </tr>
@@ -70,6 +71,7 @@
 				  <td><?php echo $Service['events']; ?></td>
 				  <td><?php echo $Service['budget']; ?></td>
 				  <td><?php echo $Service['additionalrequirement']; ?></td>
+				  <td><?php echo $Service['created_at']; ?></td>
                   <td>
 					<?php if($Service['active']>0) {?>
 				  <span class="label label-success">Active</span>

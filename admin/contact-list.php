@@ -55,6 +55,7 @@
 				  <th>email</th>
 				  <th>phonenumber</th>
 				  <th>message</th>
+				  <th>created_at</th>
                   <th>Status</th>
                   <th>Actions</th>
                 </tr>
@@ -70,6 +71,7 @@
 				  <td><?php echo $Service['Email']; ?></td>
 				  <td><?php echo $Service['PhoneNumber']; ?></td>
 				  <td><?php echo $Service['Message']; ?></td>
+				   <td><?php echo $Service['created_at']; ?></td>
                   <td>
 					<?php if($Service['active']>0) {?>
 				  <span class="label label-success">Active</span>

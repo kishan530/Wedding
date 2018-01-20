@@ -58,6 +58,14 @@ $routeProvider.
 	when('/BrideAlert-Success', { 
 		controller: 'BrideAlert-SuccessCtrl', 
 		templateUrl: 'BrideAlert-Success.html' 
+	}).
+	when('/Terms-Conditions', { 
+		controller: 'Terms-ConditionsCtrl', 
+		templateUrl: 'Terms-Conditions.html' 
+	}).
+	when('/Privacy-Policy', { 
+		controller: 'Privacy-PolicyCtrl', 
+		templateUrl: 'Privacy-Policy.html' 
 	});
 });
 

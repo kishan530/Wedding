@@ -54,6 +54,7 @@
                   <th>date</th>
 				  <th>time</th>
 				  <th>message</th>
+				  <th>created_at</th>
                   <th>Status</th>
                   <th>Actions</th>
                 </tr>
@@ -68,6 +69,7 @@
                   <td><?php echo $Service['date']; ?></td>
 				  <td><?php echo $Service['time']; ?></td>
 				  <td><?php echo $Service['message']; ?></td>
+				  <td><?php echo $Service['created_at']; ?></td>
                   <td>
 					<?php if($Service['active']>0) {?>
 				  <span class="label label-success">Active</span>

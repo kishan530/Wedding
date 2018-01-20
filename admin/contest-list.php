@@ -56,14 +56,12 @@
                   <th>Name</th>
 				  <th>Email</th>
                   <th>Mobile</th>
-				 
 				  <th>File1</th>
 				  <th>File2</th>
 				  <th>Date of Wedding</th>
-				  
 				  <th>City</th>
-				   <th>Coupon_code</th>
-				 
+				  <th>Coupon_code</th>
+				  <th>created_at</th>
                 </tr>
 				<?php		
 						$i = 0;
@@ -76,7 +74,6 @@
                   <td><?php echo $contest['name']; ?></td>
 				  <td><?php echo $contest['email']; ?></td>
 				  <td><?php echo $contest['mobile']; ?></td>
-				 
                  <td>
 				  <a href="../images/contest/<?php echo $contest['file']; ?>" data-fancybox data-caption="<?php echo $contest['name']; ?>">
 				  <img src="../images/contest/<?php echo $contest['file']; ?>" height="50" width="50" id="imgbox" />
@@ -91,6 +88,7 @@
 				  
 				  <td><?php echo $contest['city']; ?></td>
 				  <td><?php echo $contest['coupon_code']; ?></td>
+				  <td><?php echo $contest['created_at']; ?></td>
 				  
                   <td>
 				 <!-- <a href="editcontest.php?Id=<?php echo $contest['id']; ?>"><i class="fa fa-pencil-square-o"></i></a>

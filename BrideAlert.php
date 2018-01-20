@@ -1,7 +1,8 @@
 <?php
 include("config.php");
 $date = $events = $file_name= $city= '';
-
+$messageBody="";
+$Email="";
 /*$seed = str_split('abcdefghijklmnopqrstuvwxyz'
                  .'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
                  ); // and any other characters*/
@@ -81,8 +82,11 @@ die("connection error :" . $conn->connect_error);
 // $last_id = mysqli_insert_id($conn);
 session_start();  
 $last_id = $_SESSION['contestId'];
+ $result = mysqli_query($conn,"select * from contest where id='$last_id'");
+ $res =mysqli_fetch_array($result);
+//echo var_dump($res);
+//exit();
 $sql="UPDATE contest SET date='$date', city='$city',file='$file_name',file1='$file_name1',coupon_code='$coupon_code' WHERE id=$last_id";
-
 $coupon_result = array();
 $coupon_result['message'] = '';
 $coupon_result ['stutus'] = false;
@@ -91,11 +95,48 @@ $coupon_result ['message'] = 'updated data successfully';
 $coupon_result ['stutus'] = true;
 $coupon_result ['couponCode'] = $coupon_code;
  $last_id = mysqli_insert_id($conn);
+ 
+
+
+$to      = "styleme@wedelicious.com";
+                                     $subject = "testing";
+
+                                    $headers = "From: " .$Email. "\r\n";
+                                    $headers .= "Reply-To: ".$Email. "\r\n";
+                                    
+                                    $headers .= "MIME-Version: 1.0\r\n";
+                                    $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+                                    
+                                    $messageBody .= '<body>
+                                    <div class="div2" style=" width: 609px;  padding: 50px; background-color:#CCC;">
+                                                                        <div class="div1" style=" background-color:white; border: 1px solid white;  margin-left: 30px; width: 550px; font-size:14px;">
+                                                                                
+                                                                                
+                                          <h1>Contact Person  Message</h1>
+                                          <p>
+                                         <b> Name </b> :'. $res['name'] .' </p>
+                                          <p>
+                                         <p>
+                                         <b> Email </b> :'. $res['email'] .' </p>
+                                          <p>
+										  <p>
+                                         <b> PhoneNumber </b> :'. $res['mobile'] .' </p>
+                                          <p>
+										 <b>Message </b> : <span>Thank you !</span><br>Use '. $coupon_code .' as your discount code to avail a 25% discount on your pre-wedding shoot. Call 9886813855
+                                         </p>';
+                                            
+                                            $messageBody .=' 
+                                            </div>
+                                    </div>
+                                    </body>';
+                              
+                              mail($to, $subject, $messageBody, $headers);
 }else{
 	$coupon_result ['message'] = mysqli_error($conn);
 $coupon_result ['stutus'] = false;
 //echo (mysqli_error($conn));
 }
+
 
 //echo $sql;
 /*if (mysqli_query($conn, $sql)){

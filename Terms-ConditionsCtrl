@@ -1,0 +1,4 @@
+app.controller("Terms-ConditionsCtrl", function ($scope,$http,$location) {
+
+	
+	});

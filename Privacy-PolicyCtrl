@@ -1,0 +1,4 @@
+app.controller("Privacy-PolicyCtrl", function ($scope,$http,$location) {
+
+	
+	});

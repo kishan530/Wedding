@@ -5,6 +5,8 @@ $Name=$_GET["Name"];
 $Email=$_GET["Email"];
 $PhoneNumber=$_GET["PhoneNumber"];
 $Message=$_GET["Message"];
+$created_at = new DateTime();
+$created_at = $created_at->format('Y-m-d H:i:s');
 //echo "hello orld";
 /*$Name="hello";
 $Email="hello@gmail.com";
@@ -16,10 +18,9 @@ $messageBody="";
 if($conn->connect_error){
 die("connection error :" . $conn->connect_error);
 }
-$sql=mysqli_query($conn,"insert into contact_us(Name,Email,PhoneNumber,Message,active)values('$Name','$Email','$PhoneNumber','$Message','1')");
+$sql=mysqli_query($conn,"insert into contact_us(Name,Email,PhoneNumber,Message,created_at,active)values('$Name','$Email','$PhoneNumber','$Message','$created_at','1')");
 //if($sql);
 //echo (mysqli_error($conn));
-
 //require_once('sendemail.php'); 
 
 $to      = "styleme@wedelicious.com";
